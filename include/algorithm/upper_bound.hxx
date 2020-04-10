@@ -8,20 +8,22 @@
 #include "less.hxx"
 
 
-namespace nag {
+namespace cmb {
+
 
   // 4 parameter overload
   template <class I, // I models ForwardIterator
             class T, // T is value_type<I>
             class C> // C models BinaryPredicate
-  inline I upper_bound(I f, I l, T const& v, C c)
+  inline I
+  upper_bound(I f, I l, T const& v, C c)
   {
-    auto d = nag::distance(f, l);
+    auto d = cmb::distance(f, l);
 
     while (d > 0) {
       auto h = d >> 1;
       auto m = f;
-      nag::advance(m, h);
+      cmb::advance(m, h);
 
       if ( c(v, *m) )
         d = h;
@@ -39,9 +41,10 @@ namespace nag {
   // 3 parameter overload
   template <class I, // I models ForwardIterator
             class T> // T is value_type<I>
-  inline I upper_bound(I f, I l, T const& v)
+  inline I
+  upper_bound(I f, I l, T const& v)
   {
-    return nag::upper_bound(f, l, v, nag::less<T>{ });
+    return cmb::upper_bound(f, l, v, nag::less<T>{ });
   }
 
 

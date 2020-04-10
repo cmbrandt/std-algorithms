@@ -4,13 +4,15 @@
 #define LESS_HXX
 
 
-namespace nag {
+namespace cmb {
+
 
   template <class T = void>
   struct less
   {
     bool operator()(T const& lhs, T const& rhs) { return lhs < rhs; }
   };
+
 
 } // namespace cmb
 

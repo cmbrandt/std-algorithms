@@ -8,13 +8,15 @@
 #include "upper_bound.hxx"
 
 
-namespace nag {
+namespace cmb {
+
 
   // 4 parameter overload
   template <class I, // I models ForwardIterator
             class T, // T is value_type<I>
             class C> // C models BinaryPredicate
-  inline std::pair<I, I> equal_range(I f, I l, T const& v, C c)
+  inline std::pair<I, I>
+  equal_range(I f, I l, T const& v, C c)
   {
     return std::make_pair( nag::lower_bound(f, l, v, c),
                            nag::upper_bound(f, l, v, c) );
@@ -24,9 +26,10 @@ namespace nag {
   // 3 parameter overload
   template <class I, // I models ForwardIterator
             class T> // T is value_type<I>
-  inline std::pair<I, I> equal_range(I f, I l, T const& v)
+  inline std::pair<I, I>
+  equal_range(I f, I l, T const& v)
   {
-    return nag::equal_range(f, l, v, nag::less<T>{ });
+    return cmb::equal_range(f, l, v, nag::less<T>{ });
   }
 
 

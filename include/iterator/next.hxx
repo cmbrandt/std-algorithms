@@ -7,14 +7,17 @@
 #include "advance.hxx"
 
 
-namespace nag {
+namespace cmb {
+
 
   template <class I> // I models InputIterator
-  inline I next(I i, typename std::iterator_traits<I>::difference_type n = 1 )
+  inline I
+  next(I i, typename std::iterator_traits<I>::difference_type n = 1 )
   {
-    nag::advance(i, n);
+    cmb::advance(i, n);
     return i;
   }
+
 
 } // namespace cmb
 

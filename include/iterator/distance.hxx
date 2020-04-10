@@ -6,7 +6,8 @@
 #include <iterator>
 
 
-namespace nag {
+namespace cmb {
+
 
   // Implementation overload for InputIterator
   template <class I> // I models InputIterator
@@ -38,6 +39,7 @@ namespace nag {
     typename std::iterator_traits<I>::iterator_category iterator_tag;
     return distance_impl(f, l, iterator_tag);
   }
+
 
 } // namespace nag
 

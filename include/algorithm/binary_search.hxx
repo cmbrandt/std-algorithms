@@ -6,15 +6,17 @@
 #include "lower_bound.hxx"
 
 
-namespace nag {
+namespace cmb {
+
 
   // 4 parameter overload
   template <class I, // I models ForwardIterator
             class T, // T is value_type<I>
             class C> // C models BinaryPredicate
-  inline bool binary_search(I f, I l, T const& v, C c)
+  inline bool
+  binary_search(I f, I l, T const& v, C c)
   {
-    f = nag::lower_bound(f, l, v, c);
+    f = cmb::lower_bound(f, l, v, c);
     return ( !(f == l) && !(v < *f) );
   }
 
@@ -22,9 +24,10 @@ namespace nag {
   // 3 parameter overload
   template <class I, // I models ForwardIterator
             class T> // T is value_type<I>
-  inline bool binary_search(I f, I l, T const& v)
+  inline bool
+  binary_search(I f, I l, T const& v)
   {
-    return nag::binary_search(f, l, v, nag::less<T>{ });
+    return cmb::binary_search(f, l, v, nag::less<T>{ });
   }
 
 
