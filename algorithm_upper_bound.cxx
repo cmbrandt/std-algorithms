@@ -1,4 +1,4 @@
-// algorithm_equal_range.cxx
+// algorithm_upper_bound.cxx
 
 #include <iostream>
 #include <vector>
@@ -11,7 +11,7 @@ int main()
 
   int v = 4;
   
-  auto it = cmb::equal_range(x.begin(), x.end(), v);
+  auto it = cmb::upper_bound(x.begin(), x.end(), v);
 
-  std::cout << "lower bound = " << ( it - x.begin() ) << std::endl;
+  std::cout << "upper bound = " << ( it - x.begin() ) << std::endl;
 }

@@ -3,9 +3,7 @@
 #ifndef UPPER_BOUND_HXX
 #define UPPER_BOUND_HXX
 
-#include "advance.hxx"
-#include "distance.hxx"
-#include "less.hxx"
+#include "../iterator.hxx"
 
 
 namespace cmb {
@@ -44,7 +42,7 @@ namespace cmb {
   inline I
   upper_bound(I f, I l, T const& v)
   {
-    return cmb::upper_bound(f, l, v, nag::less<T>{ });
+    return cmb::upper_bound(f, l, v, cmb::less<T>{ });
   }
 
 

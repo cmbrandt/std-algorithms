@@ -29,7 +29,7 @@ namespace cmb {
   inline std::pair<I, I>
   equal_range(I f, I l, T const& v)
   {
-    return cmb::equal_range(f, l, v, nag::less<T>{ });
+    return cmb::equal_range(f, l, v, cmb::less<T>{ });
   }
 
 

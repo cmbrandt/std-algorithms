@@ -3,9 +3,8 @@
 #ifndef LOWER_BOUND_HXX
 #define LOWER_BOUND_HXX
 
-#include "distance.hxx"
-#include "less.hxx"
-#include "next.hxx"
+#include "../functional.hxx"
+#include "../iterator.hxx"
 
 
 namespace cmb {
@@ -23,7 +22,7 @@ namespace cmb {
       I m = cmb::next(f, d / 2);
 
       if ( c(*m, v) )
-        f = nag::next(m);
+        f = cmb::next(m);
       else
         l = m;
     }

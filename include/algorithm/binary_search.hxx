@@ -27,7 +27,7 @@ namespace cmb {
   inline bool
   binary_search(I f, I l, T const& v)
   {
-    return cmb::binary_search(f, l, v, nag::less<T>{ });
+    return cmb::binary_search(f, l, v, cmb::less<T>{ });
   }
 
 
