@@ -11,7 +11,7 @@ namespace cmb {
 
 
   template <class I> // I models InputIterator
-  inline I
+  constexpr inline I
   next(I i, typename std::iterator_traits<I>::difference_type n = 1 )
   {
     cmb::advance(i, n);

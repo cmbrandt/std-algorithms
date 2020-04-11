@@ -11,7 +11,7 @@ namespace cmb {
 
   // Implementation overload for InputIterator
   template <class I> // I models InputIterator
-  inline typename std::iterator_traits<I>::difference_type
+  constexpr inline typename std::iterator_traits<I>::difference_type
   distance_impl(I f, I l, std::input_iterator_tag)
   {
     typename std::iterator_traits<I>::difference_type r{0};
@@ -24,7 +24,7 @@ namespace cmb {
 
   // Implementation overload for RandomAccessIterator
   template <class I> // I models RandomAccessIterator
-  inline typename std::iterator_traits<I>::difference_type
+  constexpr inline typename std::iterator_traits<I>::difference_type
   distance_impl(I f, I l, std::random_access_iterator_tag)
   {
     return l - f;
@@ -33,7 +33,7 @@ namespace cmb {
 
   // Generic function that dispatches to implementation overloads
   template <class I> // I models InputIterator
-  inline typename std::iterator_traits<I>::difference_type
+  constexpr inline typename std::iterator_traits<I>::difference_type
   distance(I f, I l)
   {
     typename std::iterator_traits<I>::iterator_category iterator_tag;
