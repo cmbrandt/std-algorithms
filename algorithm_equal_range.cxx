@@ -13,6 +13,6 @@ int main()
   
   auto range = cmb::equal_range(x.begin(), x.end(), v);
 
-  std::cout <<   "lower bound = " << range.first  - x.begin()
-            << "\nupper bound = " << range.second - x.begin() << std::endl;
+  std::cout <<   "lower bound = " << ( range.first  - x.begin() )
+            << "\nupper bound = " << ( range.second - x.begin() ) << std::endl;
 }
