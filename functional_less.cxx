@@ -6,12 +6,14 @@
 
 
 template <typename T,
-          typename U,
-          typename C = std::less<>>
-bool compare_test(T a, U b, C compare = C())
+          typename C = cmb::less<T>>
+bool compare_test(T a, T b, C compare = C())
 {
   return compare(a, b);
 }
+
+// NOTE: The full implementation of less does not require the explicit
+//       template parameter T.. something to dig into later on.
 
 
 int main()
