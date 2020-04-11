@@ -11,7 +11,8 @@ int main()
 
   int v = 4;
   
-  auto it = cmb::equal_range(x.begin(), x.end(), v);
+  auto range = cmb::equal_range(x.begin(), x.end(), v);
 
-  std::cout << "lower bound = " << ( it - x.begin() ) << std::endl;
+  std::cout <<   "lower bound = " << range.first  - x.begin()
+            << "\nupper bound = " << range.second - x.begin() << std::endl;
 }

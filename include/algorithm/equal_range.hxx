@@ -18,8 +18,8 @@ namespace cmb {
   inline std::pair<I, I>
   equal_range(I f, I l, T const& v, C c)
   {
-    return std::make_pair( nag::lower_bound(f, l, v, c),
-                           nag::upper_bound(f, l, v, c) );
+    return std::make_pair( cmb::lower_bound(f, l, v, c),
+                           cmb::upper_bound(f, l, v, c) );
   }
 
 
