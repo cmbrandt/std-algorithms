@@ -3,9 +3,8 @@
 #ifndef UPPER_BOUND_HXX
 #define UPPER_BOUND_HXX
 
-//#include "../functional.hxx"
-#include <functional>
-#include "../iterator.hxx"
+#include "functional.hxx"
+#include "iterator.hxx"
 
 
 namespace cmb {

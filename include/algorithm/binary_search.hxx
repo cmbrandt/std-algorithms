@@ -3,8 +3,7 @@
 #ifndef BINARY_SEARCH_HXX
 #define BINARY_SEARCH_HXX
 
-//#include "../functional.hxx"
-#include <functional>
+#include "functional.hxx"
 #include "lower_bound.hxx"
 
 

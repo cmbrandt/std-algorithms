@@ -3,9 +3,8 @@
 #ifndef LOWER_BOUND_HXX
 #define LOWER_BOUND_HXX
 
-#include "../functional.hxx"
-//#include <functional>
-#include "../iterator.hxx"
+#include "functional.hxx"
+#include "iterator.hxx"
 
 
 namespace cmb {
@@ -46,10 +45,17 @@ namespace cmb {
 
 /*
 
-g++ -Wall -std=c++17 algorithm_lower_bound.cxx -o lb
-g++ -Wall -std=c++17 algorithm_upper_bound.cxx -o ub
-g++ -Wall -std=c++17 algorithm_binary_search.cxx -o bs
-g++ -Wall -std=c++17 algorithm_equal_range.cxx -o er
+g++ -Wall -std=c++17 algorithm_lower_bound.cxx   -I /Users/cmbrandt/projects/stl-algorithm/include -o lb
+g++ -Wall -std=c++17 algorithm_upper_bound.cxx   -I /Users/cmbrandt/projects/stl-algorithm/include -o ub
+g++ -Wall -std=c++17 algorithm_binary_search.cxx -I /Users/cmbrandt/projects/stl-algorithm/include -o bs
+g++ -Wall -std=c++17 algorithm_equal_range.cxx   -I /Users/cmbrandt/projects/stl-algorithm/include -o er
+
+g++ -Wall -std=c++17 functional_less.cxx -I /Users/cmbrandt/projects/stl-algorithm/include -o less
+
+g++ -Wall -std=c++17 iterator_advance.cxx  -I /Users/cmbrandt/projects/stl-algorithm/include -o ad
+g++ -Wall -std=c++17 iterator_distance.cxx -I /Users/cmbrandt/projects/stl-algorithm/include -o di
+g++ -Wall -std=c++17 iterator_next.cxx     -I /Users/cmbrandt/projects/stl-algorithm/include -o nx
+g++ -Wall -std=c++17 iterator_prev.cxx     -I /Users/cmbrandt/projects/stl-algorithm/include -o pr
 
 */
 

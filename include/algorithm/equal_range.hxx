@@ -3,9 +3,7 @@
 #ifndef EQUAL_RANGE_HXX
 #define EQUAL_RANGE_HXX
 
-//#include "../functional.hxx"
-#include <functional>
-#include <utility>
+#include "functional.hxx"
 #include "lower_bound.hxx"
 #include "upper_bound.hxx"
 

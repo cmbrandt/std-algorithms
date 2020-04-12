@@ -14,11 +14,11 @@ namespace cmb {
   template <typename I, // I models InputIterator
             typename D> // D models Integral
   constexpr inline void
-  advance_impl(I& i, D n, std::input_iterator_tag)
+  advance_impl(I& it, D n, std::input_iterator_tag)
   {
     assert(n >= 0);
     while (n--)
-      ++i;
+      ++it;
   }
 
 
@@ -26,12 +26,12 @@ namespace cmb {
   template <typename I, // I models BidirectionalIterator
             typename D> // D models Interal
   constexpr inline void
-  advance_impl(I& i, D n, std::bidirectional_iterator_tag)
+  advance_impl(I& it, D n, std::bidirectional_iterator_tag)
   {
     if (n < 0)
-      while (n++) --i;
+      while (n++) --it;
     else
-      while (n--) ++i;
+      while (n--) ++it;
   }
 
 
@@ -39,9 +39,9 @@ namespace cmb {
   template <typename I, // I models RandomAccessIterator
             typename D> // D models Integral
   constexpr inline void
-  advance_impl(I& i, D n, std::random_access_iterator_tag)
+  advance_impl(I& it, D n, std::random_access_iterator_tag)
   {
-    i += n;
+    it += n;
   }
 
 
@@ -49,10 +49,10 @@ namespace cmb {
   template <typename I, // I models InputIterator
             typename D> // D models Integral
   constexpr inline void
-  advance(I& i, D n)
+  advance(I& it, D n)
   {
     typename std::iterator_traits<I>::iterator_category iterator_tag;
-    advance_impl(i, n, iterator_tag);
+    advance_impl(it, n, iterator_tag);
   }
 
 
