@@ -22,18 +22,22 @@ void test_iterator()
 
     if (*it != 3) {
       ++fail;
-      std::cout << "\nERROR! cmb::advance()" << std::endl;
+      std::cout << "\nERROR! cmb::advance()"
+                << "\n*it  = " << *it
+                << "\nsoln = " << 3 << std::endl;
     }
 
 
     //
     // cmb::distance
 
-    auto d = cmb::distance(v.begin(), v.end());
+    auto dist = cmb::distance(v.begin(), v.end());
 
-    if (d != 3) {
+    if (dist != 3) {
       ++fail;
-      std::cout << "\nERROR! cmb::distance()" << std::endl;
+      std::cout << "\nERROR! cmb::distance()"
+                << "\ndist = " << dist
+                << "\nsoln = " << 3 << std::endl;
     }
 
 
