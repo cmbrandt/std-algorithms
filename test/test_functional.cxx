@@ -5,8 +5,8 @@
 
 
 // Function object used within test_functional()
-template <typename T, typename C = cmb::less<>>
-bool compare_test(T a, T b, C compare = C())
+template <typename T, typename C>
+bool compare_test(T a, T b, C compare)
 {
   return compare(a, b);
 }
@@ -22,8 +22,8 @@ void test_functional()
     //
     // Test for cmb::less
 
-    bool b1 = compare_test(0,   5  );
-    bool b2 = compare_test(5.0, 0.0);
+    bool b1 = compare_test(0,   5,   cmb::less<>{ });
+    bool b2 = compare_test(5.0, 0.0, cmb::less<>{ });
 
     if (b1 !=true or b2 != false) {
       ++fail;
@@ -42,6 +42,6 @@ void test_functional()
     if (fail == 0)
       std::cout << "\ntest_iterator() passed with zero errors." << std::endl;
     else
-      std::cout <<"\ntest_iterator() had " << fail << " errors." << std::endl;
+      std::cout << "\ntest_iterator() had " << fail << " errors." << std::endl;
 
 }

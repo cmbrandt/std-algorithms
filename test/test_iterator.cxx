@@ -76,6 +76,6 @@ void test_iterator()
     if (fail == 0)
       std::cout << "\ntest_iterator() passed with zero errors." << std::endl;
     else
-      std::cout <<"\ntest_iterator() had " << fail << " errors." << std::endl;
+      std::cout << "\ntest_iterator() had " << fail << " errors." << std::endl;
 
 }
