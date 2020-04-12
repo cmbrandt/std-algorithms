@@ -13,5 +13,5 @@ int main()
   
   auto it = cmb::lower_bound(x.begin(), x.end(), v);
 
-  std::cout << "lower bound = " << ( it - x.begin() ) << std::endl;
+  std::cout << "lower bound = " << ( it - x.begin() ) << std::endl; // = 6
 }

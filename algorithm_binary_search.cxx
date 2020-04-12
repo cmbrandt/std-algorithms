@@ -22,5 +22,5 @@ int main()
   
   auto result = cmb::binary_search(x.begin(), x.end(), v);
 
-  std::cout << "result = " << result << std::endl;
+  std::cout << "result = " << result << std::endl; // = 1
 }

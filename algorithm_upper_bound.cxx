@@ -13,5 +13,5 @@ int main()
   
   auto it = cmb::upper_bound(x.begin(), x.end(), v);
 
-  std::cout << "upper bound = " << ( it - x.begin() ) << std::endl;
+  std::cout << "upper bound = " << ( it - x.begin() ) << std::endl; // = 8
 }

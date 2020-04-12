@@ -13,5 +13,5 @@ int main()
 
   cmb::advance(it, 2);
 
-  std::cout << "*it = " << *it << std::endl;
+  std::cout << "*it = " << *it << std::endl; // = 3
 }

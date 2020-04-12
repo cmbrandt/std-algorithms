@@ -13,5 +13,5 @@ int main()
 
   auto pv = cmb::prev(it, 2);
 
-  std::cout << "*pv = " << *pv << std::endl;
+  std::cout << "*pv = " << *pv << std::endl; // = 2
 }

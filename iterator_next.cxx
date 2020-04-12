@@ -13,5 +13,5 @@ int main()
 
   auto nx = cmb::next(it, 2);
 
-  std::cout << "*nx = " << *nx << std::endl;
+  std::cout << "*nx = " << *nx << std::endl; // = 3
 }
