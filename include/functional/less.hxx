@@ -9,7 +9,7 @@
 namespace cmb {
 
 
-  // Specification and implementation of less (since C++14)
+  // Specification and implementation
   template <class T = void>
   struct less {
 
@@ -22,7 +22,7 @@ namespace cmb {
   };
 
 
-  // Total specialization of less (since C++14)
+  // Total specialization
   template <>
   struct less<void> {
 

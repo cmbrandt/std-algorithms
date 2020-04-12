@@ -2,7 +2,7 @@
 
 #ifndef ADVANCE_HXX
 #define ADVANCE_HXX
-
+#include <iostream>
 #include <cassert>
 #include <iterator>
 
