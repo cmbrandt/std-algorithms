@@ -3,6 +3,8 @@
 #ifndef EQUAL_RANGE_HXX
 #define EQUAL_RANGE_HXX
 
+//#include "../functional.hxx"
+#include <functional>
 #include <utility>
 #include "lower_bound.hxx"
 #include "upper_bound.hxx"
@@ -15,21 +17,21 @@ namespace cmb {
   template <class I, // I models ForwardIterator
             class T, // T is value_type<I>
             class C> // C models BinaryPredicate
-  inline std::pair<I, I>
-  equal_range(I f, I l, T const& v, C c)
+  constexpr inline std::pair<I, I>
+  equal_range(I first, I last, T const& value, C compare)
   {
-    return std::make_pair( cmb::lower_bound(f, l, v, c),
-                           cmb::upper_bound(f, l, v, c) );
+    return std::make_pair( cmb::lower_bound(first, last, value, compare),
+                           cmb::upper_bound(first, last, value, compare) );
   }
 
 
   // 3 parameter overload
   template <class I, // I models ForwardIterator
             class T> // T is value_type<I>
-  inline std::pair<I, I>
-  equal_range(I f, I l, T const& v)
+  constexpr inline std::pair<I, I>
+  equal_range(I first, I last, T const& value)
   {
-    return cmb::equal_range(f, l, v, cmb::less<T>{ });
+    return cmb::equal_range(first, last, value, std::less<>{ });
   }
 
 

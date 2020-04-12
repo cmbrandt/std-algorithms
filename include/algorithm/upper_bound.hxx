@@ -3,6 +3,8 @@
 #ifndef UPPER_BOUND_HXX
 #define UPPER_BOUND_HXX
 
+//#include "../functional.hxx"
+#include <functional>
 #include "../iterator.hxx"
 
 
@@ -13,7 +15,7 @@ namespace cmb {
   template <class I, // I models ForwardIterator
             class T, // T is value_type<I>
             class C> // C models BinaryPredicate
-  inline I
+  constexpr inline I
   upper_bound(I f, I l, T const& v, C c)
   {
     auto d = cmb::distance(f, l);
@@ -39,10 +41,10 @@ namespace cmb {
   // 3 parameter overload
   template <class I, // I models ForwardIterator
             class T> // T is value_type<I>
-  inline I
-  upper_bound(I f, I l, T const& v)
+  constexpr inline I
+  upper_bound(I first, I last, T const& value)
   {
-    return cmb::upper_bound(f, l, v, cmb::less<T>{ });
+    return cmb::upper_bound(first, last, value, std::less<>{ });
   }
 
 
