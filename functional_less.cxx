@@ -6,7 +6,7 @@
 
 
 template <typename T,
-          typename C = cmb::less<T>>
+          typename C = cmb::less<>>
 bool compare_test(T a, T b, C compare = C())
 {
   return compare(a, b);

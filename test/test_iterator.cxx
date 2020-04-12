@@ -7,7 +7,7 @@
 
 void test_iterator()
 {
-    std::cout << "\n\n  ***** test_iterator() *****" << std::endl;
+    std::cout << "\n\n\n  ***** test_iterator() *****" << std::endl;
 
     int fail = 0;
 
@@ -16,7 +16,7 @@ void test_iterator()
 
 
     //
-    // cmb::advance
+    // Test for cmb::advance
     auto it = v.begin();
     cmb::advance(it, 2);
 
@@ -29,7 +29,7 @@ void test_iterator()
 
 
     //
-    // cmb::distance
+    // Test for cmb::distance
 
     auto dist = cmb::distance(v.begin(), v.end());
 
@@ -42,7 +42,7 @@ void test_iterator()
 
 
     //
-    // cmb::next
+    // Test for cmb::next
 
     it = v.begin();
     auto nx = cmb::next(it, 2);
@@ -56,7 +56,7 @@ void test_iterator()
 
 
     //
-    // cmb::prev
+    // Test for cmb::prev
 
     it = v.end();
 
@@ -68,6 +68,10 @@ void test_iterator()
                 << "\n*pv  = " << *pv
                 << "\nsoln = " << v[1] << std::endl;
     }
+
+
+    //
+    // Display test results
 
     if (fail == 0)
       std::cout << "\ntest_iterator() passed with zero errors." << std::endl;

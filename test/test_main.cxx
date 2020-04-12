@@ -14,5 +14,5 @@ int main()
   test_functional();
   test_iterator();
 
-  std::cout << "\n\n  ***** end of test_main.cxx *****\n\n";
+  std::cout << "\n\n\n  ***** end of test_main.cxx *****\n\n";
 }
