@@ -16,25 +16,25 @@ namespace cmb {
             class T, // T is value_type<I>
             class C> // C models BinaryPredicate
   constexpr inline I
-  upper_bound(I f, I l, T const& v, C c)
+  upper_bound(I first, I last, T const& value, C compare)
   {
-    auto d = cmb::distance(f, l);
+    auto dist = cmb::distance(first, last);
 
-    while (d > 0) {
-      auto h = d >> 1;
-      auto m = f;
-      cmb::advance(m, h);
+    while (dist > 0) {
+      auto half   = dist >> 1;
+      auto middle = first;
+      cmb::advance(middle, half);
 
-      if ( c(v, *m) )
-        d = h;
+      if ( compare(value, *middle) )
+        dist  = half;
       else {
-        f = m;
-        ++f;
-        d -= h - 1;
+        first = middle;
+        ++first;
+        dist -= half - 1;
       }
     }
 
-  return f;
+  return first;
   }
 
 
@@ -44,7 +44,7 @@ namespace cmb {
   constexpr inline I
   upper_bound(I first, I last, T const& value)
   {
-    return cmb::upper_bound(first, last, value, std::less<>{ });
+    return cmb::upper_bound(first, last, value, cmb::less<>{ });
   }
 
 

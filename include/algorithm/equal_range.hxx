@@ -31,7 +31,7 @@ namespace cmb {
   constexpr inline std::pair<I, I>
   equal_range(I first, I last, T const& value)
   {
-    return cmb::equal_range(first, last, value, std::less<>{ });
+    return cmb::equal_range(first, last, value, cmb::less<>{ });
   }
 
 

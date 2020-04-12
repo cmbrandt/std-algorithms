@@ -3,8 +3,8 @@
 #ifndef LOWER_BOUND_HXX
 #define LOWER_BOUND_HXX
 
-//#include "../functional.hxx"
-#include <functional>
+#include "../functional.hxx"
+//#include <functional>
 #include "../iterator.hxx"
 
 
@@ -38,7 +38,7 @@ namespace cmb {
   constexpr inline I
   lower_bound(I first, I last, T const& value)
   {
-    return cmb::lower_bound(first, last, value, std::less<>{ });
+    return cmb::lower_bound(first, last, value, cmb::less<>{ });
   }
 
 

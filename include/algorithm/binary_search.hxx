@@ -29,7 +29,7 @@ namespace cmb {
   constexpr inline bool
   binary_search(I first, I last, T const& value)
   {
-    return cmb::binary_search(first, last, value, std::less<>{ });
+    return cmb::binary_search(first, last, value, cmb::less<>{ });
   }
 
 
