@@ -3,7 +3,6 @@ CXX      := g++-9
 CXXFLAGS := -Wall -std=c++17
 CXXINCLD := -I /Users/cmbrandt/projects/stl-algorithms/include
 
-
 all: test.exe
 
 test.exe: test_main.o test_algorithm.o test_functional.o test_iterator.o
