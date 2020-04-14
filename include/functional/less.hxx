@@ -13,8 +13,8 @@ namespace cmb {
   template <class T = void>
   struct less {
 
-    constexpr bool
-    operator()(T const& lhs, T const& rhs) const
+    constexpr inline
+    bool operator()(T const& lhs, T const& rhs) const
     {
       return lhs < rhs;
     }
@@ -27,8 +27,9 @@ namespace cmb {
   struct less<void> {
 
     template<class T, class U>
-    constexpr auto operator()(T&& t, U&& u) const
-      -> decltype( std::forward<T>(t) < std::forward<U>(u) )
+    constexpr inline
+    auto operator()(T&& t, U&& u) const
+      -> decltype(  std::forward<T>(t) < std::forward<U>(u) )
     {
       return std::forward<T>(t) < std::forward<U>(u);
     }
