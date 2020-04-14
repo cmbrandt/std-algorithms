@@ -15,7 +15,7 @@ bool compare_test(T a, T b, C compare = C())
 
 int main()
 {
-  std::cout <<   "compare_test(5,   0  ) = " << compare_test(5,   0  ) // = 1
-            << "\ncompare_test(0.0, 0.0) = " << compare_test(0.0, 0.0) // = 0
+  std::cout <<   "compare_test(5,   0  ) = " << compare_test(5,   0  ) // = 0
+            << "\ncompare_test(0.0, 0.0) = " << compare_test(0.0, 0.0) // = 1
             << std::endl;
 }
