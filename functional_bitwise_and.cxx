@@ -6,8 +6,8 @@
 
 template <typename T,
           typename C = cmb::bit_and<>>
-T bit_test(T a, T b, C bitwise = C())
-{ return bitwise(a, b); }
+T bit_test(T a, T b, C bit = C())
+{ return bit(a, b); }
 
 
 int main()

@@ -1,4 +1,4 @@
-// functional_bitwise_xor.cxx
+// functional_bit_xor.cxx
 
 #include <iostream>
 #include "include/functional.hxx"

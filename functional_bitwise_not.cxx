@@ -1,4 +1,4 @@
-// functional_bitwise_not.cxx
+// functional_bit_not.cxx
 
 #include <iostream>
 #include "include/functional.hxx"
@@ -12,7 +12,7 @@ T bit_test(T a, C bit = C())
 
 int main()
 {
-  std::cout << "bit_test(a) = "
-            <<  bit_test(a) // = 250 / -6
+  std::cout << "bit_test(5) = "
+            <<  bit_test(5) // = -6
             << std::endl;
 }

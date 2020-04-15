@@ -12,9 +12,9 @@ T logical_test(T a, T b, C logical = C())
 
 int main()
 {
-  std::cout <<   "logical_test(1,   2  ) = "
-            <<    logical_test(1,   2  ) // = 3
-            << "\nlogical_test(1.2, 2.5) = "
-            <<    logical_test(1.2, 2.5) // = 3.7
+  std::cout <<   "logical_test(false, false) = "
+            <<    logical_test(false, false) // = 0
+            << "\nlogical_test(true,  false) = "
+            <<    logical_test(true,  false) // = 1
             << std::endl;
 }

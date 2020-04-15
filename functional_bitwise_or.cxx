@@ -1,4 +1,4 @@
-// functional_bitwise_or.cxx
+// functional_bit_or.cxx
 
 #include <iostream>
 #include "include/functional.hxx"
@@ -6,8 +6,8 @@
 
 template <typename T,
           typename C = cmb::bit_or<>>
-T bit_test(T a, T b, C bitwise = C())
-{ return bitwise(a, b); }
+T bit_test(T a, T b, C bit = C())
+{ return bit(a, b); }
 
 
 int main()

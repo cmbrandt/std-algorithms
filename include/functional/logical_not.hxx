@@ -26,9 +26,9 @@ namespace cmb {
   template <>
   struct logical_not<void> {
 
-    template<class T, class U>
+    template<class T>
     constexpr inline
-    auto operator()(T&& t, U&& u) const
+    auto operator()(T&& t) const
       -> decltype(  !std::forward<T>(t) )
     {
       return !std::forward<T>(t);
