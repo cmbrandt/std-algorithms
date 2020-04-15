@@ -14,7 +14,7 @@ namespace cmb {
   struct minus {
 
     constexpr inline
-    bool operator()(T const& lhs, T const& rhs) const
+    T operator()(T const& lhs, T const& rhs) const
     {
       return lhs - rhs;
     }

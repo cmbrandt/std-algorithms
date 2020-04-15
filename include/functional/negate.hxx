@@ -14,7 +14,7 @@ namespace cmb {
   struct negate {
 
     constexpr inline
-    bool operator()(T const& arg) const
+    T operator()(T const& arg) const
     {
       return -arg;
     }
@@ -26,7 +26,7 @@ namespace cmb {
   template <>
   struct negate<void> {
 
-    template<class T, class U>
+    template<class T>
     constexpr inline
     auto operator()(T&& t) const
       -> decltype(  -std::forward<T>(t) )

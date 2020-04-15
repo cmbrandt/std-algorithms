@@ -1,17 +1,8 @@
 // algorithm_binary_search.cxx
 
-#include <algorithm>
 #include <iostream>
 #include <vector>
 #include "include/algorithm.hxx"
-
-
-struct comp {
-  template <typename T1, typename T2 = T1>
-  inline bool  
-  operator()(T1 const& a, T2 const& b) const { return a < b; }
-  using is_transparent = void;
-};
 
 
 int main()

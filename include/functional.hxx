@@ -5,12 +5,12 @@
 
 
 // Arithmetic operations
-//#include "functional/plus.hxx"
-//#include "functional/minus.hxx"
-//#include "functional/multiplies.hxx"
-//#include "functional/divides.hxx"
-//#include "functional/modulus.hxx"
-//#include "functional/negate.hxx"
+#include "functional/plus.hxx"
+#include "functional/minus.hxx"
+#include "functional/multiplies.hxx"
+#include "functional/divides.hxx"
+#include "functional/modulus.hxx"
+#include "functional/negate.hxx"
 
 // Comparisons
 #include "functional/equal_to.hxx"
