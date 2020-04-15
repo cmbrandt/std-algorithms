@@ -14,9 +14,9 @@ namespace cmb {
   struct negate {
 
     constexpr inline
-    T operator()(T const& arg) const
+    T operator()(T const& x) const
     {
-      return -arg;
+      return -x;
     }
 
   };

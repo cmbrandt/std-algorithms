@@ -14,9 +14,9 @@ namespace cmb {
   struct modulus {
 
     constexpr inline
-    T operator()(T const& lhs, T const& rhs) const
+    T operator()(T const& x, T const& y) const
     {
-      return lhs % rhs;
+      return x % y;
     }
 
   };

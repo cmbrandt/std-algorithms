@@ -14,9 +14,9 @@ namespace cmb {
   struct greater {
 
     constexpr inline
-    bool operator()(T const& lhs, T const& rhs) const
+    bool operator()(T const& x, T const& y) const
     {
-      return lhs > rhs;
+      return x > y;
     }
 
   };
