@@ -239,7 +239,7 @@ void test_functional()
                  << std::endl;
     }
 
-    // Test for cmb::logial_or
+    // Test for cmb::logical_or
 
     l1 = binary_test(false, false, cmb::logical_or<>{ });
     l2 = binary_test(true,  false, cmb::logical_or<>{ });
@@ -273,6 +273,53 @@ void test_functional()
     //
     // Bitwise tests
 
+    // Test for cmb::bit_and
+
+    auto b = binary_test(5, 9,  cmb::bit_and<>{ });
+
+    if (b != 1) {
+      ++fail;
+      std::cout << "\nERROR! cmb::bit_and()"
+                << "\nb    = " << b
+                << "\nsoln = " << 1
+                 << std::endl;
+    }
+
+    // Test for cmb::bit_or
+
+    b = binary_test(5, 9, cmb::bit_or<>{ });
+
+    if (b != 13) {
+      ++fail;
+      std::cout << "\nERROR! cmb::bit_or()"
+                << "\nb    = " << b
+                << "\nsoln = " << 13
+                 << std::endl;
+    }
+
+    // Test for cmb::bit_xor
+
+    b = binary_test(5, 9, cmb::bit_xor<>{ });
+
+    if (b != 12) {
+      ++fail;
+      std::cout << "\nERROR! cmb::bit_xor()"
+                << "\nb    = " << b
+                << "\nsoln = " << 12
+                 << std::endl;
+    }
+
+    // Test for cmb::bit_not
+
+    b = unary_test(5,  cmb::bit_not<>{ });
+
+    if (b != -6) {
+      ++fail;
+      std::cout << "\nERROR! cmb::bit_not()"
+                << "\nb    = " << b
+                << "\nsoln = " << -6
+                 << std::endl;
+    }
 
     //
     // Display test results
