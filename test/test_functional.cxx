@@ -7,16 +7,16 @@
 //
 // Function objects used within test_functional()
 
-template <typename T, typename C>
-T arithmetic_test(T a, C arithmetic)
+template <typename T, typename Op>
+T unary_test(T a, Op operation)
 {
-  return arithmetic(a);
+  return operation(a);
 }
 
-template <typename T, typename C>
-T arithmetic_test(T a, T b, C arithmetic)
+template <typename T, typename Op>
+T binary_test(T a, T b, Op operation)
 {
-  return arithmetic(a, b);
+  return operation(a, b);
 }
 
 template <typename T, typename C>
@@ -41,8 +41,8 @@ void test_functional()
 
     // Test for cmb::plus
 
-    auto a1 = arithmetic_test(1,   2,   cmb::plus<>{ });
-    auto a2 = arithmetic_test(1.2, 2.5, cmb::plus<>{ });
+    auto a1 = binary_test(1,   2,   cmb::plus<>{ });
+    auto a2 = binary_test(1.2, 2.5, cmb::plus<>{ });
 
     if (a1 != 3 or a2 != 3.7) {
       ++fail;
@@ -56,8 +56,8 @@ void test_functional()
 
     // Test for cmb::minus
 
-    a1 = arithmetic_test(1,   2,   cmb::minus<>{ });
-    a2 = arithmetic_test(1.2, 2.5, cmb::minus<>{ });
+    a1 = binary_test(1,   2,   cmb::minus<>{ });
+    a2 = binary_test(1.2, 2.5, cmb::minus<>{ });
 
     if (a1 != -1 or a2 != -1.3) {
       ++fail;
@@ -71,8 +71,8 @@ void test_functional()
 
     // Test for cmb::multiplies
 
-    a1 = arithmetic_test(6,   2,   cmb::multiplies<>{ });
-    a2 = arithmetic_test(3.5, 2.5, cmb::multiplies<>{ });
+    a1 = binary_test(6,   2,   cmb::multiplies<>{ });
+    a2 = binary_test(3.5, 2.5, cmb::multiplies<>{ });
 
     if (a1 != 12 or a2 != 8.75) {
       ++fail;
@@ -86,8 +86,8 @@ void test_functional()
 
     // Test for divides
 
-    a1 = arithmetic_test(6,   2,   cmb::divides<>{ });
-    a2 = arithmetic_test(3.5, 2.5, cmb::divides<>{ });
+    a1 = binary_test(6,   2,   cmb::divides<>{ });
+    a2 = binary_test(3.5, 2.5, cmb::divides<>{ });
 
     if (a1 != 3 or a2 != 1.4) {
       ++fail;
@@ -101,7 +101,7 @@ void test_functional()
 
     // Test for modulus
 
-    a1 = arithmetic_test(7, 4, cmb::modulus<>{ });
+    a1 = binary_test(7, 4, cmb::modulus<>{ });
 
     if (a1 != 3) {
       ++fail;
@@ -113,8 +113,8 @@ void test_functional()
 
     // Test for negate
 
-    a1 = arithmetic_test(1,   cmb::negate<>{ });
-    a2 = arithmetic_test(1.2, cmb::negate<>{ });
+    a1 = unary_test(1,   cmb::negate<>{ });
+    a2 = unary_test(1.2, cmb::negate<>{ });
 
     if (a1 != -1 or a2 != -1.2) {
       ++fail;
@@ -219,6 +219,59 @@ void test_functional()
                 << "\nsoln1 = " << true
                  << std::endl;
     }
+
+
+    //
+    // Logical tests
+
+    // Test for cmb::logical_and
+
+    auto l1 = binary_test(true, true,  cmb::logical_and<>{ });
+    auto l2 = binary_test(true, false, cmb::logical_and<>{ });
+
+    if (l1 != true or l2 != false) {
+      ++fail;
+      std::cout << "\nERROR! cmb::logical_and()"
+                << "\nl1    = " << l1
+                << "\nsoln1 = " << true
+                << "\nl2    = " << l2
+                << "\nsoln1 = " << false
+                 << std::endl;
+    }
+
+    // Test for cmb::logial_or
+
+    l1 = binary_test(false, false, cmb::logical_or<>{ });
+    l2 = binary_test(true,  false, cmb::logical_or<>{ });
+
+    if (l1 != false or l2 != true) {
+      ++fail;
+      std::cout << "\nERROR! cmb::logical_or()"
+                << "\nl1    = " << l1
+                << "\nsoln1 = " << false
+                << "\nl2    = " << l2
+                << "\nsoln1 = " << true
+                 << std::endl;
+    }
+
+      // Test for cmb::logical_not
+
+    l1 = unary_test(true,  cmb::logical_not<>{ });
+    l2 = unary_test(false, cmb::logical_not<>{ });
+
+    if (l1 != false or l2 != true) {
+      ++fail;
+      std::cout << "\nERROR! cmb::logical_not()"
+                << "\nl1    = " << l1
+                << "\nsoln1 = " << false
+                << "\nl2    = " << l2
+                << "\nsoln1 = " << true
+                 << std::endl;
+    }
+
+
+    //
+    // Bitwise tests
 
 
     //

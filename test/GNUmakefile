@@ -25,3 +25,4 @@ run: test.exe
 
 clean:
 	rm *.exe *.o
+	clear
