@@ -132,97 +132,97 @@ void test_functional()
 
     // Test for cmb::equal_to
 
-    bool b1 = compare_test(0,   5,   cmb::equal_to<>{ });
-    bool b2 = compare_test(0.0, 0.0, cmb::equal_to<>{ });
+    bool c1 = compare_test(0,   5,   cmb::equal_to<>{ });
+    bool c2 = compare_test(0.0, 0.0, cmb::equal_to<>{ });
 
-    if (b1 != false or b2 != true) {
+    if (c1 != false or c2 != true) {
       ++fail;
       std::cout << "\nERROR! cmb::equal_to()"
-                << "\nb1    = " << b1
+                << "\nc1    = " << c1
                 << "\nsoln1 = " << false
-                << "\nb2    = " << b2
+                << "\nc2    = " << c2
                 << "\nsoln1 = " << true
                  << std::endl;
     }
 
     // Test for cmb::not_equal_to
 
-    b1 = compare_test(0,   5,   cmb::not_equal_to<>{ });
-    b2 = compare_test(0.0, 0.0, cmb::not_equal_to<>{ });
+    c1 = compare_test(0,   5,   cmb::not_equal_to<>{ });
+    c2 = compare_test(0.0, 0.0, cmb::not_equal_to<>{ });
 
-    if (b1 != true or b2 != false) {
+    if (c1 != true or c2 != false) {
       ++fail;
       std::cout << "\nERROR! cmb::not_equal_to()"
-                << "\nb1    = " << b1
+                << "\nc1    = " << c1
                 << "\nsoln1 = " << true
-                << "\nb2    = " << b2
+                << "\nc2    = " << c2
                 << "\nsoln1 = " << false
                  << std::endl;
     }
 
     // Test for cmb::greater
 
-    b1 = compare_test(0,   5,   cmb::greater<>{ });
-    b2 = compare_test(5.0, 0.0, cmb::greater<>{ });
+    c1 = compare_test(0,   5,   cmb::greater<>{ });
+    c2 = compare_test(5.0, 0.0, cmb::greater<>{ });
 
-    if (b1 != false or b2 != true) {
+    if (c1 != false or c2 != true) {
       ++fail;
       std::cout << "\nERROR! cmb::greater()"
-                << "\nb1    = " << b1
+                << "\nc1    = " << c1
                 << "\nsoln1 = " << false
-                << "\nb2    = " << b2
+                << "\nc2    = " << c2
                 << "\nsoln1 = " << true
                  << std::endl;
     }
 
     // Test for cmb::greater_equal
 
-    b1 = compare_test(0,   5,   cmb::greater_equal<>{ });
-    b2 = compare_test(0.0, 0.0, cmb::greater_equal<>{ });
+    c1 = compare_test(0,   5,   cmb::greater_equal<>{ });
+    c2 = compare_test(0.0, 0.0, cmb::greater_equal<>{ });
 
-    if (b1 != false or b2 != true) {
+    if (c1 != false or c2 != true) {
       ++fail;
       std::cout << "\nERROR! cmb::greater_equal()"
-                << "\nb1    = " << b1
+                << "\nc1    = " << c1
                 << "\nsoln1 = " << false
-                << "\nb2    = " << b2
+                << "\nc2    = " << c2
                 << "\nsoln1 = " << true
                  << std::endl;
     }
 
     // Test for cmb::less
 
-    b1 = compare_test(5,   0,   cmb::less<>{ });
-    b2 = compare_test(0.0, 5.0, cmb::less<>{ });
+    c1 = compare_test(5,   0,   cmb::less<>{ });
+    c2 = compare_test(0.0, 5.0, cmb::less<>{ });
 
-    if (b1 != false or b2 != true) {
+    if (c1 != false or c2 != true) {
       ++fail;
       std::cout << "\nERROR! cmb::less()"
-                << "\nb1    = " << b1
+                << "\nc1    = " << c1
                 << "\nsoln1 = " << false
-                << "\nb2    = " << b2
+                << "\nc2    = " << c2
                 << "\nsoln1 = " << true
                  << std::endl;
     }
 
     // Test for cmb::less_equal
 
-    b1 = compare_test(5,   0,   cmb::less_equal<>{ });
-    b2 = compare_test(0.0, 0.0, cmb::less_equal<>{ });
+    c1 = compare_test(5,   0,   cmb::less_equal<>{ });
+    c2 = compare_test(0.0, 0.0, cmb::less_equal<>{ });
 
-    if (b1 != false or b2 != true) {
+    if (c1 != false or c2 != true) {
       ++fail;
       std::cout << "\nERROR! cmb::less_equal()"
-                << "\nb1    = " << b1
+                << "\nc1    = " << c1
                 << "\nsoln1 = " << false
-                << "\nb2    = " << b2
+                << "\nc2    = " << c2
                 << "\nsoln1 = " << true
                  << std::endl;
     }
 
 
     //
-    // Logical tests
+    // Logical operator tests
 
     // Test for cmb::logical_and
 
@@ -271,7 +271,7 @@ void test_functional()
 
 
     //
-    // Bitwise tests
+    // Bitwise operator tests
 
     // Test for cmb::bit_and
 
