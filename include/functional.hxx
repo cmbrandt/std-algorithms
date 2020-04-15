@@ -21,15 +21,15 @@
 #include "functional/less_equal.hxx"
 
 // Logical operations
-//#include "functional/logical_and.hxx"
-//#include "functional/logical_or.hxx"
-//#include "functional/logical_not.hxx"
+#include "functional/logical_and.hxx"
+#include "functional/logical_or.hxx"
+#include "functional/logical_not.hxx"
 
 // Bitwise operations
-//#include "functional/bit_and.hxx"
-//#include "functional/bit_or.hxx"
-//#include "functional/bit_xor.hxx"
-//#include "functional/bit_not.hxx"
+#include "functional/bit_and.hxx"
+#include "functional/bit_or.hxx"
+#include "functional/bit_xor.hxx"
+#include "functional/bit_not.hxx"
 
 
 #endif

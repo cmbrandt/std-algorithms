@@ -1,16 +1,13 @@
 // functional_negate.cxx
 
 #include <iostream>
-#include <vector>
 #include "include/functional.hxx"
 
 
 template <typename T,
           typename C = cmb::negate<>>
 T arithmetic_test(T a, C arithmetic = C())
-{
-  return arithmetic(a);
-}
+{ return arithmetic(a); }
 
 
 int main()

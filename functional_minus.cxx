@@ -1,16 +1,13 @@
 // functional_minus.cxx
 
 #include <iostream>
-#include <vector>
 #include "include/functional.hxx"
 
 
 template <typename T,
           typename C = cmb::minus<>>
 T arithmetic_test(T a, T b, C arithmetic = C())
-{
-  return arithmetic(a, b);
-}
+{ return arithmetic(a, b); }
 
 
 int main()
