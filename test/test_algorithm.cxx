@@ -7,7 +7,7 @@
 
 void test_algorithm()
 {
-    std::cout << "\n\n\n  ***** test_algorithm() *****" << std::endl;
+    std::cout << "\n******* test_algorithm() *******" << std::endl;
 
     int fail = 0;
 

@@ -17,7 +17,7 @@ int main()
 {
   std::cout <<   "arithmetic_test(6,   2  ) = "
             <<    arithmetic_test(6,   2  ) // = 3
-            << "\narithmetic_test(2.3, 3.7) = "
-            <<    arithmetic_test(2.3, 3.7) // = 0.621622
+            << "\narithmetic_test(3.5, 2.5) = "
+            <<    arithmetic_test(3.5, 2.5) // = 1.4
             << std::endl;
 }

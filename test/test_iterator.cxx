@@ -7,7 +7,7 @@
 
 void test_iterator()
 {
-    std::cout << "\n\n\n  ***** test_iterator() *****" << std::endl;
+    std::cout << "\n\n\n******* test_iterator() *******" << std::endl;
 
     int fail = 0;
 
