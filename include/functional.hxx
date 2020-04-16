@@ -16,8 +16,8 @@
 #include "functional/equal_to.hxx"
 #include "functional/not_equal_to.hxx"
 #include "functional/greater.hxx"
-#include "functional/greater_equal.hxx"
 #include "functional/less.hxx"
+#include "functional/greater_equal.hxx"
 #include "functional/less_equal.hxx"
 
 // Logical operations

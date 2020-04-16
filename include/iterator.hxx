@@ -4,6 +4,7 @@
 #define ITERATOR_HXX
 
 
+// Iterator operations
 #include "iterator/advance.hxx"
 #include "iterator/distance.hxx"
 #include "iterator/next.hxx"

@@ -4,16 +4,14 @@
 #define ALGORITHM_HXX
 
 
-//
 // Non-Modifying Sequence Operations
 
 
-//
 // Mutating Sequence Operations
 
 
-//
 // Sorting and Related Operations
+
 
 // Sorting
 

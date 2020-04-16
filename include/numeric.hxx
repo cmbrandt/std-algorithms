@@ -3,6 +3,8 @@
 #ifndef NUMERIC_HXX
 #define NUMERIC_HXX
 
+
+// Generalized numeric operations
 //#include "accumulate.hxx"
 //#include "reduce.hxx"
 //#include "inner_product.hxx"
