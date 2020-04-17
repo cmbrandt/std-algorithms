@@ -4,7 +4,7 @@
 #include "test_algorithm.hxx"
 #include "test_functional.hxx"
 #include "test_iterator.hxx"
-//#include "numberic.hxx"
+//#include "numeric.hxx"
 
 
 int main()

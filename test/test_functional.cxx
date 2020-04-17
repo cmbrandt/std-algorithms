@@ -39,7 +39,7 @@ void test_functional()
     //
     // Arithmetic tests
 
-    // Test for cmb::plus
+    // cmb::plus
 
     auto a1 = binary_test(1,   2,   cmb::plus<>{ });
     auto a2 = binary_test(1.2, 2.5, cmb::plus<>{ });
@@ -54,7 +54,7 @@ void test_functional()
                  << std::endl;
     }
 
-    // Test for cmb::minus
+    // cmb::minus
 
     a1 = binary_test(1,   2,   cmb::minus<>{ });
     a2 = binary_test(1.2, 2.5, cmb::minus<>{ });
@@ -69,7 +69,7 @@ void test_functional()
                  << std::endl;
     }
 
-    // Test for cmb::multiplies
+    // cmb::multiplies
 
     a1 = binary_test(6,   2,   cmb::multiplies<>{ });
     a2 = binary_test(3.5, 2.5, cmb::multiplies<>{ });
@@ -84,7 +84,7 @@ void test_functional()
                  << std::endl;
     }
 
-    // Test for divides
+    // cmb::divides
 
     a1 = binary_test(6,   2,   cmb::divides<>{ });
     a2 = binary_test(3.5, 2.5, cmb::divides<>{ });
@@ -99,7 +99,7 @@ void test_functional()
                  << std::endl;
     }
 
-    // Test for modulus
+    // cmb::modulus
 
     a1 = binary_test(7, 4, cmb::modulus<>{ });
 
@@ -111,7 +111,7 @@ void test_functional()
                  << std::endl;
     }
 
-    // Test for negate
+    // cmb::negate
 
     a1 = unary_test(1,   cmb::negate<>{ });
     a2 = unary_test(1.2, cmb::negate<>{ });
@@ -130,7 +130,7 @@ void test_functional()
     //
     // Comparison tests
 
-    // Test for cmb::equal_to
+    // cmb::equal_to
 
     bool c1 = compare_test(0,   5,   cmb::equal_to<>{ });
     bool c2 = compare_test(0.0, 0.0, cmb::equal_to<>{ });
@@ -145,7 +145,7 @@ void test_functional()
                  << std::endl;
     }
 
-    // Test for cmb::not_equal_to
+    // cmb::not_equal_to
 
     c1 = compare_test(0,   5,   cmb::not_equal_to<>{ });
     c2 = compare_test(0.0, 0.0, cmb::not_equal_to<>{ });
@@ -160,7 +160,7 @@ void test_functional()
                  << std::endl;
     }
 
-    // Test for cmb::greater
+    // cmb::greater
 
     c1 = compare_test(0,   5,   cmb::greater<>{ });
     c2 = compare_test(5.0, 0.0, cmb::greater<>{ });
@@ -175,7 +175,22 @@ void test_functional()
                  << std::endl;
     }
 
-    // Test for cmb::greater_equal
+    // cmb::less
+
+    c1 = compare_test(5,   0,   cmb::less<>{ });
+    c2 = compare_test(0.0, 5.0, cmb::less<>{ });
+
+    if (c1 != false or c2 != true) {
+      ++fail;
+      std::cout << "\nERROR! cmb::less()"
+                << "\nc1    = " << c1
+                << "\nsoln1 = " << false
+                << "\nc2    = " << c2
+                << "\nsoln1 = " << true
+                 << std::endl;
+    }
+    
+    // cmb::greater_equal
 
     c1 = compare_test(0,   5,   cmb::greater_equal<>{ });
     c2 = compare_test(0.0, 0.0, cmb::greater_equal<>{ });
@@ -190,22 +205,7 @@ void test_functional()
                  << std::endl;
     }
 
-    // Test for cmb::less
-
-    c1 = compare_test(5,   0,   cmb::less<>{ });
-    c2 = compare_test(0.0, 5.0, cmb::less<>{ });
-
-    if (c1 != false or c2 != true) {
-      ++fail;
-      std::cout << "\nERROR! cmb::less()"
-                << "\nc1    = " << c1
-                << "\nsoln1 = " << false
-                << "\nc2    = " << c2
-                << "\nsoln1 = " << true
-                 << std::endl;
-    }
-
-    // Test for cmb::less_equal
+    // cmb::less_equal
 
     c1 = compare_test(5,   0,   cmb::less_equal<>{ });
     c2 = compare_test(0.0, 0.0, cmb::less_equal<>{ });
@@ -224,7 +224,7 @@ void test_functional()
     //
     // Logical operator tests
 
-    // Test for cmb::logical_and
+    // cmb::logical_and
 
     auto l1 = binary_test(true, true,  cmb::logical_and<>{ });
     auto l2 = binary_test(true, false, cmb::logical_and<>{ });
@@ -239,7 +239,7 @@ void test_functional()
                  << std::endl;
     }
 
-    // Test for cmb::logical_or
+    // cmb::logical_or
 
     l1 = binary_test(false, false, cmb::logical_or<>{ });
     l2 = binary_test(true,  false, cmb::logical_or<>{ });
@@ -254,7 +254,7 @@ void test_functional()
                  << std::endl;
     }
 
-      // Test for cmb::logical_not
+      // cmb::logical_not
 
     l1 = unary_test(true,  cmb::logical_not<>{ });
     l2 = unary_test(false, cmb::logical_not<>{ });
@@ -273,7 +273,7 @@ void test_functional()
     //
     // Bitwise operator tests
 
-    // Test for cmb::bit_and
+    // cmb::bit_and
 
     auto b = binary_test(5, 9,  cmb::bit_and<>{ });
 
@@ -285,7 +285,7 @@ void test_functional()
                  << std::endl;
     }
 
-    // Test for cmb::bit_or
+    // cmb::bit_or
 
     b = binary_test(5, 9, cmb::bit_or<>{ });
 
@@ -297,7 +297,7 @@ void test_functional()
                  << std::endl;
     }
 
-    // Test for cmb::bit_xor
+    // cmb::bit_xor
 
     b = binary_test(5, 9, cmb::bit_xor<>{ });
 
@@ -309,7 +309,7 @@ void test_functional()
                  << std::endl;
     }
 
-    // Test for cmb::bit_not
+    // cmb::bit_not
 
     b = unary_test(5,  cmb::bit_not<>{ });
 
@@ -320,6 +320,7 @@ void test_functional()
                 << "\nsoln = " << -6
                  << std::endl;
     }
+
 
     //
     // Display test results

@@ -19,7 +19,10 @@ void test_algorithm()
 
 
     //
-    // Test for cmb::lower_bound
+    // Binary search
+
+    // cmb::lower_bound
+
     auto it = cmb::lower_bound(x.begin(), x.end(), v);
 
     if ( (it - x.begin() ) != 6) {
@@ -29,9 +32,7 @@ void test_algorithm()
                 << "\nsoln              = " << 6 << std::endl;
     }
 
-
-    //
-    // Test for cmb::upper_bound
+    // cmb::upper_bound
 
     it = cmb::upper_bound(x.begin(), x.end(), v);
 
@@ -42,21 +43,7 @@ void test_algorithm()
                 << "\nsoln              = " << 8 << std::endl;
     }
 
-    //
-    // Test for cmb::binary_search
-
-    bool b = cmb::binary_search(x.begin(), x.end(), v);
-
-    if (b != true) {
-      ++fail;
-      std::cout << "\nERROR! cmb::binary_search()"
-                << "\nb    = " << b
-                << "\nsoln = " << true << std::endl;
-    }
-
-
-    //
-    // Test for cmb::equal_range
+    // cmb::equal_range
 
     auto r = cmb::equal_range(x.begin(), x.end(), v);
 
@@ -67,6 +54,17 @@ void test_algorithm()
                 << "\nsoln                    = " << 6
                 << "\n(r.second - x.begin() ) = " << (r.second - x.begin() )
                 << "\nsoln                    = " << 8 << std::endl;
+    }
+
+    // cmb::binary_search
+
+    bool b = cmb::binary_search(x.begin(), x.end(), v);
+
+    if (b != true) {
+      ++fail;
+      std::cout << "\nERROR! cmb::binary_search()"
+                << "\nb    = " << b
+                << "\nsoln = " << true << std::endl;
     }
 
 

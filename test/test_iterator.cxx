@@ -16,7 +16,10 @@ void test_iterator()
 
 
     //
-    // Test for cmb::advance
+    // Iterator operations
+
+    // cmb::advance
+    
     auto it = v.begin();
     cmb::advance(it, 2);
 
@@ -27,9 +30,7 @@ void test_iterator()
                 << "\nsoln = " << 3 << std::endl;
     }
 
-
-    //
-    // Test for cmb::distance
+    // cmb::distance
 
     auto dist = cmb::distance(v.begin(), v.end());
 
@@ -40,9 +41,7 @@ void test_iterator()
                 << "\nsoln = " << 3 << std::endl;
     }
 
-
-    //
-    // Test for cmb::next
+    // cmb::next
 
     it = v.begin();
     auto nx = cmb::next(it, 2);
@@ -54,9 +53,7 @@ void test_iterator()
                 << "\nsoln = " << v[2] << std::endl;
     }
 
-
-    //
-    // Test for cmb::prev
+    // cmb::prev
 
     it = v.end();
 
