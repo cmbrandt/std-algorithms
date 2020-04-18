@@ -41,7 +41,7 @@ g++-9 -Wall -std=c++17 functional_bit_not.cxx       -I /Users/cmbrandt/projects/
 
 <iterator>
 
-// ...
+// Iterator operations
 g++-9 -Wall -std=c++17 iterator_advance.cxx         -I /Users/cmbrandt/projects/stl-algorithms/include -o i1
 g++-9 -Wall -std=c++17 iterator_distance.cxx        -I /Users/cmbrandt/projects/stl-algorithms/include -o i2
 g++-9 -Wall -std=c++17 iterator_next.cxx            -I /Users/cmbrandt/projects/stl-algorithms/include -o i3
@@ -51,7 +51,7 @@ g++-9 -Wall -std=c++17 iterator_prev.cxx            -I /Users/cmbrandt/projects/
 
 <numeric>
 
-// ...
+// Generalized numeric operations
 g++-9 -Wall -std=c++17 numeric_accumulate.cxx               -I /Users/cmbrandt/projects/stl-algorithms/include -o n01
 g++-9 -Wall -std=c++17 numeric_reduce.cxx                   -I /Users/cmbrandt/projects/stl-algorithms/include -o n02
 g++-9 -Wall -std=c++17 numeric_inner_product.cxx            -I /Users/cmbrandt/projects/stl-algorithms/include -o n03
