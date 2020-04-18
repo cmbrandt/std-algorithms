@@ -2,16 +2,17 @@
 <algorithm>
 
 // Binary search
-g++-9 -Wall -std=c++17 algorithm_binary_search.cxx  -I /Users/cmbrandt/projects/stl-algorithms/include -o ab1
-g++-9 -Wall -std=c++17 algorithm_equal_range.cxx    -I /Users/cmbrandt/projects/stl-algorithms/include -o ab2
-g++-9 -Wall -std=c++17 falgorithm_lower_bound.cxx   -I /Users/cmbrandt/projects/stl-algorithms/include -o ab3
-g++-9 -Wall -std=c++17 algorithm_upper-bound.cxx    -I /Users/cmbrandt/projects/stl-algorithms/include -o ab4
+g++-9 -Wall -std=c++17 algorithm_lower_bound.cxx    -I /Users/cmbrandt/projects/stl-algorithms/include -o ab1
+g++-9 -Wall -std=c++17 algorithm_upper_bound.cxx    -I /Users/cmbrandt/projects/stl-algorithms/include -o ab2
+g++-9 -Wall -std=c++17 algorithm_equal_range.cxx    -I /Users/cmbrandt/projects/stl-algorithms/include -o ab3
+g++-9 -Wall -std=c++17 algorithm_binary_search.cxx  -I /Users/cmbrandt/projects/stl-algorithms/include -o ab4
 
 
 
 <functional>
 
 // Arithmetic operations
+g++-9 -Wall -std=c++17 functional_plus.cxx          -I /Users/cmbrandt/projects/stl-algorithms/include -o fa1
 g++-9 -Wall -std=c++17 functional_minus.cxx         -I /Users/cmbrandt/projects/stl-algorithms/include -o fa2
 g++-9 -Wall -std=c++17 functional_multiplies.cxx    -I /Users/cmbrandt/projects/stl-algorithms/include -o fa3
 g++-9 -Wall -std=c++17 functional_divides.cxx       -I /Users/cmbrandt/projects/stl-algorithms/include -o fa4

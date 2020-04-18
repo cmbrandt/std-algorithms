@@ -189,7 +189,7 @@ void test_functional()
                 << "\nsoln1 = " << true
                  << std::endl;
     }
-    
+
     // cmb::greater_equal
 
     c1 = compare_test(0,   5,   cmb::greater_equal<>{ });
@@ -275,7 +275,7 @@ void test_functional()
 
     // cmb::bit_and
 
-    auto b = binary_test(5, 9,  cmb::bit_and<>{ });
+    auto b = binary_test(5, 9, cmb::bit_and<>{ });
 
     if (b != 1) {
       ++fail;
@@ -311,7 +311,7 @@ void test_functional()
 
     // cmb::bit_not
 
-    b = unary_test(5,  cmb::bit_not<>{ });
+    b = unary_test(5, cmb::bit_not<>{ });
 
     if (b != -6) {
       ++fail;

@@ -7,7 +7,7 @@
 
 int main()
 {
-  std::vector<int> x = { 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6 };
+  std::vector<int> x{ 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6 };
 
   int v = 4;
   
