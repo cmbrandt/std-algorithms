@@ -12,7 +12,7 @@ void test_algorithm()
     int fail = 0;
 
     // Container used throughout test
-    std::vector<int> x = { 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6 };
+    std::vector<int> x{ 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6 };
 
     // Value used throughout test
     int v = 4;
