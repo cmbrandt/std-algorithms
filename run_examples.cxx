@@ -46,3 +46,23 @@ g++-9 -Wall -std=c++17 iterator_advance.cxx         -I /Users/cmbrandt/projects/
 g++-9 -Wall -std=c++17 iterator_distance.cxx        -I /Users/cmbrandt/projects/stl-algorithms/include -o i2
 g++-9 -Wall -std=c++17 iterator_next.cxx            -I /Users/cmbrandt/projects/stl-algorithms/include -o i3
 g++-9 -Wall -std=c++17 iterator_prev.cxx            -I /Users/cmbrandt/projects/stl-algorithms/include -o i4
+
+
+
+<numeric>
+
+// ...
+g++-9 -Wall -std=c++17 numeric_accumulate.cxx               -I /Users/cmbrandt/projects/stl-algorithms/include -o n01
+g++-9 -Wall -std=c++17 numeric_reduce.cxx                   -I /Users/cmbrandt/projects/stl-algorithms/include -o n02
+g++-9 -Wall -std=c++17 numeric_inner_product.cxx            -I /Users/cmbrandt/projects/stl-algorithms/include -o n03
+g++-9 -Wall -std=c++17 numeric_transform_reduce.cxx         -I /Users/cmbrandt/projects/stl-algorithms/include -o n04
+g++-9 -Wall -std=c++17 numeric_partial_sum.cxx              -I /Users/cmbrandt/projects/stl-algorithms/include -o n05
+g++-9 -Wall -std=c++17 numeric_exclusive_scan.cxx           -I /Users/cmbrandt/projects/stl-algorithms/include -o n06
+g++-9 -Wall -std=c++17 numeric_inclusive_scan.cxx           -I /Users/cmbrandt/projects/stl-algorithms/include -o n07
+g++-9 -Wall -std=c++17 numeric_transform_exclusive_scan.cxx -I /Users/cmbrandt/projects/stl-algorithms/include -o n08
+g++-9 -Wall -std=c++17 numeric_transform_inclusive_scan.cxx -I /Users/cmbrandt/projects/stl-algorithms/include -o n09
+g++-9 -Wall -std=c++17 numeric_adjacent_difference.cxx      -I /Users/cmbrandt/projects/stl-algorithms/include -o n10
+g++-9 -Wall -std=c++17 numeric_iota.cxx                     -I /Users/cmbrandt/projects/stl-algorithms/include -o n11
+g++-9 -Wall -std=c++17 numeric_gcd.cxx                      -I /Users/cmbrandt/projects/stl-algorithms/include -o n12
+g++-9 -Wall -std=c++17 numeric_lcm.cxx                      -I /Users/cmbrandt/projects/stl-algorithms/include -o n13
+g++-9 -Wall -std=c++17 numeric_midpoint.cxx                 -I /Users/cmbrandt/projects/stl-algorithms/include -o n14
