@@ -11,7 +11,10 @@ int main()
 
   int v = 4;
   
-  auto it = cmb::upper_bound(x.begin(), x.end(), v);
+  auto i1 = cmb::upper_bound(x.begin(), x.end(), v);
+  auto i2 = cmb::upper_bound(x.begin(), x.end(), v, cmb::less<>{ });
 
-  std::cout << "upper bound = " << ( it - x.begin() ) << std::endl; // = 8
+  std::cout <<   "upper bound 1 = " << ( i1 - x.begin() ) // = 6
+            << "\nupper bound 2 = " << ( i2 - x.begin() ) // = 6
+            << std::endl;
 }

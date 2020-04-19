@@ -11,7 +11,10 @@ int main()
 
   int v = 4;
   
-  auto result = cmb::binary_search(x.begin(), x.end(), v);
+  auto r1 = cmb::binary_search(x.begin(), x.end(), v);
+  auto r2 = cmb::binary_search(x.begin(), x.end(), v, cmb::less<>{ });
 
-  std::cout << "result = " << result << std::endl; // = 1
+  std::cout <<   "result 1 = " << r1 // = 1
+            << "\nresult 2 = " << r2 // = 1
+            << std::endl;
 }

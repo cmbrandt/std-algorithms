@@ -11,7 +11,10 @@ int main()
 
   int v = 4;
   
-  auto it = cmb::lower_bound(x.begin(), x.end(), v);
+  auto i1 = cmb::lower_bound(x.begin(), x.end(), v);
+  auto i2 = cmb::lower_bound(x.begin(), x.end(), v, cmb::less<>{ });
 
-  std::cout << "lower bound = " << ( it - x.begin() ) << std::endl; // = 6
+  std::cout <<   "lower bound 1 = " << ( i1 - x.begin() ) // = 6
+            << "\nlower bound 2 = " << ( i2 - x.begin() ) // = 6
+            << std::endl;
 }
