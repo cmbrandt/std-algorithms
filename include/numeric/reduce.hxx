@@ -40,7 +40,7 @@ namespace cmb {
   reduce(I first, I last)
   {
     return cmb::reduce(first, last,
-      typename std::iterator_traits<I>::value_type{ }, cmb::plus<>{ });
+      typename std::iterator_traits<I>::value_type{ });
   }
 
 

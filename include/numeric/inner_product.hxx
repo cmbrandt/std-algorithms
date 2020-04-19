@@ -3,7 +3,7 @@
 #ifndef INNER_PRODUCT_HXX
 #define INNER_PRODUCT_HXX
 
-
+#include "functional.hxx"
 
 
 namespace cmb {
