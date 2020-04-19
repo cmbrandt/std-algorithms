@@ -11,8 +11,8 @@ int main()
 {
   std::vector<int> v{ 1, 2, 3, 4, 5, 6, 7, 8 };
 
-  auto sum  = std::accumulate(v.begin(), v.end(), 0);
-  auto prod = std::accumulate(v.begin(), v.end(), 1, cmb::multiplies<>{ });
+  auto sum  = cmb::accumulate(v.begin(), v.end(), 0);
+  auto prod = cmb::accumulate(v.begin(), v.end(), 1, cmb::multiplies<>{ });
 
   std::cout << "\nsum  = " << sum  // = 36
             << "\nprod = " << prod // = 40320
