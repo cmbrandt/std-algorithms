@@ -16,8 +16,6 @@ int main()
 
   std::cout <<   "result 1 = " << r1 // = 36
             << "\nresult 2 = " << r2 // = 36
-            << "\nresult 3 = " << r3 // 36
+            << "\nresult 3 = " << r3 // = 36
             << std::endl;
-
-  
 }
