@@ -3,32 +3,33 @@
 #ifndef ACCUMULATE_HXX
 #define ACCUMULATE_HXX
 
+#include "functional.hxx"
+
 
 namespace cmb {
 
 
-  // 3 parameter overload
-  template <class I, // I models InputIterator
-            class T> // T models ...
-  inline T accumulate(I first, I last, T init)
-  {
-    for (; first != last; ++first)
-      init += *first;
-
-    return init;
-  }
-
-
   // 4 parameter overload
   template <class I, // I models InputIterator
-            class T, // T models ...
+            class T, // T is value_type<I>
             class B> // B models BinaryOperation
-  inline T accumulate(I first, I last, T init, B binary_op)
+  constexpr inline T
+  accumulate(I first, I last, T init, B binary_op)
   {
     for (; first != last; ++first)
       init = binary_op(init, *first);
 
     return init;
+  }
+
+
+  // 3 parameter overload
+  template <class I, // I models InputIterator
+            class T> // T is value_type<I>
+  constexpr inline T
+  accumulate(I first, I last, T init)
+  {
+    return cmb::accumulate(first, last, init, cmb::plus<>{ });
   }
 
 

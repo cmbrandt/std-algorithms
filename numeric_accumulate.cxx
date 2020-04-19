@@ -2,7 +2,6 @@
 
 #include <iostream>
 #include <vector>
-#include <numeric> // REMOVE
 #include "include/functional.hxx"
 #include "include/numeric.hxx"
 
@@ -14,7 +13,7 @@ int main()
   auto sum  = cmb::accumulate(v.begin(), v.end(), 0);
   auto prod = cmb::accumulate(v.begin(), v.end(), 1, cmb::multiplies<>{ });
 
-  std::cout << "\nsum  = " << sum  // = 36
+  std::cout <<   "sum  = " << sum  // = 36
             << "\nprod = " << prod // = 40320
             << std::endl;
 }
