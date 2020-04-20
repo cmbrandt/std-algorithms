@@ -1,5 +1,5 @@
 // numeric_lcm.cxx
-//#include <numeric>
+
 #include <iostream>
 #include "include/numeric.hxx"
 

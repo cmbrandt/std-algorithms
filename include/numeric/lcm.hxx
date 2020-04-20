@@ -16,8 +16,8 @@ namespace cmb {
   lcm_impl(M m, N n)
   {
     return (m != 0 && n != 0)
-      ? ( std::abs(m) / cmb::gcd(m, n) ) * std::abs(n)
-      : 0;
+         ? ( std::abs(m) / cmb::gcd(m, n) ) * std::abs(n)
+         : 0;
   }
 
 

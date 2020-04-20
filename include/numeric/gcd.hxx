@@ -3,7 +3,7 @@
 #ifndef GCD_HXX
 #define GCD_HXX
 
-#include <type_traits>
+#include <type_traits> // for std::is_integral_v, std::is_same_v, std::remove_cv_t
 
 
 namespace cmb {
@@ -16,8 +16,8 @@ namespace cmb {
   gcd_impl(M m, N n)
   {
     return m == 0 ? std::abs(n)
-      : n == 0 ? std::abs(m)
-      : gcd_impl(n, m % n);
+         : n == 0 ? std::abs(m)
+         : gcd_impl(n, m % n);
   }
 
 
