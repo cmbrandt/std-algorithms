@@ -9,6 +9,7 @@
 namespace cmb {
 
 
+  // Implementation function
   template <class M, // M models Integral
             class N> // N models Integral
   constexpr inline std::common_type_t<M, N>
@@ -20,6 +21,7 @@ namespace cmb {
   }
 
 
+  // asdf
   template <class M, // M models Integral
             class N> // N models Integral
   constexpr inline std::common_type_t<M, N>

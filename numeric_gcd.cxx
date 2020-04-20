@@ -11,5 +11,5 @@ int main()
 
   auto result = cmb::gcd(m, n);
 
-  std::cout << "gcd(m, n) = " << result << std::endl; // = 4
+  std::cout << "cmb::gcd(m, n) = " << result << std::endl; // = 4
 }
