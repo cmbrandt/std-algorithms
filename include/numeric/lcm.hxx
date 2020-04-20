@@ -27,14 +27,10 @@ namespace cmb {
   constexpr inline std::common_type_t<M, N>
   lcm(M m, N n)
   {
-    static_assert(std::is_integral_v<M>,
-                  "lcm arguments are integers");
-    static_assert(std::is_integral_v<N>,
-                  "lcm arguments are integers");
-    static_assert(!std::is_same_v<std::remove_cv_t<M>, bool>,
-                  "lcm arguments are not bools");
-    static_assert(!std::is_same_v<std::remove_cv_t<N>, bool>,
-                  "lcm arguments are not bools");
+    static_assert(  std::is_integral_v<M> );
+    static_assert(  std::is_integral_v<N> );
+    static_assert( !std::is_same_v<std::remove_cv_t<M>, bool> );
+    static_assert( !std::is_same_v<std::remove_cv_t<N>, bool> );
 
     return lcm_impl(n, m % n);
   }
