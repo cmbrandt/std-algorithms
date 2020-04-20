@@ -3,7 +3,8 @@
 #ifndef TRANSFORM_REDUCE_HXX
 #define TRANSFORM_REDUCE_HXX
 
-#include "functional.hxx"
+#include <utility>        // for std::move
+#include "functional.hxx" // for cmb::multiplies, cmb::plus
 
 
 namespace cmb {
@@ -18,7 +19,7 @@ namespace cmb {
   transform_reduce(I first, I last, T init, B binary_op, U unary_op)
   {
     for (; first != last; ++first)
-      init = binary_op( init, unary_op(*first) );
+      init = binary_op( std::move(init), unary_op(*first) );
 
     return init;
   }
@@ -33,7 +34,7 @@ namespace cmb {
   transform_reduce(I first1, I last1, I first2, T init, B1 binary_op1, B2 binary_op2)
   {
     for (; first1 != last1; ++first1, ++first2)
-      init = binary_op1( init, binary_op2(*first1, *first2) );
+      init = binary_op1( std::move(init), binary_op2(*first1, *first2) );
 
     return init;
   }
@@ -45,8 +46,8 @@ namespace cmb {
   constexpr inline T
   transform_reduce(I first1, I last1 ,I first2, T init)
   {
-    return cmb::transform_reduce(first1, last1, first2, init, cmb::plus<>{ },
-      cmb::multiplies<>{ });
+    return cmb::transform_reduce(first1, last1, first2, init, cmb::plus<>{},
+      cmb::multiplies<>{});
   }
 
 

@@ -3,7 +3,7 @@
 #ifndef ACCUMULATE_HXX
 #define ACCUMULATE_HXX
 
-#include "functional.hxx"
+#include <utility> // for std::move
 
 
 namespace cmb {
@@ -17,7 +17,7 @@ namespace cmb {
   accumulate(I first, I last, T init, B binary_op)
   {
     for (; first != last; ++first)
-      init = binary_op(init, *first);
+      init = binary_op( std::move(init), *first );
 
     return init;
   }
@@ -29,7 +29,10 @@ namespace cmb {
   constexpr inline T
   accumulate(I first, I last, T init)
   {
-    return cmb::accumulate(first, last, init, cmb::plus<>{ });
+    for (; first != last; ++first)
+      init = std::move(init), *first;
+
+    return init;
   }
 
 

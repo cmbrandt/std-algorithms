@@ -3,7 +3,7 @@
 #ifndef INNER_PRODUCT_HXX
 #define INNER_PRODUCT_HXX
 
-#include "functional.hxx"
+#include <utility> // for std:move
 
 
 namespace cmb {
@@ -15,10 +15,10 @@ namespace cmb {
             class B1, // B2 models BinaryOperation
             class B2> // B2 models BinaryOperation
   constexpr inline T
-  inner_product(I first1, I last1, I first2, T init, B1 op1, B2 op2)
+  inner_product(I first1, I last1, I first2, T init, B1 binary_op1, B2 binary_op2)
   {
     for (; first1 != last1; ++first1, ++first2)
-      init = op1( init, op2(*first1, *first2) );
+      init = binary_op1( std::move(init), binary_op2(*first1, *first2) );
 
     return init;
   }
@@ -30,8 +30,10 @@ namespace cmb {
   constexpr inline T
   inner_product(I first1, I last1, I first2, T init)
   {
-    return cmb::inner_product(first1, last1, first2, init, cmb::plus<>{ },
-      cmb::multiplies<>{ });
+    for (; first1 != last1; ++first1, ++first2)
+      init = std::move(init) + (*first1) * (*first2);
+
+    return init;
   }
 
 

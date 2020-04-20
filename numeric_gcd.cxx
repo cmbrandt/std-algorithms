@@ -6,7 +6,10 @@
 
 int main()
 {
+  int m = 8;
+  int n = 12;
 
+  auto result = cmb::gcd(m, n);
 
-  
+  std::cout << "gcd(m, n) = " << result << std::endl; // = 4
 }
