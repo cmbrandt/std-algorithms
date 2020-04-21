@@ -9,33 +9,20 @@
 namespace cmb {
 
 
-  // Implementation function
-  template <class M, // M models Integral
-            class N> // N models Integral
-  constexpr inline std::common_type_t<M, N>
-  lcm_impl(M m, N n)
-  {
-    return (m != 0 && n != 0)
-         ? ( std::abs(m) / cmb::gcd(m, n) ) * std::abs(n)
-         : 0;
-  }
-
-
-  // Generic function that invokes implementation function
   template <class M, // M models Integral
             class N> // N models Integral
   constexpr inline std::common_type_t<M, N>
   lcm(M m, N n)
   {
-    // Check that M and N are integral types
-    static_assert( std::is_integral_v<M>);
-    static_assert( std::is_integral_v<N>);
+    if ( m == 0 || n == 0)
+      return 0;
 
-    // Check that M and N are not type bool
-    static_assert(!std::is_same_v<std::remove_cv_t<M>, bool>);
-    static_assert(!std::is_same_v<std::remove_cv_t<N>, bool>);
+    using R = std::common_type_t<M, N>;
 
-    return lcm_impl(n, m % n);
+    R val1 = static_cast<R>( std::abs(m) / cmb::gcd(m, n) );
+    R val2 = static_cast<R>( std::abs(n) );
+
+    return val1 * val2;
   }
 
 
