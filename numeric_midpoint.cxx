@@ -1,7 +1,13 @@
 // numeric_midpoint.cxx
 
 #include <iostream>
+#include <limits>
 #include "include/numeric.hxx"
+
+
+//
+// UPDATE THIS EXAMPLE LATER ON !!!
+//
 
 
 int main()
