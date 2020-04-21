@@ -3,7 +3,8 @@
 #ifndef LCM_HXX
 #define LCM_HXX
 
-#include <type_traits>
+#include <cmath>       // for std::abs
+#include <type_traits> // for std::common_type_t
 
 
 namespace cmb {
