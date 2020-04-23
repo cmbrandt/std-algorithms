@@ -17,12 +17,15 @@ namespace cmb{
   {
     if (first != last) {
 
-      typename std::iterator_traits<I1>::value_type t{*first};
+      typename std::iterator_traits<I1>::value_type t1{*first};
 
-      *result = t;
+      *result = t1;
       for (++first, ++result; first != last; ++first, ++result) {
-        t = std::move(t) + *first;
-        *result = t;
+
+        typename std::iterator_traits<I1>::value_type t2{*first};
+
+        *result = t2 - t1;
+        t1 = std::move(t2);
       }
     }
     return result;
@@ -37,12 +40,15 @@ namespace cmb{
   {
     if (first != last) {
 
-      typename std::iterator_traits<I1>::value_type t{*first};
+      typename std::iterator_traits<I1>::value_type t1{*first};
 
-      *result = t;
+      *result = t1;
       for (++first, ++result; first != last; ++first, ++result) {
-        t = binary_op( std::move(t), *first );
-        *result = t;
+
+        typename std::iterator_traits<I1>::value_type t2{*first};
+
+        *result = binary_op(t2, t1);
+        t1 = std::move(t2);
       }
     }
     return result;

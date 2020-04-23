@@ -30,7 +30,7 @@ namespace cmb {
   accumulate(I first, I last, T init)
   {
     for (; first != last; ++first)
-      init = std::move(init), *first;
+      init = std::move(init) + *first;
 
     return init;
   }
