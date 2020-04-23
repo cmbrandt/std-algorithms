@@ -28,7 +28,7 @@ namespace cmb {
   // 6 parameter overload
   template <class I1, // I1 models InputIterator
             class I2, // I2 models InputIterator
-            class T,  // T is value_type<I>
+            class T,  // T is common_type_t<value_type<I1>, value_type<I2>>
             class B1, // B1 models BinaryOperation
             class B2> // B2 models BinaryOperation
   constexpr inline T
