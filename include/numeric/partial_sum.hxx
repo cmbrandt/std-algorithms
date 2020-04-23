@@ -3,13 +3,15 @@
 #ifndef PARTIAL_SUM_HXX
 #define PARTIAL_SUM_HXX
 
+#include <iterator> // for std::iterator_traits::value_type
+#include <utility>  // for std::move
 
 
 namespace cmb{
 
 
-  template <class I1,
-            class I2>
+  template <class I1, // I1 models IntputIterator
+            class I2> // I2 models OutputIterator
   constexpr inline I2
   partial_sum(I1 first, I1 last, I2 result)
   {
@@ -25,7 +27,6 @@ namespace cmb{
     }
     return result;
   }
-
 
 
   template <class I1, // I1 models IntputIterator
