@@ -17,25 +17,25 @@ namespace cmb {
   {
     if constexpr (std::is_integral_v<T>) {
 
-      using U = std::make_unsigned_t<T>;
+      using U = typename std::make_unsigned_t<T>;
 
-      int k = 1;
+      int sign = 1;
       U m = a;
       U M = b;
 
       if (a > b) {
 
-        k = -1;
-        m =  b;
-        M =  a;
+        sign = -1;
+        m = b;
+        M = a;
       }
 
-      return a + k*T( U(M - m) / 2 );
+      return a + sign * T( U(M - m) / 2 );
     }
-    else { // std::is_floating
-
+    else { // is_floating
+    
       constexpr T lo = std::numeric_limits<T>::min() * 2;
-      constexpr T hi = std::numeric_limits<T>::max() / 2;
+      constexpr T hi = std::numeric_limits<T>::min() / 2;
 
       const T abs_a = a < 0 ? -a : a;
       const T abs_b = b < 0 ? -b : b;

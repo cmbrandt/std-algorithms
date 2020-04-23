@@ -1,5 +1,5 @@
 // numeric_midpoint.cxx
-
+#include <numeric>
 #include <iostream>
 #include <limits>
 #include "include/numeric.hxx"
@@ -14,8 +14,8 @@ int main()
 {
   // Integral types
 
-  std::uint32_t a = std::numeric_limits<std::uint32_t>::max();
-  std::uint32_t b = std::numeric_limits<std::uint32_t>::max() - 2;
+  std::int32_t a = std::numeric_limits<std::int32_t>::max();
+  std::int32_t b = std::numeric_limits<std::int32_t>::max() - 2;
  
   std::cout << "\nUsing std::uint32_t:"
             << "\na: " << a
