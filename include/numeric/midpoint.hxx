@@ -65,6 +65,7 @@ namespace cmb {
   {
     // Check that T is a complete type
     //static_assert( sizeof(T) != 0 );
+    
     return a + (b - a) / 2;
     //return a + cmb::midpoint(std::ptrdiff_t{0}, b - a);
   }
