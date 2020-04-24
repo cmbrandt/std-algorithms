@@ -3,7 +3,8 @@
 #ifndef INCLUSIVE_SCAN_HXX
 #define INCLUSIVE_SCAN_HXX
 
-#include "functional.hxx"
+#include <iterator>       // for std::iterator_traits::value_type
+#include "functional.hxx" // for cmb::plus
 
 
 namespace cmb {
@@ -33,7 +34,7 @@ namespace cmb {
   inclusive_scan(I1 first, I1 last, I2 result, B binary_op)
   {
     if (first != last) {
-
+      
       typename std::iterator_traits<I1>::value_type init = *first;
       *result++ = init;
 
@@ -52,6 +53,7 @@ namespace cmb {
   {
     return cmb::inclusive_scan(first, last, result, cmb::plus<>{});
   }
+
 
 } // namespace cmb
 

@@ -11,6 +11,7 @@ int main()
   std::vector<int> x{ 3, 1, 4, 1, 5, 9, 2, 6 };
   std::vector<int> y(8);
 
+
   cmb::inclusive_scan(x.begin(), x.end(), y.begin());
 
   for (auto i : y)

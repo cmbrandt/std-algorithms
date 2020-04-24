@@ -11,6 +11,7 @@ int main()
   std::vector<int> x(8, 2);
   std::vector<int> y(8);
 
+
   cmb::partial_sum( x.begin(), x.end(), y.begin() );
 
   for (auto i : y)

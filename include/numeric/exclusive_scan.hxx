@@ -19,7 +19,7 @@ namespace cmb {
   exclusive_scan(I1 first, I1 last, I2 result, T init, B binary_op)
   {
     while (first != last) {
-
+      
       auto v = init;
       init = binary_op( init, *first);
       ++first;

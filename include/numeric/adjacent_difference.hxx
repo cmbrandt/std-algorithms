@@ -18,12 +18,10 @@ namespace cmb{
     if (first != last) {
 
       typename std::iterator_traits<I1>::value_type t1{*first};
-
       *result = t1;
+
       for (++first, ++result; first != last; ++first, ++result) {
-
         typename std::iterator_traits<I1>::value_type t2{*first};
-
         *result = t2 - t1;
         t1 = std::move(t2);
       }
@@ -39,14 +37,12 @@ namespace cmb{
   adjacent_difference(I1 first, I1 last, I2 result, B binary_op)
   {
     if (first != last) {
-
+      
       typename std::iterator_traits<I1>::value_type t1{*first};
-
       *result = t1;
+
       for (++first, ++result; first != last; ++first, ++result) {
-
         typename std::iterator_traits<I1>::value_type t2{*first};
-
         *result = binary_op(t2, t1);
         t1 = std::move(t2);
       }

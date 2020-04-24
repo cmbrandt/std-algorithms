@@ -16,7 +16,7 @@ namespace cmb {
   midpoint(T a, T b)
   {
     if constexpr (std::is_integral_v<T>) {
-
+      
       using U = typename std::make_unsigned_t<T>;
 
       int sign = 1;
@@ -65,7 +65,7 @@ namespace cmb {
   {
     // Check that T is a complete type
     //static_assert( sizeof(T) != 0 );
-    
+
     return a + (b - a) / 2;
     //return a + cmb::midpoint(std::ptrdiff_t{0}, b - a);
   }
