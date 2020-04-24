@@ -20,7 +20,7 @@ namespace cmb {
   transform_inclusive_scan(I1 first, I1 last, I2 result, B binary_op, U unary_op, T init)
   {
     for (; first != last; ++first, ++result) {
-      init = binary_op(init, unary_op(*first));
+      init = binary_op( init, unary_op(*first) );
       *result = init;
     }
     return result;
@@ -37,13 +37,13 @@ namespace cmb {
   {
     if (first != last) {
 
-      //typename std::iterator_traits<I1>::value_type init = *first;
       auto init = unary_op(*first);
       *result++ = init;
 
-      ++first;
-      if (first != last)
-        return cmb::transform_inclusive_scan(first, last, result, binary_op, unary_op, std::move(init));
+      if (++first != last)
+        return cmb::transform_inclusive_scan( first, last, result,
+                                              binary_op, unary_op,
+                                              std::move(init) );
     }
     return result;
   }
