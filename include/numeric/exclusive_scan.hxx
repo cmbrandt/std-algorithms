@@ -3,7 +3,8 @@
 #ifndef EXCLUSIVE_SCAN_HXX
 #define EXCLUSIVE_SCAN_HXX
 
-#include "functional.hxx"
+#include <utility>        // for std::move
+#include "functional.hxx" // for cmb::plus
 
 
 namespace cmb {
