@@ -9,7 +9,7 @@ int main()
   int m = 8;
   int n = 12;
 
-  auto result = cmb::lcm(m, n);
+  auto r = cmb::lcm(m, n);
 
-  std::cout << "cmb::lcm(m, n) = " << result << std::endl; // = 24
+  std::cout << "result = " << r << std::endl; // = 24
 }

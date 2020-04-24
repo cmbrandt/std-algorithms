@@ -9,7 +9,7 @@ int main()
   int m = 8;
   int n = 12;
 
-  auto result = cmb::gcd(m, n);
+  auto r = cmb::gcd(m, n);
 
-  std::cout << "cmb::gcd(m, n) = " << result << std::endl; // = 4
+  std::cout << "result = " << r << std::endl; // = 4
 }

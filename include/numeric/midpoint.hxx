@@ -4,7 +4,7 @@
 #define MIDPOINT_HXX
 
 #include <limits>      // for std::numeric_limits::min, std::numeric_limits::max
-#include <type_traits> // for std::is_integral_v, std::make_unsigned_t
+#include <type_traits> // for std::is_integral_v, std::make_unsigned_t, ...
 
 
 namespace cmb {
@@ -12,7 +12,8 @@ namespace cmb {
 
   // Overload for integer and floating-point types
   template <class T> // T models Arithmetic
-  constexpr inline T
+  constexpr inline std::enable_if_t<std::is_arithmetic_v<T>
+                                    && !std::is_same_v<bool, T>, T>
   midpoint(T a, T b)
   {
     if constexpr (std::is_integral_v<T>) {
@@ -35,10 +36,10 @@ namespace cmb {
     else { // is_floating
     
       constexpr T lo = std::numeric_limits<T>::min() * 2;
-      constexpr T hi = std::numeric_limits<T>::min() / 2;
+      constexpr T hi = std::numeric_limits<T>::max() / 2;
 
-      const T abs_a = a < 0 ? -a : a;
-      const T abs_b = b < 0 ? -b : b;
+      const T abs_a = std::abs(a);
+      const T abs_b = std::abs(b);
 
       // Most likely
       if (abs_a <= hi && abs_b <= hi)
@@ -60,14 +61,13 @@ namespace cmb {
 
   // Overload for pointers
   template <typename T> // T models Arithmetic
-  constexpr inline T*
-  midpoint(T* a, T* b) noexcept
+  constexpr inline std::enable_if_t<std::is_pointer_v<T>, T>
+  midpoint(T a, T b) noexcept
   {
     // Check that T is a complete type
-    //static_assert( sizeof(T) != 0 );
+    static_assert( sizeof(T*) != 0 );
 
-    return a + (b - a) / 2;
-    //return a + cmb::midpoint(std::ptrdiff_t{0}, b - a);
+    return a + cmb::midpoint(std::ptrdiff_t{0}, b - a);
   }
 
 

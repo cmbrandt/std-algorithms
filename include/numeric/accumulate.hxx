@@ -9,6 +9,19 @@
 namespace cmb {
 
 
+  // 3 parameter overload
+  template <class I, // I models InputIterator
+            class T> // T models Arithmetic
+  constexpr inline T
+  accumulate(I first, I last, T init)
+  {
+    for (; first != last; ++first)
+      init = std::move(init) + *first;
+
+    return init;
+  }
+
+  
   // 4 parameter overload
   template <class I, // I models InputIterator
             class T, // T models Arithmetic
@@ -18,19 +31,6 @@ namespace cmb {
   {
     for (; first != last; ++first)
       init = binary_op( std::move(init), *first );
-
-    return init;
-  }
-
-
-  // 3 parameter overload
-  template <class I, // I models InputIterator
-            class T> // T models Arithmetic
-  constexpr inline T
-  accumulate(I first, I last, T init)
-  {
-    for (; first != last; ++first)
-      init = std::move(init) + *first;
 
     return init;
   }

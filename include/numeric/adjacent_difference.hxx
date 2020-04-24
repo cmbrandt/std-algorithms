@@ -10,6 +10,7 @@
 namespace cmb{
 
 
+  // 3 parameter overload
   template <class I1, // I1 models IntputIterator
             class I2> // I2 models OutputIterator
   constexpr inline I2
@@ -31,6 +32,7 @@ namespace cmb{
   }
 
 
+  // 4 parameter overload
   template <class I1, // I1 models IntputIterator
             class I2, // I2 models OutputIterator
             class B>  // B models BinaryOperation
@@ -48,7 +50,7 @@ namespace cmb{
         t1 = std::move(t2);
       }
     }
-    
+
     return result;
   }
 
