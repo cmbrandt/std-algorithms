@@ -11,7 +11,7 @@ namespace cmb {
 
   template <class I1, // I1 models InputIterator
             class I2, // I2 models OutputIterator
-            class T,  // T models [ Arithmetc ?? ]
+            class T,  // T models Arithmetic
             class B,  // B models BinaryOperation
             class U>  // U models UnaryOperation
   constexpr inline I2
@@ -24,6 +24,7 @@ namespace cmb {
       ++first;
       *result++ = std::move(v);
     }
+    
     return result;
   }
 

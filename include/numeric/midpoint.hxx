@@ -11,12 +11,12 @@ namespace cmb {
 
 
   // Overload for integer and floating-point types
-  template <class T>
+  template <class T> // T models Arithmetic
   constexpr inline T
   midpoint(T a, T b)
   {
     if constexpr (std::is_integral_v<T>) {
-      
+
       using U = typename std::make_unsigned_t<T>;
 
       int sign = 1;
@@ -59,7 +59,7 @@ namespace cmb {
 
 
   // Overload for pointers
-  template <typename T>
+  template <typename T> // T models Arithmetic
   constexpr inline T*
   midpoint(T* a, T* b) noexcept
   {

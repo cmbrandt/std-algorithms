@@ -11,7 +11,7 @@ namespace cmb {
 
   // 4 parameter overload
   template <class I, // I models InputIterator
-            class T, // T is value_type<I>
+            class T, // T models Arithmetic
             class B> // B models BinaryOperation
   constexpr inline T
   accumulate(I first, I last, T init, B binary_op)
@@ -25,7 +25,7 @@ namespace cmb {
 
   // 3 parameter overload
   template <class I, // I models InputIterator
-            class T> // T is value_type<I>
+            class T> // T models Arithmetic
   constexpr inline T
   accumulate(I first, I last, T init)
   {

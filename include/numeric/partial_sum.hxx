@@ -25,6 +25,7 @@ namespace cmb{
         *result = t;
       }
     }
+
     return result;
   }
 
@@ -36,7 +37,7 @@ namespace cmb{
   partial_sum(I1 first, I1 last, I2 result, B binary_op)
   {
     if (first != last) {
-      
+
       typename std::iterator_traits<I1>::value_type t{*first};
       *result = t;
 
@@ -45,6 +46,7 @@ namespace cmb{
         *result = t;
       }
     }
+    
     return result;
   }
 

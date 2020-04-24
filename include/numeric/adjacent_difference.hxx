@@ -26,6 +26,7 @@ namespace cmb{
         t1 = std::move(t2);
       }
     }
+
     return result;
   }
 
@@ -37,7 +38,7 @@ namespace cmb{
   adjacent_difference(I1 first, I1 last, I2 result, B binary_op)
   {
     if (first != last) {
-      
+
       typename std::iterator_traits<I1>::value_type t1{*first};
       *result = t1;
 
@@ -47,6 +48,7 @@ namespace cmb{
         t1 = std::move(t2);
       }
     }
+    
     return result;
   }
 

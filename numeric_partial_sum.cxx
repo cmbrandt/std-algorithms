@@ -2,28 +2,27 @@
 
 #include <iostream>
 #include <vector>
-#include "include/functional.hxx"
 #include "include/numeric.hxx"
 
 
 int main()
 {
-  std::vector<int> x(8, 2);
+  std::vector<int> v(8, 2);
+  std::vector<int> x(8);
   std::vector<int> y(8);
 
+  auto multiply = [ ](auto a, auto b) { return a * b; };
 
-  cmb::partial_sum( x.begin(), x.end(), y.begin() );
+  cmb::partial_sum(v.begin(), v.end(), x.begin());
+  cmb::partial_sum(v.begin(), v.end(), y.begin(), multiply);
 
-  for (auto i : y)
-    std::cout << " " << i;
+  for (auto i : x)
+    std::cout << " " << i; // = 2 4 6 8 10 12 14 16
 
   std::cout << std::endl;
 
-
-  cmb::partial_sum( x.begin(), x.end(), y.begin(), cmb::multiplies<>{} );
-
   for (auto i : y)
-    std::cout << " " << i;
+    std::cout << " " << i; // = 2 4 8 16 32 64 128 256
 
   std::cout << std::endl; 
 }

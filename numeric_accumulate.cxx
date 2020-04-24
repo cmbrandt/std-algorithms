@@ -2,7 +2,6 @@
 
 #include <iostream>
 #include <vector>
-#include "include/functional.hxx"
 #include "include/numeric.hxx"
 
 
@@ -10,10 +9,12 @@ int main()
 {
   std::vector<int> v{ 1, 2, 3, 4, 5, 6, 7, 8 };
 
-  auto sum  = cmb::accumulate(v.begin(), v.end(), 0);
-  auto prod = cmb::accumulate(v.begin(), v.end(), 1, cmb::multiplies<>{ });
+  auto multiply = [ ](auto a, auto b) { return a * b; };
 
-  std::cout <<   "sum  = " << sum  // = 36
-            << "\nprod = " << prod // = 40320
+  auto r1 = cmb::accumulate(v.begin(), v.end(), 0);
+  auto r2 = cmb::accumulate(v.begin(), v.end(), 1, multiply);
+
+  std::cout <<   "result 1 = " << r1 // = 36
+            << "\nresult 2 = " << r2 // = 40320
             << std::endl;
 }

@@ -8,7 +8,7 @@ namespace cmb {
 
 
   template <class I, // I models ForwardIterator
-            class T> // T is value_type<I>
+            class T> // T models Arithmetic
   constexpr inline void
   iota(I first, I last, T value)
   {

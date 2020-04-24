@@ -15,7 +15,7 @@ namespace cmb {
             class I2, // I2 models OutputIterator
             class B,  // B models BinaryOperation
             class U,  // U models UnaryOperation
-            class T>  // T models [ Arithmetc ?? ]
+            class T>  // T models Arithmetic
   constexpr inline I2
   transform_inclusive_scan(I1 first, I1 last, I2 result, B binary_op, U unary_op, T init)
   {
@@ -23,6 +23,7 @@ namespace cmb {
       init = binary_op( init, unary_op(*first) );
       *result = init;
     }
+
     return result;
   }
 
@@ -45,6 +46,7 @@ namespace cmb {
                                               binary_op, unary_op,
                                               std::move(init) );
     }
+    
     return result;
   }
 

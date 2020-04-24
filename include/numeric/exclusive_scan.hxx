@@ -13,7 +13,7 @@ namespace cmb {
   // 5 parameter overload
   template <class I1, // I1 models InputIterator
             class I2, // I2 models OutputIterator
-            class T,  // T models [ Arithmetc ?? ]
+            class T,  // T models Arithmetic
             class B>  // B models BinaryOperation
   constexpr inline I2
   exclusive_scan(I1 first, I1 last, I2 result, T init, B binary_op)
@@ -25,6 +25,7 @@ namespace cmb {
       ++first;
       *result++ = std::move(v);
     }
+    
     return result;
   }
 
@@ -32,7 +33,7 @@ namespace cmb {
   // 4 parameter overload
   template <class I1, // I1 models InputIterator
             class I2, // I2 models OutputIterator
-            class T>  // T models [ Arithmetc ?? ]
+            class T>  // T models Arithmetic
   constexpr inline I2
   exclusive_scan(I1 first, I1 last, I2 result, T init)
   {

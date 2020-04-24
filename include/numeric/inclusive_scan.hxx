@@ -14,7 +14,7 @@ namespace cmb {
   template <class I1, // I1 models InputIterator
             class I2, // I2 models OutputIterator
             class B,  // B models BinaryOperation
-            class T>  // T models [ Arithmetc ?? ]
+            class T>  // T models Arithmetic
   constexpr inline I2
   inclusive_scan(I1 first, I1 last, I2 result, B binary_op, T init)
   {
@@ -22,6 +22,7 @@ namespace cmb {
       init = binary_op(init, *first);
       *result = init;
     }
+
     return result;
   }
 
@@ -41,6 +42,7 @@ namespace cmb {
       if (++first != last)
         return cmb::inclusive_scan(first, last, result, binary_op, std::move(init));
     }
+    
     return result;
   }
 
