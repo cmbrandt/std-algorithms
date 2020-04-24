@@ -1,5 +1,5 @@
 // numeric_transform_exclusive_scan.cxx
-#include <numeric>
+
 #include <iostream>
 #include <vector>
 #include "include/functional.hxx"

@@ -34,12 +34,12 @@ namespace cmb {
   inclusive_scan(I1 first, I1 last, I2 result, B binary_op)
   {
     if (first != last) {
-      
+
       typename std::iterator_traits<I1>::value_type init = *first;
       *result++ = init;
 
       if (++first != last)
-        return cmb::inclusive_scan(first, last, result, binary_op, init);
+        return cmb::inclusive_scan(first, last, result, binary_op, std::move(init));
     }
     return result;
   }
