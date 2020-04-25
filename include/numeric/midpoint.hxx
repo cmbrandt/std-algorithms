@@ -12,8 +12,8 @@ namespace cmb {
 
   // Overload for integer and floating-point types
   template <class T> // T models Arithmetic
-  constexpr std::enable_if_t<!std::is_pointer_v<T>, T>
-  midpoint(T a, T b)
+  constexpr T
+  midpoint(T a, T b) noexcept
   {
     if constexpr (std::is_integral_v<T>) {
 
@@ -61,7 +61,7 @@ namespace cmb {
   // Overload for pointers
   template <typename T> // T models Pointer
   constexpr std::enable_if_t<std::is_object_v<T>, T*>
-  midpoint(T* a, T* b) noexcept
+  midpoint(T* a, T* b)
   {
     // T is a complete type
     static_assert( sizeof(T*) != 0 );

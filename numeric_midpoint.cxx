@@ -30,7 +30,6 @@ int main()
             << "\nCorrect:   " << c2 // = 3.40282e+38
             << std::endl;
 
-
   // Pointers
 
   std::vector<int> v{ 1, 2, 3, 4, 5, 6, 7 };

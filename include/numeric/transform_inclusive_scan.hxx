@@ -42,9 +42,8 @@ namespace cmb {
       *result++ = init;
 
       if (++first != last)
-        return cmb::transform_inclusive_scan( first, last, result,
-                                              binary_op, unary_op,
-                                              std::move(init) );
+        return cmb::transform_inclusive_scan( first, last, result, binary_op,
+                                              unary_op, std::move(init) );
     }
 
     return result;
