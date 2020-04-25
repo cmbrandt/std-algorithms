@@ -11,10 +11,10 @@ namespace cmb {
 
   template <class I1, // I1 models InputIterator
             class I2, // I2 models OutputIterator
-            class T,  // T models Arithmetic
-            class B,  // B models BinaryOperation
-            class U>  // U models UnaryOperation
-  constexpr inline I2
+            class T,  // T  models Arithmetic
+            class B,  // B  models BinaryOperation
+            class U>  // U  models UnaryOperation
+  constexpr I2
   transform_exclusive_scan(I1 first, I1 last, I2 result, T init, B binary_op, U unary_op)
   {
     while (first != last) {
@@ -24,7 +24,7 @@ namespace cmb {
       ++first;
       *result++ = std::move(v);
     }
-    
+
     return result;
   }
 

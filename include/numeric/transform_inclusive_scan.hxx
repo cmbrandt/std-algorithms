@@ -13,10 +13,10 @@ namespace cmb {
   // 5 parameter overload
   template <class I1, // I1 models InputIterator
             class I2, // I2 models OutputIterator
-            class B,  // B models BinaryOperation
-            class U,  // U models UnaryOperation
-            class T>  // T models Arithmetic
-  constexpr inline I2
+            class B,  // B  models BinaryOperation
+            class U,  // U  models UnaryOperation
+            class T>  // T  models Arithmetic
+  constexpr I2
   transform_inclusive_scan(I1 first, I1 last, I2 result, B binary_op, U unary_op, T init)
   {
     for (; first != last; ++first, ++result) {
@@ -31,9 +31,9 @@ namespace cmb {
   // 4 parameter overload
   template <class I1, // I1 models InputIterator
             class I2, // I2 models OutputIterator
-            class B,  // B models BinaryOperation
-            class U>  // U models UnaryOperation
-  constexpr inline I2
+            class B,  // B  models BinaryOperation
+            class U>  // U  models UnaryOperation
+  constexpr I2
   transform_inclusive_scan(I1 first, I1 last, I2 result, B binary_op, U unary_op)
   {
     if (first != last) {
@@ -46,7 +46,7 @@ namespace cmb {
                                               binary_op, unary_op,
                                               std::move(init) );
     }
-    
+
     return result;
   }
 

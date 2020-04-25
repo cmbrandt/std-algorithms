@@ -12,7 +12,7 @@ namespace cmb {
 
   // Implementation function
   template <class T> // T models Integral
-  constexpr inline T
+  constexpr T
   gcd_impl(T m, T n)
   {
     return n == 0 ? m : gcd_impl(n, m % n);
@@ -21,7 +21,7 @@ namespace cmb {
   // Generic function that invokes implementation function
   template <class M, // M models Integral
             class N> // N models Integral
-  constexpr inline std::common_type_t<M, N>
+  constexpr std::common_type_t<M, N>
   gcd(M m, N n)
   {
     using R = std::common_type_t<M, N>;

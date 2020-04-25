@@ -15,7 +15,7 @@ namespace cmb {
   template <class I, // I models InputIterator
             class T, // T models Arithmetic
             class B> // B models BinaryOperation
-  constexpr inline T
+  constexpr T
   reduce(I first, I last, T init, B binary_op)
   {
     for (; first != last; ++first)
@@ -28,7 +28,7 @@ namespace cmb {
   // 3 parameter overload
   template <class I, // I models InputIterator
             class T> // T models Arithmetic
-  constexpr inline T
+  constexpr T
   reduce(I first, I last, T init)
   {
     return cmb::reduce(first, last, init, cmb::plus<>{});
@@ -37,7 +37,7 @@ namespace cmb {
 
   // 2 parameter overload
   template <class I> // I models InputIterator
-  constexpr inline typename std::iterator_traits<I>::value_type
+  constexpr typename std::iterator_traits<I>::value_type
   reduce(I first, I last)
   {
     return cmb::reduce(first, last,

@@ -16,7 +16,7 @@ namespace cmb {
             class T,  // T  models Arithmetic
             class B1, // B1 models BinaryOperation
             class B2> // B2 models BinaryOperation
-  constexpr inline T
+  constexpr T
   transform_reduce(I1 first1, I1 last1, I2 first2, T init, B1 binary_op1, B2 binary_op2)
   {
     for (; first1 != last1; ++first1, ++first2)
@@ -30,7 +30,7 @@ namespace cmb {
   template <class I1, // I1 models InputIterator
             class I2, // I2 models InputIterator
             class T>  // T  models Arithmetic
-  constexpr inline T
+  constexpr T
   transform_reduce(I1 first1, I1 last1, I2 first2, T init)
   {
     return cmb::transform_reduce(first1, last1, first2, init, cmb::plus<>{},
@@ -43,7 +43,7 @@ namespace cmb {
             class T, // T models Arithmetic
             class B, // B models BinaryOperation
             class U> // U models UnaryOperation
-  constexpr inline T
+  constexpr T
   transform_reduce(I first, I last, T init, B binary_op, U unary_op)
   {
     for (; first != last; ++first)

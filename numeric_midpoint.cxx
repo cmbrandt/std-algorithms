@@ -32,7 +32,7 @@ int main()
 
 
   // Pointers
-  
+
   std::vector<int> v{ 1, 2, 3, 4, 5, 6, 7 };
 
   auto vp = cmb::midpoint(v.data(), v.data() + v.size());

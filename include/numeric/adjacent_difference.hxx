@@ -13,7 +13,7 @@ namespace cmb{
   // 3 parameter overload
   template <class I1, // I1 models IntputIterator
             class I2> // I2 models OutputIterator
-  constexpr inline I2
+  constexpr I2
   adjacent_difference(I1 first, I1 last, I2 result)
   {
     if (first != last) {
@@ -35,8 +35,8 @@ namespace cmb{
   // 4 parameter overload
   template <class I1, // I1 models IntputIterator
             class I2, // I2 models OutputIterator
-            class B>  // B models BinaryOperation
-  constexpr inline I2
+            class B>  // B  models BinaryOperation
+  constexpr I2
   adjacent_difference(I1 first, I1 last, I2 result, B binary_op)
   {
     if (first != last) {

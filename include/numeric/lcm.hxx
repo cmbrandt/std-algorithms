@@ -12,7 +12,7 @@ namespace cmb {
 
   template <class M, // M models Integral
             class N> // N models Integral
-  constexpr inline std::common_type_t<M, N>
+  constexpr std::common_type_t<M, N>
   lcm(M m, N n)
   {
     if ( m == 0 || n == 0)
