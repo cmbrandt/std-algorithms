@@ -51,8 +51,7 @@ namespace cmb {
   constexpr void
   advance(I& i, D n)
   {
-    typename std::iterator_traits<I>::iterator_category iterator_tag;
-    advance_impl(i, n, iterator_tag);
+    advance_impl( i, n, typename std::iterator_traits<I>::iterator_category{} );
   }
 
 

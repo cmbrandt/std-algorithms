@@ -36,8 +36,7 @@ namespace cmb {
   constexpr typename std::iterator_traits<I>::difference_type
   distance(I first, I last)
   {
-    typename std::iterator_traits<I>::iterator_category iterator_tag;
-    return distance_impl(first, last, iterator_tag);
+    return distance_impl( first, last, typename std::iterator_traits<I>::iterator_category{} );
   }
 
 
