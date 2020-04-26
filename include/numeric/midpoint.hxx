@@ -34,8 +34,8 @@ namespace cmb {
     }
     else { // is_floating
     
-      constexpr T lo = std::numeric_limits<T>::min() * 2;
-      constexpr T hi = std::numeric_limits<T>::max() / 2;
+      constexpr T lo = std::numeric_limits<T>::min( ) * 2;
+      constexpr T hi = std::numeric_limits<T>::max( ) / 2;
 
       const T abs_a = std::abs(a);
       const T abs_b = std::abs(b);
@@ -66,7 +66,7 @@ namespace cmb {
     // T is a complete type
     static_assert( sizeof(T*) != 0 );
 
-    return a + cmb::midpoint(std::ptrdiff_t{0}, b - a);
+    return a + cmb::midpoint( std::ptrdiff_t{0}, b - a );
   }
 
 

@@ -22,6 +22,7 @@ namespace cmb {
 
       auto v = init;
       init = binary_op(init, *first);
+
       ++first;
       *result++ = std::move(v);
     }
@@ -37,7 +38,7 @@ namespace cmb {
   constexpr I2
   exclusive_scan(I1 first, I1 last, I2 result, T init)
   {
-    return cmb::exclusive_scan(first, last, result, init, cmb::plus<>{});
+    return cmb::exclusive_scan( first, last, result, std::move(init), cmb::plus<>{ } );
   }
 
 

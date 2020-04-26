@@ -21,6 +21,7 @@ namespace cmb {
       
       auto v = init;
       init = binary_op( init, unary_op(*first) );
+
       ++first;
       *result++ = std::move(v);
     }

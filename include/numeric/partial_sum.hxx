@@ -19,8 +19,8 @@ namespace cmb{
     if (first != last) {
 
       typename std::iterator_traits<I1>::value_type t{*first};
-
       *result = t;
+
       for (++first, ++result; first != last; ++first, ++result) {
         t = std::move(t) + *first;
         *result = t;

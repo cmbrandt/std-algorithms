@@ -40,7 +40,7 @@ namespace cmb {
       *result++ = init;
 
       if (++first != last)
-        return cmb::inclusive_scan(first, last, result, binary_op, std::move(init));
+        return cmb::inclusive_scan( first, last, result, binary_op, std::move(init) );
     }
 
     return result;
@@ -53,7 +53,7 @@ namespace cmb {
   constexpr I2
   inclusive_scan(I1 first, I1 last, I2 result)
   {
-    return cmb::inclusive_scan(first, last, result, cmb::plus<>{});
+    return cmb::inclusive_scan( first, last, result, cmb::plus<>{ } );
   }
 
 

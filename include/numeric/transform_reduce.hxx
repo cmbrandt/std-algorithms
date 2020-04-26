@@ -20,7 +20,7 @@ namespace cmb {
   transform_reduce(I1 first1, I1 last1, I2 first2, T init, B1 binary_op1, B2 binary_op2)
   {
     for (; first1 != last1; ++first1, ++first2)
-      init = binary_op1( std::move(init), binary_op2(*first1, *first2) );
+      init = binary_op1( init, binary_op2(*first1, *first2) );
 
     return init;
   }
@@ -33,8 +33,8 @@ namespace cmb {
   constexpr T
   transform_reduce(I1 first1, I1 last1, I2 first2, T init)
   {
-    return cmb::transform_reduce(first1, last1, first2, init, cmb::plus<>{},
-      cmb::multiplies<>{});
+    return cmb::transform_reduce( first1, last1, first2, std::move(init),
+                                  cmb::plus<>{ }, cmb::multiplies<>{ } );
   }
 
 
@@ -47,7 +47,7 @@ namespace cmb {
   transform_reduce(I first, I last, T init, B binary_op, U unary_op)
   {
     for (; first != last; ++first)
-      init = binary_op( std::move(init), unary_op(*first) );
+      init = binary_op( init, unary_op(*first) );
 
     return init;
   }
