@@ -34,7 +34,7 @@ namespace cmb {
   transform_reduce(I1 first1, I1 last1, I2 first2, T init)
   {
     return cmb::transform_reduce( first1, last1, first2, std::move(init),
-                                  cmb::plus<>{ }, cmb::multiplies<>{ } );
+                                  cmb::plus<>{}, cmb::multiplies<>{} );
   }
 
 

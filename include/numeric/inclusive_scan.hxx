@@ -53,7 +53,7 @@ namespace cmb {
   constexpr I2
   inclusive_scan(I1 first, I1 last, I2 result)
   {
-    return cmb::inclusive_scan( first, last, result, cmb::plus<>{ } );
+    return cmb::inclusive_scan( first, last, result, cmb::plus<>{} );
   }
 
 

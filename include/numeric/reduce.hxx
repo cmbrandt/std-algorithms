@@ -31,7 +31,7 @@ namespace cmb {
   constexpr T
   reduce(I first, I last, T init)
   {
-    return cmb::reduce( first, last, std::move(init), cmb::plus<>{ } );
+    return cmb::reduce( first, last, std::move(init), cmb::plus<>{} );
   }
 
 
@@ -40,7 +40,7 @@ namespace cmb {
   constexpr typename std::iterator_traits<I>::value_type
   reduce(I first, I last)
   {
-    return cmb::reduce( first, last, typename std::iterator_traits<I>::value_type{ } );
+    return cmb::reduce( first, last, typename std::iterator_traits<I>::value_type{} );
   }
 
 

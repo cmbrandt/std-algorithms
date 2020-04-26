@@ -38,7 +38,7 @@ namespace cmb {
   constexpr I2
   exclusive_scan(I1 first, I1 last, I2 result, T init)
   {
-    return cmb::exclusive_scan( first, last, result, std::move(init), cmb::plus<>{ } );
+    return cmb::exclusive_scan( first, last, result, std::move(init), cmb::plus<>{} );
   }
 
 
