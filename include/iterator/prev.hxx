@@ -11,11 +11,11 @@ namespace cmb {
 
 
   template <class I> // I models BidirectionalIterator
-  constexpr inline I
-  prev(I it, typename std::iterator_traits<I>::difference_type n = 1)
+  constexpr I
+  prev(I x, typename std::iterator_traits<I>::difference_type n = 1)
   {
-    cmb::advance(it, -n);
-    return it;
+    cmb::advance(x, -n);
+    return x;
   }
 
 

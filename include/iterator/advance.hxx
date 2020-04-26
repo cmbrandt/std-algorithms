@@ -13,46 +13,46 @@ namespace cmb {
   // Implementation overload for InputIterator
   template <typename I, // I models InputIterator
             typename D> // D models Integral
-  constexpr inline void
-  advance_impl(I& it, D n, std::input_iterator_tag)
+  constexpr void
+  advance_impl(I& i, D n, std::input_iterator_tag)
   {
     assert(n >= 0);
     while (n--)
-      ++it;
+      ++i;
   }
 
 
   // Implementation overload for BidirectionalIterator
   template <typename I, // I models BidirectionalIterator
             typename D> // D models Interal
-  constexpr inline void
-  advance_impl(I& it, D n, std::bidirectional_iterator_tag)
+  constexpr void
+  advance_impl(I& i, D n, std::bidirectional_iterator_tag)
   {
     if (n < 0)
-      while (n++) --it;
+      while (n++) --i;
     else
-      while (n--) ++it;
+      while (n--) ++i;
   }
 
 
   // Implementation overload for RandomAccessIterator
   template <typename I, // I models RandomAccessIterator
             typename D> // D models Integral
-  constexpr inline void
-  advance_impl(I& it, D n, std::random_access_iterator_tag)
+  constexpr void
+  advance_impl(I& i, D n, std::random_access_iterator_tag)
   {
-    it += n;
+    i += n;
   }
 
 
   // Generic function that dispatches to implementation overloads
   template <typename I, // I models InputIterator
             typename D> // D models Integral
-  constexpr inline void
-  advance(I& it, D n)
+  constexpr void
+  advance(I& i, D n)
   {
     typename std::iterator_traits<I>::iterator_category iterator_tag;
-    advance_impl(it, n, iterator_tag);
+    advance_impl(i, n, iterator_tag);
   }
 
 
