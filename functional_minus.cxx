@@ -19,11 +19,3 @@ int main()
             << "\nresult 2 = " << r2 // = -1.3
             <<std::endl;
 }
-/*
-{
-  std::cout <<   "arithmetic_test(1,   2  ) = "
-            <<    arithmetic_test(1,   2  ) // = -1
-            << "\narithmetic_test(1.2, 2.5) = "
-            <<    arithmetic_test(1.2, 2.5) // = -1.3
-            << std::endl;
-}*/
