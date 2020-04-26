@@ -34,8 +34,8 @@ namespace cmb {
     }
     else { // is_floating
     
-      constexpr T lo = std::numeric_limits<T>::min( ) * 2;
-      constexpr T hi = std::numeric_limits<T>::max( ) / 2;
+      constexpr T lo = std::numeric_limits<T>::min() * 2;
+      constexpr T hi = std::numeric_limits<T>::max() / 2;
 
       const T abs_a = std::abs(a);
       const T abs_b = std::abs(b);

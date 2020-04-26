@@ -15,9 +15,9 @@ int main()
   auto mul = [ ](auto a, auto b) { return a * b; };
   auto neg = [ ](auto a)         { return -a; };
 
-  auto r1 = cmb::transform_reduce(x.begin(), x.end(), y.begin(), 0);
-  auto r2 = cmb::transform_reduce(x.begin(), x.end(), y.begin(), 0, sub, mul);
-  auto r3 = cmb::transform_reduce(x.begin(), x.end(), 0, add, neg);
+  auto r1 = cmb::transform_reduce( x.begin(), x.end(), y.begin(), 0 );
+  auto r2 = cmb::transform_reduce( x.begin(), x.end(), y.begin(), 0, sub, mul );
+  auto r3 = cmb::transform_reduce( x.begin(), x.end(), 0, add, neg );
 
   std::cout <<   "result 1 = " << r1 // =  10007
             << "\nresult 2 = " << r2 // = -10007

@@ -11,8 +11,8 @@ int main()
 
   auto multiply = [ ](auto a, auto b) { return a * b; };
 
-  auto r1 = cmb::accumulate(v.begin(), v.end(), 0);
-  auto r2 = cmb::accumulate(v.begin(), v.end(), 1, multiply);
+  auto r1 = cmb::accumulate( v.begin(), v.end(), 0 );
+  auto r2 = cmb::accumulate( v.begin(), v.end(), 1, multiply );
 
   std::cout <<   "result 1 = " << r1 // = 36
             << "\nresult 2 = " << r2 // = 40320

@@ -34,7 +34,7 @@ int main()
 
   std::vector<int> v{ 1, 2, 3, 4, 5, 6, 7 };
 
-  int* vp = cmb::midpoint(v.data(), v.data() + v.size());
+  int* vp = cmb::midpoint( v.data(), v.data() + v.size() );
 
   std::cout << "\nresult = " << *vp << std::endl; // = 4
 

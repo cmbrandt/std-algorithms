@@ -15,7 +15,7 @@ namespace cmb {
   constexpr T
   gcd_impl(T m, T n)
   {
-    return n == 0 ? m : gcd_impl( n, m % n );
+    return n == 0 ? m : gcd_impl(n, m % n);
   }
 
   // Generic function that invokes implementation function

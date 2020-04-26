@@ -13,8 +13,8 @@ int main()
 
   auto multiply = [ ](auto a, auto b) { return a * b; };
 
-  cmb::partial_sum(v.begin(), v.end(), x.begin());
-  cmb::partial_sum(v.begin(), v.end(), y.begin(), multiply);
+  cmb::partial_sum( v.begin(), v.end(), x.begin() );
+  cmb::partial_sum( v.begin(), v.end(), y.begin(), multiply );
 
   for (auto i : x)
     std::cout << " " << i; // = 2 4 6 8 10 12 14 16

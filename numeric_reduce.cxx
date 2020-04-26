@@ -11,9 +11,9 @@ int main()
 
   auto add = [ ](auto a, auto b) { return a + b; };
 
-  auto r1 = cmb::reduce(v.begin(), v.end());
-  auto r2 = cmb::reduce(v.begin(), v.end(), 0);
-  auto r3 = cmb::reduce(v.begin(), v.end(), 0, add);
+  auto r1 = cmb::reduce( v.begin(), v.end() );
+  auto r2 = cmb::reduce( v.begin(), v.end(), 0 );
+  auto r3 = cmb::reduce( v.begin(), v.end(), 0, add );
 
   std::cout <<   "result 1 = " << r1 // = 36
             << "\nresult 2 = " << r2 // = 36

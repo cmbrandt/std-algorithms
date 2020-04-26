@@ -13,8 +13,8 @@ int main()
 
   auto multiply = [ ](auto a, auto b) { return a * b; };
 
-  cmb::exclusive_scan(v.begin(), v.end(), x.begin(), 0);
-  cmb::exclusive_scan(v.begin(), v.end(), y.begin(), 1, multiply);
+  cmb::exclusive_scan( v.begin(), v.end(), x.begin(), 0 );
+  cmb::exclusive_scan( v.begin(), v.end(), y.begin(), 1, multiply );
 
   for (auto i : x)
     std::cout << " " << i; // = 0 3 4 8 9 14 23 25
