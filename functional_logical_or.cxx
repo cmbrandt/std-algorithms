@@ -5,8 +5,8 @@
 
 
 template <typename T,
-          typename C = cmb::logical_or<>>
-T logical_test(T a, T b, C logical = C())
+          typename L = cmb::logical_or<>>
+T logical_test( T a, T b, L logical = L{} )
 { return logical(a, b); }
 
 

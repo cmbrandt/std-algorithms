@@ -11,8 +11,10 @@ int main()
 
   int v = 4;
   
-  auto r1 = cmb::binary_search(x.begin(), x.end(), v);
-  auto r2 = cmb::binary_search(x.begin(), x.end(), v, cmb::less<>{ });
+  auto less = [ ](auto a, auto b) { return a < b; };
+
+  auto r1 = cmb::binary_search( x.begin(), x.end(), v );
+  auto r2 = cmb::binary_search( x.begin(), x.end(), v, less );
 
   std::cout <<   "result 1 = " << r1 // = 1
             << "\nresult 2 = " << r2 // = 1

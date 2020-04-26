@@ -5,8 +5,8 @@
 
 
 template <typename T,
-          typename C = cmb::logical_not<>>
-T logical_test(T a, C logical = C())
+          typename L = cmb::logical_not<>>
+T logical_test( T a, L logical = L{} )
 { return logical(a); }
 
 

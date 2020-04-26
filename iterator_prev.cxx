@@ -9,9 +9,9 @@ int main()
 {
   std::vector<int> v{ 1, 2, 3 };
 
-  auto it = v.end();
+  auto i = v.end();
 
-  auto pv = cmb::prev(it, 2);
+  auto r = cmb::prev(i, 2);
 
-  std::cout << "*pv = " << *pv << std::endl; // = 2
+  std::cout << "*result = " << *r << std::endl; // = 2
 }

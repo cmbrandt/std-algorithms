@@ -9,9 +9,9 @@ int main()
 {
   std::vector<int> v{ 1, 2, 3 };
 
-  auto it = v.begin();
+  auto i = v.begin();
 
-  auto nx = cmb::next(it, 2);
+  auto r = cmb::next(i, 2);
 
-  std::cout << "*nx = " << *nx << std::endl; // = 3
+  std::cout << "*result = " << *r << std::endl; // = 3
 }

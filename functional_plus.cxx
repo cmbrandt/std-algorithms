@@ -5,8 +5,8 @@
 
 
 template <typename T,
-          typename C = cmb::plus<>>
-T arithmetic_test(T a, T b, C arithmetic = C())
+          typename A = cmb::plus<>>
+T arithmetic_test( T a, T b, A arithmetic = A{} )
 { return arithmetic(a, b); }
 
 

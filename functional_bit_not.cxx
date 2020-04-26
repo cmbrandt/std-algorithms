@@ -5,8 +5,8 @@
 
 
 template <typename T,
-          typename C = cmb::bit_not<>>
-T bit_test(T a, C bit = C())
+          typename B = cmb::bit_not<>>
+T bit_test( T a, B bit = B{} )
 { return bit(a); }
 
 

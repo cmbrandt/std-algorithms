@@ -6,7 +6,7 @@
 
 template <typename T,
           typename C = cmb::not_equal_to<>>
-bool compare_test(T a, T b, C compare = C())
+bool compare_test( T a, T b, C compare = C{} )
 { return compare(a, b); }
 
 

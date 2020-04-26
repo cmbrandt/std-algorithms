@@ -36,6 +36,6 @@ int main()
 
   int* vp = cmb::midpoint( v.data(), v.data() + v.size() );
 
-  std::cout << "\nresult = " << *vp << std::endl; // = 4
+  std::cout << "\n*result = " << *vp << std::endl; // = 4
 
 }
