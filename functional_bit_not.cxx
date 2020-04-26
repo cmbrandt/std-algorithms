@@ -12,7 +12,7 @@ T bit_test( T a, B bit = B{} )
 
 int main()
 {
-  std::cout << "bit_test(5) = "
-            <<  bit_test(5) // = -6
-            << std::endl;
+  auto r = bit_test(5);
+
+  std::cout << "result = " << r << std::endl; // = -6
 }

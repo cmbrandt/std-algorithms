@@ -12,9 +12,10 @@ bool compare_test( T a, T b, C compare = C{} )
 
 int main()
 {
-  std::cout <<   "compare_test(5,   0  ) = "
-            <<    compare_test(5,   0  ) // = 0
-            << "\ncompare_test(0.0, 5.0) = "
-            <<    compare_test(0.0, 5.0) // = 1
+  bool r1 = compare_test(0,   5  );
+  bool r2 = compare_test(5.0, 0.0);
+
+  std::cout <<   "result 1 = " << r1 // = 1
+            << "\nresult 2 = " << r2 // = 0
             << std::endl;
 }

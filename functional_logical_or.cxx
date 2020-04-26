@@ -6,15 +6,16 @@
 
 template <typename T,
           typename L = cmb::logical_or<>>
-T logical_test( T a, T b, L logical = L{} )
+bool logical_test( T a, T b, L logical = L{} )
 { return logical(a, b); }
 
 
 int main()
 {
-  std::cout <<   "logical_test(false, false) = "
-            <<    logical_test(false, false) // = 0
-            << "\nlogical_test(true,  false) = "
-            <<    logical_test(true,  false) // = 1
+  bool r1 = logical_test(false, false);
+  bool r2 = logical_test(true,  false);
+
+  std::cout <<   "result 1 = " << r1 // = 0
+            << "\nresult 2 = " << r2 // = 1
             << std::endl;
 }

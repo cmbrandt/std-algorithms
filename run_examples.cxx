@@ -23,8 +23,8 @@ g++-9 -Wall -std=c++17 functional_negate.cxx        -I /Users/cmbrandt/projects/
 g++-9 -Wall -std=c++17 functional_equal_to.cxx      -I /Users/cmbrandt/projects/stl-algorithms/include -o fc1
 g++-9 -Wall -std=c++17 functional_not_equal_to.cxx  -I /Users/cmbrandt/projects/stl-algorithms/include -o fc2
 g++-9 -Wall -std=c++17 functional_greater.cxx       -I /Users/cmbrandt/projects/stl-algorithms/include -o fc3
-g++-9 -Wall -std=c++17 functional_greater_equal.cxx -I /Users/cmbrandt/projects/stl-algorithms/include -o fc4
-g++-9 -Wall -std=c++17 functional_less.cxx          -I /Users/cmbrandt/projects/stl-algorithms/include -o fc5
+g++-9 -Wall -std=c++17 functional_less.cxx          -I /Users/cmbrandt/projects/stl-algorithms/include -o fc4
+g++-9 -Wall -std=c++17 functional_greater_equal.cxx -I /Users/cmbrandt/projects/stl-algorithms/include -o fc5
 g++-9 -Wall -std=c++17 functional_less_equal.cxx    -I /Users/cmbrandt/projects/stl-algorithms/include -o fc6
 
 // Logical operations
