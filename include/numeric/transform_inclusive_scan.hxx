@@ -38,7 +38,7 @@ namespace cmb {
   {
     if (first != last) {
 
-      auto init = unary_op(*first);
+      typename std::iterator_traits<I1>::value_type init = unary_op(*first);
       *result++ = init;
 
       if (++first != last)

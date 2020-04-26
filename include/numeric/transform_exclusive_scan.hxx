@@ -19,11 +19,11 @@ namespace cmb {
   {
     while (first != last) {
       
-      auto v = init;
+      T t  = init;
       init = binary_op( init, unary_op(*first) );
 
       ++first;
-      *result++ = std::move(v);
+      *result++ = std::move(t);
     }
 
     return result;

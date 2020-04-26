@@ -22,7 +22,7 @@ namespace cmb{
       *result = t;
 
       for (++first, ++result; first != last; ++first, ++result) {
-        t = std::move(t) + *first;
+        t       = std::move(t) + *first;
         *result = t;
       }
     }
@@ -44,7 +44,7 @@ namespace cmb{
       *result = t;
 
       for (++first, ++result; first != last; ++first, ++result) {
-        t = binary_op( std::move(t), *first );
+        t       = binary_op( std::move(t), *first );
         *result = t;
       }
     }

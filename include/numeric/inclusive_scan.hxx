@@ -19,7 +19,7 @@ namespace cmb {
   inclusive_scan(I1 first, I1 last, I2 result, B binary_op, T init)
   {
     for (; first != last; ++first, ++result) {
-      init = binary_op(init, *first);
+      init    = binary_op(init, *first);
       *result = init;
     }
 
