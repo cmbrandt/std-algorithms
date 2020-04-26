@@ -12,9 +12,18 @@ T arithmetic_test( T a, T b, A arithmetic = A{} )
 
 int main()
 {
+  auto r1 = arithmetic_test(1,   2  );
+  auto r2 = arithmetic_test(1.2, 2.5);
+
+  std::cout <<   "result 1 = " << r1 // = -1
+            << "\nresult 2 = " << r2 // = -1.3
+            <<std::endl;
+}
+/*
+{
   std::cout <<   "arithmetic_test(1,   2  ) = "
             <<    arithmetic_test(1,   2  ) // = -1
             << "\narithmetic_test(1.2, 2.5) = "
             <<    arithmetic_test(1.2, 2.5) // = -1.3
             << std::endl;
-}
+}*/
