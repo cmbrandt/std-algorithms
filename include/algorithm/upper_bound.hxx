@@ -3,6 +3,7 @@
 #ifndef UPPER_BOUND_HXX
 #define UPPER_BOUND_HXX
 
+#include <iterator>
 #include "functional.hxx"
 #include "iterator.hxx"
 
@@ -17,11 +18,13 @@ namespace cmb {
   constexpr inline I
   upper_bound(I first, I last, T const& value, C compare)
   {
-    auto dist = cmb::distance(first, last);
+    using D = typename std::iterator_traits<I>::difference_type;
+    D dist  = cmb::distance(first, last);
 
     while (dist > 0) {
-      auto half   = dist >> 1;
-      auto middle = first;
+
+      I middle = first;
+      D half   = dist >> 1;
       cmb::advance(middle, half);
 
       if ( compare(value, *middle) )
@@ -43,7 +46,7 @@ namespace cmb {
   constexpr inline I
   upper_bound(I first, I last, T const& value)
   {
-    return cmb::upper_bound(first, last, value, cmb::less<>{ });
+    return cmb::upper_bound( first, last, value, cmb::less<>{} );
   }
 
 

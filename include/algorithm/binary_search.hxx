@@ -18,7 +18,7 @@ namespace cmb {
   binary_search(I first, I last, T const& value, C compare)
   {
     first = cmb::lower_bound(first, last, value, compare);
-    return ( !(first == last) && !(compare(value, *first)) );
+    return ( !(first == last) && !( compare(value, *first) ) );
   }
 
 
@@ -28,7 +28,7 @@ namespace cmb {
   constexpr inline bool
   binary_search(I first, I last, T const& value)
   {
-    return cmb::binary_search(first, last, value, cmb::less<>{ });
+    return cmb::binary_search( first, last, value, cmb::less<>{} );
   }
 
 
