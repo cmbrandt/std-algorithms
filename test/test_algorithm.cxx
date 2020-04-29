@@ -14,6 +14,9 @@ void test_algorithm()
     // Container used throughout test
     std::vector<int> x{ 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6 };
 
+    // Comparison function used throughout test
+    auto less = [ ](auto a, auto b) { return a < b; };
+
     // Value used throughout test
     int v = 4;
 
@@ -23,37 +26,49 @@ void test_algorithm()
 
     // cmb::lower_bound
 
-    auto it = cmb::lower_bound(x.begin(), x.end(), v);
+    auto it1 = cmb::lower_bound(x.begin(), x.end(), v);
+    auto it2 = cmb::lower_bound(x.begin(), x.end(), v, less);
 
-    if ( (it - x.begin() ) != 6) {
+    if ( (it1 - x.begin()) != 6 or (it2 - x.begin()) != 6 ) {
       ++fail;
       std::cout << "\nERROR! cmb::lower_bound()"
-                << "\n(it - x.begin() ) = " << (it - x.begin() )
+                << "\n(it1 - x.begin() ) = " << (it1 - x.begin() )
+                << "\nsoln              = " << 6
+                << "\n(it2 - x.begin() ) = " << (it2 - x.begin() )
                 << "\nsoln              = " << 6 << std::endl;
     }
 
     // cmb::upper_bound
 
-    it = cmb::upper_bound(x.begin(), x.end(), v);
+    it1 = cmb::upper_bound(x.begin(), x.end(), v);
+    it2 = cmb::upper_bound(x.begin(), x.end(), v, less);
 
-    if ( (it - x.begin() ) != 8) {
+    if ( (it1 - x.begin()) != 8 or (it2 - x.begin()) != 8 ) {
       ++fail;
       std::cout << "\nERROR! cmb::lower_bound()"
-                << "\n(it - x.begin() ) = " << (it - x.begin() )
-                << "\nsoln              = " << 8 << std::endl;
+                << "\n(it1 - x.begin() ) = " << (it1 - x.begin() )
+                << "\nsoln               = " << 8
+                << "\n(it2 - x.begin() ) = " << (it2 - x.begin() )
+                << "\nsoln               = " << 8 << std::endl;
     }
 
     // cmb::equal_range
 
-    auto r = cmb::equal_range(x.begin(), x.end(), v);
+    auto r1 = cmb::equal_range(x.begin(), x.end(), v);
+    auto r2 = cmb::equal_range(x.begin(), x.end(), v, less);
 
-    if ( (r.first  - x.begin() ) != 6 or (r.second  - x.begin() != 8) ) {
+    if ( (r1.first  - x.begin() ) != 6 or (r1.second  - x.begin() != 8)
+      or (r2.first  - x.begin() ) != 6 or (r2.second  - x.begin() != 8) ) {
       ++fail;
       std::cout << "\nERROR! cmb::equal_range()"
-                << "\n(r.first  - x.begin() ) = " << (r.first  - x.begin() )
-                << "\nsoln                    = " << 6
-                << "\n(r.second - x.begin() ) = " << (r.second - x.begin() )
-                << "\nsoln                    = " << 8 << std::endl;
+                << "\n(r1.first  - x.begin() ) = " << (r1.first  - x.begin() )
+                << "\nsoln                     = " << 6
+                << "\n(r1.second - x.begin() ) = " << (r1.second - x.begin() )
+                << "\nsoln                     = " << 8
+                << "\n(r2.first  - x.begin() ) = " << (r2.first  - x.begin() )
+                << "\nsoln                     = " << 6
+                << "\n(r2.second - x.begin() ) = " << (r2.second - x.begin() )
+                << "\nsoln                     = " << 8 << std::endl;
     }
 
     // cmb::binary_search

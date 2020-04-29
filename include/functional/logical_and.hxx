@@ -13,8 +13,8 @@ namespace cmb {
   template <class T = void>
   struct logical_and {
 
-    constexpr inline
-    T operator()(T const& x, T const& y) const
+    constexpr bool
+    operator()(T const& x, T const& y) const
     {
       return x && y;
     }
@@ -27,9 +27,9 @@ namespace cmb {
   struct logical_and<void> {
 
     template<class T, class U>
-    constexpr inline
-    auto operator()(T&& t, U&& u) const
-      -> decltype(  std::forward<T>(t) && std::forward<U>(u) )
+    constexpr auto
+    operator()(T&& t, U&& u) const
+    -> decltype(  std::forward<T>(t) && std::forward<U>(u) )
     {
       return std::forward<T>(t) && std::forward<U>(u);
     }

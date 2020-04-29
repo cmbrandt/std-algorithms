@@ -1,9 +1,0 @@
-// memory.hxx
-
-#ifndef MEMORY_HXX
-#define MEMORY_HXX
-
-
-
-
-#endif

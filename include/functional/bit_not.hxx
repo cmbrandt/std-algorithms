@@ -13,8 +13,8 @@ namespace cmb {
   template <class T = void>
   struct bit_not {
 
-    constexpr inline
-    T operator()(T const& x) const
+    constexpr T
+    operator()(T const& x) const
     {
       return ~x;
     }
@@ -27,9 +27,9 @@ namespace cmb {
   struct bit_not<void> {
 
     template<class T>
-    constexpr inline
-    auto operator()(T&& t) const
-      -> decltype(  ~std::forward<T>(t) )
+    constexpr auto
+    operator()(T&& t) const
+      -> decltype( ~std::forward<T>(t) )
     {
       return ~std::forward<T>(t);
     }
