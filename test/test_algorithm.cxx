@@ -33,9 +33,9 @@ void test_algorithm()
       ++fail;
       std::cout << "\nERROR! cmb::lower_bound()"
                 << "\n(it1 - x.begin() ) = " << (it1 - x.begin() )
-                << "\nsoln              = " << 6
+                << "\nsoln               = " << 6
                 << "\n(it2 - x.begin() ) = " << (it2 - x.begin() )
-                << "\nsoln              = " << 6 << std::endl;
+                << "\nsoln               = " << 6 << std::endl;
     }
 
     // cmb::upper_bound
@@ -73,13 +73,17 @@ void test_algorithm()
 
     // cmb::binary_search
 
-    bool b = cmb::binary_search(x.begin(), x.end(), v);
+    bool b1 = cmb::binary_search(x.begin(), x.end(), v);
+    bool b2 = cmb::binary_search(x.begin(), x.end(), v, less);
 
-    if (b != true) {
+
+    if (b1 != true or b2 != true) {
       ++fail;
       std::cout << "\nERROR! cmb::binary_search()"
-                << "\nb    = " << b
-                << "\nsoln = " << true << std::endl;
+                << "\nb1    = " << b1
+                << "\nsoln  = " << true
+                << "\nb2    = " << b2
+                << "\nsoln  = " << true << std::endl;
     }
 
 

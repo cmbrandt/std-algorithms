@@ -2,11 +2,12 @@
 CXX      := g++-9
 CXXFLAGS := -Wall -std=c++17
 CXXINCLD := -I /Users/cmbrandt/projects/stl-algorithms/include
+TESTOBJS := test_main.o test_algorithm.o test_functional.o test_iterator.o test_numeric.o
 
 all: test.exe
 
-test.exe: test_main.o test_algorithm.o test_functional.o test_iterator.o
-	$(CXX) $(CXXFLAGS) $(CXXINCLD) -o test.exe test_main.o test_algorithm.o test_functional.o test_iterator.o
+test.exe: $(TESTOBJS)
+	$(CXX) $(CXXFLAGS) $(CXXINCLD) -o test.exe $(TESTOBJS)
 
 test_main.o: test_main.cxx
 	$(CXX) $(CXXFLAGS) $(CXXINCLD) -c test_main.cxx
@@ -19,6 +20,9 @@ test_functional.o: test_functional.cxx
 
 test_iterator.o: test_iterator.cxx
 	$(CXX) $(CXXFLAGS) $(CXXINCLD) -c test_iterator.cxx
+
+test_numeric.o: test_numeric.cxx
+	$(CXX) $(CXXFLAGS) $(CXXINCLD) -c test_numeric.cxx
 
 run: test.exe
 	./test.exe
