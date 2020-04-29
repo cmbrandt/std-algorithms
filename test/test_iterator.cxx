@@ -9,6 +9,7 @@ void test_iterator()
 {
     std::cout << "\n\n\n******* test_iterator() *******" << std::endl;
 
+    // Number of tests that fail
     int fail = 0;
 
     // Container used throughout test
@@ -19,7 +20,7 @@ void test_iterator()
     // Iterator operations
 
     // cmb::advance
-    
+
     auto it = v.begin();
     cmb::advance(it, 2);
 

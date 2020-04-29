@@ -33,6 +33,7 @@ void test_functional()
 {
     std::cout << "\n\n\n******* test_functional() *******" << std::endl;
 
+    // Number of tests that fail
     int fail = 0;
 
 
