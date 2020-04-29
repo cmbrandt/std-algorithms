@@ -18,14 +18,14 @@ void test_numeric()
   auto mul = [ ](auto a, auto b) { return a * b;  };
   //auto neg = [ ](auto a)         { return -a;     };
   //auto x10 = [ ](auto a)         { return a * 10; };
-  //auto equ = [ ](auto a, auto b) { return a == b; };
+  auto equ = [ ](auto a, auto b) { return a == b; };
 
   // Data used throughout test
   std::vector<int> arv{ 1, 2, 3, 4, 5, 6, 7, 8 };
-/*
+
   std::vector<double> ipx{ 0, 1, 2, 3, 4 };
   std::vector<double> ipy{ 5, 4, 2, 3, 1 };
-
+/*
   std::vector<double> trx(10007, 1.0);
   std::vector<double> trz(10007, 1.0);
 
@@ -81,17 +81,19 @@ void test_numeric()
   }
 
   // cmb::inner_product
-/*
-  auto it = v.begin();
-  cmb::advance(it, 2);
 
-  if (*it != 3) {
+  auto r4 = cmb::inner_product( ipx.begin(), ipx.end(), ipy.begin(), 0 );
+  auto r5 = cmb::inner_product( ipx.begin(), ipx.end(), ipy.begin(), 0, add, equ );
+
+  if (r4 != 21 or r5 != 1) {
     ++fail;
     std::cout << "\nERROR! cmb::inner_product()"
-              << "\n*it  = " << *it
-              << "\nsoln = " << 3 << std::endl;
+              << "\nr4   = " << r4
+              << "\nsoln = " << 21
+              << "\nr5   = " << r5
+              << "\nsoln = " << 2 << std::endl;
   }
-*/
+
   // cmb::transform_reduce
 /*
   auto it = v.begin();
