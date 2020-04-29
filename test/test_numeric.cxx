@@ -14,9 +14,9 @@ void test_numeric()
 
   // Lambdas used throught test
   auto add = [ ](auto a, auto b) { return a + b;  };
-  //auto sub = [ ](auto a, auto b) { return a - b;  };
+  auto sub = [ ](auto a, auto b) { return a - b;  };
   auto mul = [ ](auto a, auto b) { return a * b;  };
-  //auto neg = [ ](auto a)         { return -a;     };
+  auto neg = [ ](auto a)         { return -a;     };
   //auto x10 = [ ](auto a)         { return a * 10; };
   auto equ = [ ](auto a, auto b) { return a == b; };
 
@@ -25,10 +25,10 @@ void test_numeric()
 
   std::vector<double> ipx{ 0, 1, 2, 3, 4 };
   std::vector<double> ipy{ 5, 4, 2, 3, 1 };
-/*
+
   std::vector<double> trx(10007, 1.0);
   std::vector<double> trz(10007, 1.0);
-
+/*
   std::vector<int> psv(8, 2);
   std::vector<int> psx(8);
   std::vector<int> psy(8);
@@ -85,7 +85,7 @@ void test_numeric()
   auto r4 = cmb::inner_product( ipx.begin(), ipx.end(), ipy.begin(), 0 );
   auto r5 = cmb::inner_product( ipx.begin(), ipx.end(), ipy.begin(), 0, add, equ );
 
-  if (r4 != 21 or r5 != 1) {
+  if (r4 != 21 or r5 != 2) {
     ++fail;
     std::cout << "\nERROR! cmb::inner_product()"
               << "\nr4   = " << r4
@@ -95,6 +95,22 @@ void test_numeric()
   }
 
   // cmb::transform_reduce
+
+  r4      = cmb::transform_reduce( trx.begin(), trx.end(), trz.begin(), 0 );
+  r5      = cmb::transform_reduce( trx.begin(), trx.end(), trz.begin(), 0, sub, mul );
+  auto r6 = cmb::transform_reduce( trx.begin(), trx.end(), 0, add, neg );
+
+  if (r4 != 10007 or r5 != -10007 or r6 != -10007) {
+    ++fail;
+    std::cout << "\nERROR! cmb::transform_reduce()"
+              << "\nr4   = " << r4
+              << "\nsoln = " << 10007
+              << "\nr5   = " << r5
+              << "\nsoln = " << -10007
+              << "\nr6   = " << r6
+              << "\nsoln = " << -10007 << std::endl;
+  }
+
 /*
   auto it = v.begin();
   cmb::advance(it, 2);
