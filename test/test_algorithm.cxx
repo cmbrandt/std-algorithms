@@ -5,55 +5,61 @@
 #include "algorithm.hxx"
 
 
-void test_algorithm()
+int test_lower_bound(int fail)
 {
-  std::cout << "\n******* test_algorithm() *******" << std::endl;
-
-  // Number of tests that fail
-  int fail = 0;
-
-  // Container used throughout test
   std::vector<int> x{ 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6 };
 
-  // Comparison function used throughout test
-  auto less = [ ](auto a, auto b) { return a < b; };
-
-  // Value used throughout test
   int v = 4;
 
+  auto less = [ ](auto a, auto b) { return a < b; };
 
-  //
-  // Binary search
+  auto r1 = cmb::lower_bound( x.begin(), x.end(), v );
+  auto r2 = cmb::lower_bound( x.begin(), x.end(), v, less );
 
-  // cmb::lower_bound
-
-  auto it1 = cmb::lower_bound( x.begin(), x.end(), v );
-  auto it2 = cmb::lower_bound( x.begin(), x.end(), v, less );
-
-  if ( ( it1 - x.begin() ) != 6 or ( it2 - x.begin() ) != 6 ) {
+  if ( ( r1 - x.begin() ) != 6 or ( r2 - x.begin() ) != 6 ) {
     ++fail;
     std::cout << "\nERROR! cmb::lower_bound()"
-              << "\n(it1 - x.begin() ) = " << (it1 - x.begin() )
-              << "\nsoln               = " << 6
-              << "\n(it2 - x.begin() ) = " << (it2 - x.begin() )
-              << "\nsoln               = " << 6 << std::endl;
+              << "\n(r1 - x.begin() ) = " << (r1 - x.begin() )
+              << "\nsoln              = " << 6
+              << "\n(r2 - x.begin() ) = " << (r2 - x.begin() )
+              << "\nsoln              = " << 6 << std::endl;
   }
 
-  // cmb::upper_bound
+  return fail;
+}
 
-  it1 = cmb::upper_bound( x.begin(), x.end(), v );
-  it2 = cmb::upper_bound( x.begin(), x.end(), v, less );
 
-  if ( ( it1 - x.begin() ) != 8 or ( it2 - x.begin() ) != 8 ) {
+int test_upper_bound(int fail)
+{
+  std::vector<int> x{ 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6 };
+
+  int v = 4;
+
+  auto less = [ ](auto a, auto b) { return a < b; };
+
+  auto r1 = cmb::upper_bound( x.begin(), x.end(), v );
+  auto r2 = cmb::upper_bound( x.begin(), x.end(), v, less );
+
+  if ( ( r1 - x.begin() ) != 8 or ( r2 - x.begin() ) != 8 ) {
     ++fail;
-    std::cout << "\nERROR! cmb::lower_bound()"
-              << "\n(it1 - x.begin() ) = " << (it1 - x.begin() )
-              << "\nsoln               = " << 8
-              << "\n(it2 - x.begin() ) = " << (it2 - x.begin() )
-              << "\nsoln               = " << 8 << std::endl;
+    std::cout << "\nERROR! cmb::upper_bound()"
+              << "\n(r1 - x.begin() ) = " << (r1 - x.begin() )
+              << "\nsoln              = " << 8
+              << "\n(r2 - x.begin() ) = " << (r2 - x.begin() )
+              << "\nsoln              = " << 8 << std::endl;
   }
 
-  // cmb::equal_range
+  return fail;
+}
+
+
+int test_equal_range(int fail)
+{
+  std::vector<int> x{ 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6 };
+
+  int v = 4;
+  
+  auto less = [ ](auto a, auto b) { return a < b; };
 
   auto r1 = cmb::equal_range( x.begin(), x.end(), v );
   auto r2 = cmb::equal_range( x.begin(), x.end(), v, less );
@@ -70,30 +76,47 @@ void test_algorithm()
               << "\nsoln                     = " << 6
               << "\n(r2.second - x.begin() ) = " << (r2.second - x.begin() )
               << "\nsoln                     = " << 8 << std::endl;
-  }
+  }  
 
-  // cmb::binary_search
-
-  bool b1 = cmb::binary_search( x.begin(), x.end(), v );
-  bool b2 = cmb::binary_search( x.begin(), x.end(), v, less );
+  return fail;
+}
 
 
-  if (b1 != true or b2 != true) {
+int test_binary_search(int fail)
+{
+  std::vector<int> x{ 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6 };
+
+  int v = 4;
+  
+  auto less = [ ](auto a, auto b) { return a < b; };
+
+  auto r1 = cmb::binary_search( x.begin(), x.end(), v );
+  auto r2 = cmb::binary_search( x.begin(), x.end(), v, less );
+
+  if (r1 != true or r2 != true) {
     ++fail;
     std::cout << "\nERROR! cmb::binary_search()"
-              << "\nb1    = " << b1
+              << "\nr1    = " << r1
               << "\nsoln  = " << true
-              << "\nb2    = " << b2
+              << "\nr2    = " << r2
               << "\nsoln  = " << true << std::endl;
   }
 
+  return fail;
+}
 
-  //
-  // Display test results
+
+void test_algorithm()
+{
+  int fail = 0;
+
+  fail = test_lower_bound(fail);
+  fail = test_upper_bound(fail);
+  fail = test_equal_range(fail);
+  fail = test_binary_search(fail);
 
   if (fail == 0)
     std::cout << "\ntest_algorithm() passed with zero errors." << std::endl;
   else
     std::cout << "\ntest_algorithm() had " << fail << " errors." << std::endl;
-
 }
