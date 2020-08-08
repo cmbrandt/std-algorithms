@@ -4,10 +4,11 @@
 #include "include/functional.hxx"
 
 
-template <typename T,
-          typename C = cmb::equal_to<>>
-bool compare_test( T a, T b, C compare = C{} )
-{ return compare(a, b); }
+template <typename T, typename C = cmb::equal_to<>>
+bool compare_test( T a, T b, C compare = C{ } )
+{
+  return compare(a, b);
+}
 
 
 int main()

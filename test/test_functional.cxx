@@ -1,334 +1,396 @@
 // test_functional.cxx
 
 #include <iostream>
+#include "test_functional.hxx"
 #include "functional.hxx"
 
 
-//
-// Function objects used within test_functional()
-
-template <typename T, typename Op>
-T unary_test(T a, Op operation)
-{
-  return operation(a);
-}
-
-template <typename T, typename Op>
-T binary_test(T a, T b, Op operation)
-{
-  return operation(a, b);
-}
-
-template <typename T, typename C>
-bool compare_test(T a, T b, C compare)
-{
-  return compare(a, b);
-}
-
-
-//
-// Begin test
-
 void test_functional()
 {
-    std::cout << "\n\n\n******* test_functional() *******" << std::endl;
+  int fail = 0;
 
-    // Number of tests that fail
-    int fail = 0;
+  fail = test_plus(fail);
+  fail = test_minus(fail);
+  fail = test_multiplies(fail);
+  fail = test_divides(fail);
+  fail = test_modulus(fail);
+  fail = test_negate(fail);
+
+  fail = test_equal_to(fail);
+  fail = test_not_equal_to(fail);
+  fail = test_greater(fail);
+  fail = test_less(fail);
+  fail = test_greater_equal(fail);
+  fail = test_less_equal(fail);
+
+  fail = test_logical_and(fail);
+  fail = test_logical_or(fail);
+  fail = test_logical_not(fail);
+
+  fail = test_bit_and(fail);
+  fail = test_bit_or(fail);
+  fail = test_bit_xor(fail);
+  fail = test_bit_not(fail);
+
+  if (fail == 0)
+    std::cout << "\ntest_functional() passed with zero errors." << std::endl;
+  else
+    std::cout << "\ntest_functional() had " << fail << " errors." << std::endl;
+}
 
 
-    //
-    // Arithmetic tests
+// Arithmetic tests
 
-    // cmb::plus
+int test_plus(int fail)
+{
+  auto r1 = binary_test( 1,   2,   cmb::plus<>{ } );
+  auto r2 = binary_test( 1.2, 2.5, cmb::plus<>{ } );
 
-    auto a1 = binary_test(1,   2,   cmb::plus<>{ });
-    auto a2 = binary_test(1.2, 2.5, cmb::plus<>{ });
+  if (r1 != 3 or r2 != 3.7) {
+    ++fail;
+    std::cout << "\nERROR! cmb::plus()"
+              << "\nr1    = " << r1
+              << "\nsoln1 = " << 3
+              << "\nr2    = " << r2
+              << "\nsoln2 = " << 3.7
+              << std::endl;
+  }
 
-    if (a1 != 3 or a2 != 3.7) {
-      ++fail;
-      std::cout << "\nERROR! cmb::plus()"
-                << "\na1    = " << a1
-                << "\nsoln1 = " << 3
-                << "\na2    = " << a2
-                << "\nsoln1 = " << 3.7
-                 << std::endl;
-    }
+  return fail;
+}
 
-    // cmb::minus
 
-    a1 = binary_test(1,   2,   cmb::minus<>{ });
-    a2 = binary_test(1.2, 2.5, cmb::minus<>{ });
+int test_minus(int fail)
+{
+  auto r1 = binary_test( 1,   2,   cmb::minus<>{ } );
+  auto r2 = binary_test( 1.2, 2.5, cmb::minus<>{ } );
 
-    if (a1 != -1 or a2 != -1.3) {
-      ++fail;
-      std::cout << "\nERROR! cmb::minus()"
-                << "\na1    = " << a1
+  if (r1 != -1 or r2 != -1.3) {
+    ++fail;
+    std::cout << "\nERROR! cmb::minus()"
+                << "\nr1    = " << r1
                 << "\nsoln1 = " << -1
-                << "\na2    = " << a2
-                << "\nsoln1 = " << -1.3
+                << "\nr2    = " << r2
+                << "\nsoln2 = " << -1.3
                  << std::endl;
-    }
+  }
 
-    // cmb::multiplies
+  return fail;
+}
 
-    a1 = binary_test(6,   2,   cmb::multiplies<>{ });
-    a2 = binary_test(3.5, 2.5, cmb::multiplies<>{ });
 
-    if (a1 != 12 or a2 != 8.75) {
-      ++fail;
-      std::cout << "\nERROR! cmb::multiplies()"
-                << "\na1    = " << a1
-                << "\nsoln1 = " << 12
-                << "\na2    = " << a2
-                << "\nsoln1 = " << 8.75
-                 << std::endl;
-    }
+int test_multiplies(int fail)
+{
+  auto r1 = binary_test( 6,   2,   cmb::multiplies<>{ } );
+  auto r2 = binary_test( 3.5, 2.5, cmb::multiplies<>{ } );
 
-    // cmb::divides
+  if (r1 != 12 or r2 != 8.75) {
+    ++fail;
+    std::cout << "\nERROR! cmb::multiplies()"
+              << "\nr1    = " << r1
+              << "\nsoln1 = " << 12
+              << "\nr2    = " << r2
+              << "\nsoln2 = " << 8.75
+              << std::endl;
+  }
 
-    a1 = binary_test(6,   2,   cmb::divides<>{ });
-    a2 = binary_test(3.5, 2.5, cmb::divides<>{ });
+  return fail;
+}
 
-    if (a1 != 3 or a2 != 1.4) {
-      ++fail;
-      std::cout << "\nERROR! cmb::divides()"
-                << "\na1    = " << a1
+
+int test_divides(int fail)
+{
+  auto r1 = binary_test( 6,   2,   cmb::divides<>{ } );
+  auto r2 = binary_test( 3.5, 2.5, cmb::divides<>{ } );
+
+  if (r1 != 3 or r2 != 1.4) {
+    ++fail;
+    std::cout << "\nERROR! cmb::divides()"
+              << "\nr1    = " << r1
+              << "\nsoln1 = " << 3
+              << "\nr2    = " << r2
+              << "\nsoln2 = " << 1.4
+              << std::endl;
+  }
+
+  return fail;
+}
+
+
+int test_modulus(int fail)
+{
+  auto r1 = binary_test( 7, 4, cmb::modulus<>{ } );
+  auto r2 = binary_test( 8, 2, cmb::modulus<>{ } );
+
+  if (r1 != 3 or r2 != 0) {
+    ++fail;
+    std::cout << "\nERROR! cmb::modulus()"
+                << "\nr1    = " << r1
                 << "\nsoln1 = " << 3
-                << "\na2    = " << a2
-                << "\nsoln1 = " << 1.4
+                << "\nr2    = " << r2
+                << "\nsoln2 = " << 0
                  << std::endl;
     }
 
-    // cmb::modulus
+  return fail;
+}
 
-    a1 = binary_test(7, 4, cmb::modulus<>{ });
 
-    if (a1 != 3) {
-      ++fail;
-      std::cout << "\nERROR! cmb::modulus()"
-                << "\na1    = " << a1
-                << "\nsoln1 = " << 3
-                 << std::endl;
-    }
+int test_negate(int fail)
+{
+  auto r1 = unary_test( 1,   cmb::negate<>{ } );
+  auto r2 = unary_test( 1.2, cmb::negate<>{ } );
 
-    // cmb::negate
-
-    a1 = unary_test(1,   cmb::negate<>{ });
-    a2 = unary_test(1.2, cmb::negate<>{ });
-
-    if (a1 != -1 or a2 != -1.2) {
-      ++fail;
-      std::cout << "\nERROR! cmb::negate()"
-                << "\na1    = " << a1
+  if (r1 != -1 or r2 != -1.2) {
+    ++fail;
+    std::cout << "\nERROR! cmb::negate()"
+                << "\nr1    = " << r1
                 << "\nsoln1 = " << -1
-                << "\na2    = " << a2
-                << "\nsoln1 = " << -1.2
+                << "\nr2    = " << r2
+                << "\nsoln2 = " << -1.2
                  << std::endl;
-    }
+  }
+
+  return fail;
+}
 
 
-    //
-    // Comparison tests
+// Comparison tests
 
-    // cmb::equal_to
+int test_equal_to(int fail)
+{
+  bool r1 = compare_test( 0,   5,   cmb::equal_to<>{ } );
+  bool r2 = compare_test( 0.0, 0.0, cmb::equal_to<>{ } );
 
-    bool c1 = compare_test(0,   5,   cmb::equal_to<>{ });
-    bool c2 = compare_test(0.0, 0.0, cmb::equal_to<>{ });
+  if (r1 != false or r2 != true) {
+    ++fail;
+    std::cout << "\nERROR! cmb::equal_to()"
+              << "\nr1    = " << r1
+              << "\nsoln1 = " << false
+              << "\nr2    = " << r2
+              << "\nsoln2 = " << true
+              << std::endl;
+  }
 
-    if (c1 != false or c2 != true) {
-      ++fail;
-      std::cout << "\nERROR! cmb::equal_to()"
-                << "\nc1    = " << c1
-                << "\nsoln1 = " << false
-                << "\nc2    = " << c2
+  return fail;
+}
+
+
+int test_not_equal_to(int fail)
+{
+  auto r1 = compare_test( 0,   5,   cmb::not_equal_to<>{ } );
+  auto r2 = compare_test( 0.0, 0.0, cmb::not_equal_to<>{ } );
+
+  if (r1 != true or r2 != false) {
+    ++fail;
+    std::cout << "\nERROR! cmb::not_equal_to()"
+              << "\nr1    = " << r1
+              << "\nsoln1 = " << true
+              << "\nr2    = " << r2
+              << "\nsoln2 = " << false
+              << std::endl;
+  }
+
+  return fail;
+}
+
+
+int test_greater(int fail)
+{
+  auto r1 = compare_test( 0,   5,   cmb::greater<>{ } );
+  auto r2 = compare_test( 5.0, 0.0, cmb::greater<>{ } );
+
+  if (r1 != false or r2 != true) {
+    ++fail;
+    std::cout << "\nERROR! cmb::greater()"
+              << "\nr1    = " << r1
+              << "\nsoln1 = " << false
+              << "\nr2    = " << r2
+              << "\nsoln2 = " << true
+              << std::endl;
+  }
+
+  return fail;
+}
+
+
+int test_less(int fail)
+{
+  auto r1 = compare_test( 0,   5,   cmb::less<>{ } );
+  auto r2 = compare_test( 5.0, 0.0, cmb::less<>{ } );
+
+  if (r1 != true or r2 != false) {
+    ++fail;
+    std::cout << "\nERROR! cmb::less()"
+                << "\nr1    = " << r1
                 << "\nsoln1 = " << true
+                << "\nr2    = " << r2
+                << "\nsoln2 = " << false
                  << std::endl;
     }
 
-    // cmb::not_equal_to
+  return fail;
+}
 
-    c1 = compare_test(0,   5,   cmb::not_equal_to<>{ });
-    c2 = compare_test(0.0, 0.0, cmb::not_equal_to<>{ });
 
-    if (c1 != true or c2 != false) {
-      ++fail;
-      std::cout << "\nERROR! cmb::not_equal_to()"
-                << "\nc1    = " << c1
-                << "\nsoln1 = " << true
-                << "\nc2    = " << c2
+int test_greater_equal(int fail)
+{
+  auto r1 = compare_test( 0,   5,   cmb::greater_equal<>{ } );
+  auto r2 = compare_test( 0.0, 0.0, cmb::greater_equal<>{ } );
+
+  if (r1 != false or r2 != true) {
+    ++fail;
+    std::cout << "\nERROR! cmb::greater_equal()"
+              << "\nr1    = " << r1
+              << "\nsoln1 = " << false
+              << "\nr2    = " << r2
+              << "\nsoln2 = " << true
+              << std::endl;
+  }
+
+  return fail;
+}
+
+
+int test_less_equal(int fail)
+{
+  auto r1 = compare_test( 5,   0,   cmb::less_equal<>{ } );
+  auto r2 = compare_test( 0.0, 0.0, cmb::less_equal<>{ } );
+
+  if (r1 != false or r2 != true) {
+    ++fail;
+    std::cout << "\nERROR! cmb::less_equal()"
+              << "\nr1    = " << r1
+              << "\nsoln1 = " << false
+              << "\nr2    = " << r2
+              << "\nsoln2 = " << true
+              << std::endl;
+  }
+
+  return fail;
+}
+
+
+// Logical operator tests
+
+int test_logical_and(int fail)
+{
+  auto r1 = binary_test( true, true,  cmb::logical_and<>{ } );
+  auto r2 = binary_test( true, false, cmb::logical_and<>{ } );
+
+  if (r1 != true or r2 != false) {
+    ++fail;
+    std::cout << "\nERROR! cmb::logical_and()"
+              << "\nr1    = " << r1
+              << "\nsoln1 = " << true
+              << "\nr2    = " << r2
+              << "\nsoln2 = " << false
+              << std::endl;
+  }
+
+  return fail;
+}
+
+
+int test_logical_or(int fail)
+{
+  auto r1 = binary_test( false, false, cmb::logical_or<>{ } );
+  auto r2 = binary_test( true,  false, cmb::logical_or<>{ } );
+
+  if (r1 != false or r2 != true) {
+    ++fail;
+    std::cout << "\nERROR! cmb::logical_or()"
+                << "\nr1    = " << r1
                 << "\nsoln1 = " << false
-                 << std::endl;
-    }
+                << "\nr2    = " << r2
+                << "\nsoln2 = " << true
+                << std::endl;
+  }
 
-    // cmb::greater
-
-    c1 = compare_test(0,   5,   cmb::greater<>{ });
-    c2 = compare_test(5.0, 0.0, cmb::greater<>{ });
-
-    if (c1 != false or c2 != true) {
-      ++fail;
-      std::cout << "\nERROR! cmb::greater()"
-                << "\nc1    = " << c1
-                << "\nsoln1 = " << false
-                << "\nc2    = " << c2
-                << "\nsoln1 = " << true
-                 << std::endl;
-    }
-
-    // cmb::less
-
-    c1 = compare_test(5,   0,   cmb::less<>{ });
-    c2 = compare_test(0.0, 5.0, cmb::less<>{ });
-
-    if (c1 != false or c2 != true) {
-      ++fail;
-      std::cout << "\nERROR! cmb::less()"
-                << "\nc1    = " << c1
-                << "\nsoln1 = " << false
-                << "\nc2    = " << c2
-                << "\nsoln1 = " << true
-                 << std::endl;
-    }
-
-    // cmb::greater_equal
-
-    c1 = compare_test(0,   5,   cmb::greater_equal<>{ });
-    c2 = compare_test(0.0, 0.0, cmb::greater_equal<>{ });
-
-    if (c1 != false or c2 != true) {
-      ++fail;
-      std::cout << "\nERROR! cmb::greater_equal()"
-                << "\nc1    = " << c1
-                << "\nsoln1 = " << false
-                << "\nc2    = " << c2
-                << "\nsoln1 = " << true
-                 << std::endl;
-    }
-
-    // cmb::less_equal
-
-    c1 = compare_test(5,   0,   cmb::less_equal<>{ });
-    c2 = compare_test(0.0, 0.0, cmb::less_equal<>{ });
-
-    if (c1 != false or c2 != true) {
-      ++fail;
-      std::cout << "\nERROR! cmb::less_equal()"
-                << "\nc1    = " << c1
-                << "\nsoln1 = " << false
-                << "\nc2    = " << c2
-                << "\nsoln1 = " << true
-                 << std::endl;
-    }
+  return fail;
+}
 
 
-    //
-    // Logical operator tests
+int test_logical_not(int fail)
+{
+  auto r1 = unary_test( true,  cmb::logical_not<>{ } );
+  auto r2 = unary_test( false, cmb::logical_not<>{ } );
 
-    // cmb::logical_and
+  if (r1 != false or r2 != true) {
+    ++fail;
+    std::cout << "\nERROR! cmb::logical_not()"
+              << "\nr1    = " << r1
+              << "\nsoln1 = " << false
+              << "\nr2    = " << r2
+              << "\nsoln2 = " << true
+              << std::endl;
+  }
 
-    auto l1 = binary_test(true, true,  cmb::logical_and<>{ });
-    auto l2 = binary_test(true, false, cmb::logical_and<>{ });
-
-    if (l1 != true or l2 != false) {
-      ++fail;
-      std::cout << "\nERROR! cmb::logical_and()"
-                << "\nl1    = " << l1
-                << "\nsoln1 = " << true
-                << "\nl2    = " << l2
-                << "\nsoln1 = " << false
-                 << std::endl;
-    }
-
-    // cmb::logical_or
-
-    l1 = binary_test(false, false, cmb::logical_or<>{ });
-    l2 = binary_test(true,  false, cmb::logical_or<>{ });
-
-    if (l1 != false or l2 != true) {
-      ++fail;
-      std::cout << "\nERROR! cmb::logical_or()"
-                << "\nl1    = " << l1
-                << "\nsoln1 = " << false
-                << "\nl2    = " << l2
-                << "\nsoln1 = " << true
-                 << std::endl;
-    }
-
-      // cmb::logical_not
-
-    l1 = unary_test(true,  cmb::logical_not<>{ });
-    l2 = unary_test(false, cmb::logical_not<>{ });
-
-    if (l1 != false or l2 != true) {
-      ++fail;
-      std::cout << "\nERROR! cmb::logical_not()"
-                << "\nl1    = " << l1
-                << "\nsoln1 = " << false
-                << "\nl2    = " << l2
-                << "\nsoln1 = " << true
-                 << std::endl;
-    }
+  return fail;
+}
 
 
-    //
-    // Bitwise operator tests
+// Bitwise operator tests
 
-    // cmb::bit_and
+int test_bit_and(int fail)
+{
+  auto r = binary_test( 5, 9, cmb::bit_and<>{ } );
 
-    auto b = binary_test(5, 9, cmb::bit_and<>{ });
+  if (r != 1) {
+    ++fail;
+    std::cout << "\nERROR! cmb::bit_and()"
+              << "\nr    = " << r
+              << "\nsoln = " << 1
+              << std::endl;
+  }
 
-    if (b != 1) {
-      ++fail;
-      std::cout << "\nERROR! cmb::bit_and()"
-                << "\nb    = " << b
-                << "\nsoln = " << 1
-                 << std::endl;
-    }
-
-    // cmb::bit_or
-
-    b = binary_test(5, 9, cmb::bit_or<>{ });
-
-    if (b != 13) {
-      ++fail;
-      std::cout << "\nERROR! cmb::bit_or()"
-                << "\nb    = " << b
-                << "\nsoln = " << 13
-                 << std::endl;
-    }
-
-    // cmb::bit_xor
-
-    b = binary_test(5, 9, cmb::bit_xor<>{ });
-
-    if (b != 12) {
-      ++fail;
-      std::cout << "\nERROR! cmb::bit_xor()"
-                << "\nb    = " << b
-                << "\nsoln = " << 12
-                 << std::endl;
-    }
-
-    // cmb::bit_not
-
-    b = unary_test(5, cmb::bit_not<>{ });
-
-    if (b != -6) {
-      ++fail;
-      std::cout << "\nERROR! cmb::bit_not()"
-                << "\nb    = " << b
-                << "\nsoln = " << -6
-                 << std::endl;
-    }
+  return fail;
+}
 
 
-    //
-    // Display test results
+int test_bit_or(int fail)
+{
+  auto r = binary_test( 5, 9, cmb::bit_or<>{ } );
 
-    if (fail == 0)
-      std::cout << "\ntest_functional() passed with zero errors." << std::endl;
-    else
-      std::cout << "\ntest_functional() had " << fail << " errors." << std::endl;
+  if (r != 13) {
+    ++fail;
+    std::cout << "\nERROR! cmb::bit_or()"
+              << "\nr    = " << r
+              << "\nsoln = " << 13
+              << std::endl;
+  }
 
+  return fail;
+}
+
+
+int test_bit_xor(int fail)
+{
+  auto r = binary_test( 5, 9, cmb::bit_xor<>{ } );
+
+  if (r != 12) {
+    ++fail;
+    std::cout << "\nERROR! cmb::bit_xor()"
+              << "\nr    = " << r
+              << "\nsoln = " << 12
+              << std::endl;
+  }
+
+  return fail;
+}
+
+
+int test_bit_not(int fail)
+{
+  auto r = unary_test( 5, cmb::bit_not<>{ } );
+
+  if (r != -6) {
+    ++fail;
+    std::cout << "\nERROR! cmb::bit_not()"
+              << "\nr    = " << r
+              << "\nsoln = " << -6
+              << std::endl;
+  }
+
+  return fail;
 }

@@ -4,10 +4,11 @@
 #include "include/functional.hxx"
 
 
-template <typename T,
-          typename L = cmb::logical_not<>>
+template <typename T, typename L = cmb::logical_not<>>
 bool logical_test( T a, L logical = L{} )
-{ return logical(a); }
+{
+  return logical(a);
+}
 
 
 int main()

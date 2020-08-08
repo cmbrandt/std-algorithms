@@ -4,10 +4,11 @@
 #include "include/functional.hxx"
 
 
-template <typename T,
-          typename L = cmb::logical_and<>>
-bool logical_test( T a, T b, L logical = L{} )
-{ return logical(a, b); }
+template <typename T, typename L = cmb::logical_and<>>
+bool logical_test( T a, T b, L logical = L{ } )
+{
+  return logical(a, b);
+}
 
 
 int main()

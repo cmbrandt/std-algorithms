@@ -4,10 +4,11 @@
 #include "include/functional.hxx"
 
 
-template <typename T,
-          typename A = cmb::minus<>>
-T arithmetic_test( T a, T b, A arithmetic = A{} )
-{ return arithmetic(a, b); }
+template <typename T, typename A = cmb::minus<>>
+T arithmetic_test( T a, T b, A arithmetic = A{ } )
+{
+  return arithmetic(a, b);
+}
 
 
 int main()

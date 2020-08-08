@@ -4,10 +4,11 @@
 #include "include/functional.hxx"
 
 
-template <typename T,
-          typename B = cmb::bit_not<>>
-T bit_test( T a, B bit = B{} )
-{ return bit(a); }
+template <typename T, typename B = cmb::bit_not<>>
+T bit_test( T a, B bit = B{ } )
+{
+  return bit(a);
+}
 
 
 int main()

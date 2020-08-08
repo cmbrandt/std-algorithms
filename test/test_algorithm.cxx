@@ -2,15 +2,32 @@
 
 #include <iostream>
 #include <vector>
+#include "test_algorithm.hxx"
 #include "algorithm.hxx"
 
+
+void test_algorithm()
+{
+  int fail = 0;
+
+  fail = test_lower_bound(fail);
+  fail = test_upper_bound(fail);
+  fail = test_equal_range(fail);
+  fail = test_binary_search(fail);
+
+  if (fail == 0)
+    std::cout << "\ntest_algorithm()  passed with zero errors." << std::endl;
+  else
+    std::cout << "\ntest_algorithm()  had " << fail << " errors." << std::endl;
+}
+
+
+// Binary search tests
 
 int test_lower_bound(int fail)
 {
   std::vector<int> x{ 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6 };
-
   int v = 4;
-
   auto less = [ ](auto a, auto b) { return a < b; };
 
   auto r1 = cmb::lower_bound( x.begin(), x.end(), v );
@@ -32,9 +49,7 @@ int test_lower_bound(int fail)
 int test_upper_bound(int fail)
 {
   std::vector<int> x{ 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6 };
-
   int v = 4;
-
   auto less = [ ](auto a, auto b) { return a < b; };
 
   auto r1 = cmb::upper_bound( x.begin(), x.end(), v );
@@ -56,9 +71,7 @@ int test_upper_bound(int fail)
 int test_equal_range(int fail)
 {
   std::vector<int> x{ 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6 };
-
   int v = 4;
-  
   auto less = [ ](auto a, auto b) { return a < b; };
 
   auto r1 = cmb::equal_range( x.begin(), x.end(), v );
@@ -85,9 +98,7 @@ int test_equal_range(int fail)
 int test_binary_search(int fail)
 {
   std::vector<int> x{ 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6 };
-
   int v = 4;
-  
   auto less = [ ](auto a, auto b) { return a < b; };
 
   auto r1 = cmb::binary_search( x.begin(), x.end(), v );
@@ -103,20 +114,4 @@ int test_binary_search(int fail)
   }
 
   return fail;
-}
-
-
-void test_algorithm()
-{
-  int fail = 0;
-
-  fail = test_lower_bound(fail);
-  fail = test_upper_bound(fail);
-  fail = test_equal_range(fail);
-  fail = test_binary_search(fail);
-
-  if (fail == 0)
-    std::cout << "\ntest_algorithm()  passed with zero errors." << std::endl;
-  else
-    std::cout << "\ntest_algorithm()  had " << fail << " errors." << std::endl;
 }

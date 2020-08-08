@@ -14,5 +14,5 @@ int main()
   test_iterator();
   test_numeric();
 
-  std::cout << "\n\n\nend of test_main.cxx\n\n";
+  std::cout << "\n\nend of test_main.cxx\n\n";
 }
