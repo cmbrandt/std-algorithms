@@ -5,75 +5,91 @@
 #include "iterator.hxx"
 
 
+int test_advance(int fail)
+{
+  std::vector<int> v{ 1, 2, 3 };
+
+  auto r = v.begin();
+
+  cmb::advance(r, 2);
+
+  if (*r != 3) {
+    ++fail;
+    std::cout << "\nERROR! cmb::advance()"
+              << "\n*r   = " << *r
+              << "\nsoln = " << 3 << std::endl;
+  }
+
+  return fail;
+}
+
+
+int test_distance(int fail)
+{
+  std::vector<int> v{ 1, 2, 3 };
+
+  auto r = cmb::distance( v.begin(), v.end() );
+
+  if (r != 3) {
+    ++fail;
+    std::cout << "\nERROR! cmb::distance()"
+              << "\nr    = " << r
+              << "\nsoln = " << 3 << std::endl;
+  }
+
+  return fail;
+}
+
+
+int test_next(int fail)
+{
+  std::vector<int> v{ 1, 2, 3 };
+
+  auto i = v.begin();
+
+  auto r = cmb::next(i, 2);
+
+  if (*r != v[2]) {
+    ++fail;
+    std::cout << "\nERROR! cmb::next()"
+              << "\n*r   = " << *r
+              << "\nsoln = " << v[2] << std::endl;
+  }
+
+  return fail;
+}
+
+
+int test_prev(int fail)
+{
+  std::vector<int> v{ 1, 2, 3 };
+
+  auto i = v.end();
+
+  auto r = cmb::prev(i, 2);
+
+  if (*r != v[1]) {
+    ++fail;
+    std::cout << "\nERROR! cmb::prev()"
+              << "\n*r   = " << *r
+              << "\nsoln = " << v[1] << std::endl;
+  }
+
+  return fail;
+}
+
+
 void test_iterator()
 {
-    std::cout << "\n\n\n******* test_iterator() *******" << std::endl;
+  int fail = 0;
 
-    // Number of tests that fail
-    int fail = 0;
+  fail = test_advance(fail);
+  fail = test_distance(fail);
+  fail = test_next(fail);
+  fail = test_prev(fail);
 
-    // Container used throughout test
-    std::vector<int> v{ 1, 2, 3 };
-
-
-    //
-    // Iterator operations
-
-    // cmb::advance
-
-    auto it = v.begin();
-    cmb::advance(it, 2);
-
-    if (*it != 3) {
-      ++fail;
-      std::cout << "\nERROR! cmb::advance()"
-                << "\n*it  = " << *it
-                << "\nsoln = " << 3 << std::endl;
-    }
-
-    // cmb::distance
-
-    auto dist = cmb::distance(v.begin(), v.end());
-
-    if (dist != 3) {
-      ++fail;
-      std::cout << "\nERROR! cmb::distance()"
-                << "\ndist = " << dist
-                << "\nsoln = " << 3 << std::endl;
-    }
-
-    // cmb::next
-
-    it = v.begin();
-    auto nx = cmb::next(it, 2);
-
-    if (*nx != v[2]) {
-      ++fail;
-      std::cout << "\nERROR! cmb::next()"
-                << "\n*nx  = " << *nx
-                << "\nsoln = " << v[2] << std::endl;
-    }
-
-    // cmb::prev
-
-    it = v.end();
-
-    auto pv = cmb::prev(it, 2);
-
-    if (*pv != v[1]) {
-      ++fail;
-      std::cout << "\nERROR! cmb::prev()"
-                << "\n*pv  = " << *pv
-                << "\nsoln = " << v[1] << std::endl;
-    }
-
-
-    //
-    // Display test results
-
-    if (fail == 0)
-      std::cout << "\ntest_iterator() passed with zero errors." << std::endl;
-    else
-      std::cout << "\ntest_iterator() had " << fail << " errors." << std::endl;
-
+  if (fail == 0)
+    std::cout << "\ntest_iterator()   passed with zero errors." << std::endl;
+  else
+    std::cout << "\ntest_iterator()   had " << fail << " errors." << std::endl;
 }

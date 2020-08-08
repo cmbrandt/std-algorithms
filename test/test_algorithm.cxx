@@ -116,7 +116,7 @@ void test_algorithm()
   fail = test_binary_search(fail);
 
   if (fail == 0)
-    std::cout << "\ntest_algorithm() passed with zero errors." << std::endl;
+    std::cout << "\ntest_algorithm()  passed with zero errors." << std::endl;
   else
-    std::cout << "\ntest_algorithm() had " << fail << " errors." << std::endl;
+    std::cout << "\ntest_algorithm()  had " << fail << " errors." << std::endl;
 }

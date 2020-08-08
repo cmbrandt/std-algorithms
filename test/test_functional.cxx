@@ -327,8 +327,8 @@ void test_functional()
     // Display test results
 
     if (fail == 0)
-      std::cout << "\ntest_iterator() passed with zero errors." << std::endl;
+      std::cout << "\ntest_functional() passed with zero errors." << std::endl;
     else
-      std::cout << "\ntest_iterator() had " << fail << " errors." << std::endl;
+      std::cout << "\ntest_functional() had " << fail << " errors." << std::endl;
 
 }
