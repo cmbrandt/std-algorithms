@@ -1,7 +1,5 @@
 // test_numeric.cxx
 
-#include <iostream>
-#include <vector>
 #include "test_numeric.hxx"
 #include "numeric.hxx"
 
@@ -327,7 +325,7 @@ int test_iota(int fail)
 
   if (r1 != false) {
     ++fail;
-    std::cout << "\nERROR! cmb::transform_exclusive_scan()" << std::endl;
+    std::cout << "\nERROR! cmb::iota()" << std::endl;
     print_vector("v",     v);
     print_vector("soln1", soln1);
   }
