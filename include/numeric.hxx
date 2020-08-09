@@ -300,77 +300,342 @@ namespace cmb {
 
 
   //
-  // Inclusive Scan
-
-
-
-
-
-  //
   // Exclusive Scan
 
+  // 5 parameter overload
+  template <class I1, // I1 models InputIterator
+            class I2, // I2 models OutputIterator
+            class T,  // T  models Arithmetic
+            class B>  // B  models BinaryOperation
+  constexpr I2
+  exclusive_scan(I1 first, I1 last, I2 result, T init, B binary_op)
+  {
+    while (first != last) {
 
+      T t  = init;
+      init = binary_op(init, *first);
+
+      ++first;
+      *result++ = std::move(t);
+    }
+
+    return result;
+  }
+
+  // 4 parameter overload
+  template <class I1, // I1 models InputIterator
+            class I2, // I2 models OutputIterator
+            class T>  // T  models Arithmetic
+  constexpr I2
+  exclusive_scan(I1 first, I1 last, I2 result, T init)
+  {
+    return cmb::exclusive_scan( first, last, result, std::move(init), cmb::plus<>{ } );
+  }
 
 
 
   //
-  // Transform Inclusive Scan
+  // Inclusive Scan
 
+  // 5 parameter overload
+  template <class I1, // I1 models InputIterator
+            class I2, // I2 models OutputIterator
+            class B,  // B  models BinaryOperation
+            class T>  // T  models Arithmetic
+  constexpr I2
+  inclusive_scan(I1 first, I1 last, I2 result, B binary_op, T init)
+  {
+    for (; first != last; ++first, ++result) {
+      init    = binary_op(init, *first);
+      *result = init;
+    }
 
+    return result;
+  }
+
+  // 4 parameter overload
+  template <class I1, // I1 models InputIterator
+            class I2, // I2 models OutputIterator
+            class B>  // B  models BinaryOperation
+  constexpr I2
+  inclusive_scan(I1 first, I1 last, I2 result, B binary_op)
+  {
+    if (first != last) {
+
+      typename std::iterator_traits<I1>::value_type init = *first;
+      *result++ = init;
+
+      if (++first != last)
+        return cmb::inclusive_scan( first, last, result, binary_op, std::move(init) );
+    }
+
+    return result;
+  }
+
+  // 3 parameter overload
+  template <class I1, // I1 models InputIterator
+            class I2> // I2 models OutputIterator
+  constexpr I2
+  inclusive_scan(I1 first, I1 last, I2 result)
+  {
+    return cmb::inclusive_scan( first, last, result, cmb::plus<>{} );
+  }
 
 
 
   //
   // Transform Exclusive Scan
 
+  template <class I1, // I1 models InputIterator
+            class I2, // I2 models OutputIterator
+            class T,  // T  models Arithmetic
+            class B,  // B  models BinaryOperation
+            class U>  // U  models UnaryOperation
+  constexpr I2
+  transform_exclusive_scan(I1 first, I1 last, I2 result, T init, B binary_op, U unary_op)
+  {
+    while (first != last) {
+      
+      T t  = init;
+      init = binary_op( init, unary_op(*first) );
 
+      ++first;
+      *result++ = std::move(t);
+    }
+
+    return result;
+  }
+
+
+
+  //
+  // Transform Inclusive Scan
+
+  // 5 parameter overload
+  template <class I1, // I1 models InputIterator
+            class I2, // I2 models OutputIterator
+            class B,  // B  models BinaryOperation
+            class U,  // U  models UnaryOperation
+            class T>  // T  models Arithmetic
+  constexpr I2
+  transform_inclusive_scan(I1 first, I1 last, I2 result, B binary_op, U unary_op, T init)
+  {
+    for (; first != last; ++first, ++result) {
+      init = binary_op( init, unary_op(*first) );
+      *result = init;
+    }
+
+    return result;
+  }
+
+  // 4 parameter overload
+  template <class I1, // I1 models InputIterator
+            class I2, // I2 models OutputIterator
+            class B,  // B  models BinaryOperation
+            class U>  // U  models UnaryOperation
+  constexpr I2
+  transform_inclusive_scan(I1 first, I1 last, I2 result, B binary_op, U unary_op)
+  {
+    if (first != last) {
+
+      typename std::iterator_traits<I1>::value_type init = unary_op(*first);
+      *result++ = init;
+
+      if (++first != last)
+        return cmb::transform_inclusive_scan( first, last, result, binary_op,
+                                              unary_op, std::move(init) );
+    }
+
+    return result;
+  }
 
 
 
   //
   // Adjacent Difference
 
+  // 3 parameter overload
+  template <class I1, // I1 models IntputIterator
+            class I2> // I2 models OutputIterator
+  constexpr I2
+  adjacent_difference(I1 first, I1 last, I2 result)
+  {
+    if (first != last) {
 
+      typename std::iterator_traits<I1>::value_type t1{*first};
+      *result = t1;
+
+      for (++first, ++result; first != last; ++first, ++result) {
+        typename std::iterator_traits<I1>::value_type t2{*first};
+        *result = t2 - t1;
+        t1 = std::move(t2);
+      }
+    }
+
+    return result;
+  }
+
+  // 4 parameter overload
+  template <class I1, // I1 models IntputIterator
+            class I2, // I2 models OutputIterator
+            class B>  // B  models BinaryOperation
+  constexpr I2
+  adjacent_difference(I1 first, I1 last, I2 result, B binary_op)
+  {
+    if (first != last) {
+
+      typename std::iterator_traits<I1>::value_type t1{*first};
+      *result = t1;
+
+      for (++first, ++result; first != last; ++first, ++result) {
+        typename std::iterator_traits<I1>::value_type t2{*first};
+        *result = binary_op(t2, t1);
+        t1 = std::move(t2);
+      }
+    }
+
+    return result;
+  }
 
 
 
   //
   // Iota
 
-
+  template <class I, // I models ForwardIterator
+            class T> // T models Arithmetic
+  constexpr void
+  iota(I first, I last, T value)
+  {
+    for (; first != last; ++first, ++value)
+      *first = value;
+  }
 
 
 
   //
   // GCD
 
+  namespace detail {
 
+    // Non-public implementation function
+    template <class T> // T models Integral
+    constexpr T
+    gcd_impl(T m, T n)
+    {
+      return n == 0 ? m : gcd_impl(n, m % n);
+    }
+
+  } // namespace detail
+
+  // Generic function that invokes implementation function
+  template <class M, // M models Integral
+            class N> // N models Integral
+  constexpr std::common_type_t<M, N>
+  gcd(M m, N n)
+  {
+    using R = std::common_type_t<M, N>;
+
+    return detail::gcd_impl( static_cast<R>( std::abs(m) ),
+                     static_cast<R>( std::abs(n) ) );
+  }
 
 
 
   // LCM
 
+  template <class M, // M models Integral
+            class N> // N models Integral
+  constexpr std::common_type_t<M, N>
+  lcm(M m, N n)
+  {
+    if ( m == 0 || n == 0)
+      return 0;
 
+    using R = std::common_type_t<M, N>;
+
+    R val1 = static_cast<R>( std::abs(m) / cmb::gcd(m, n) );
+    R val2 = static_cast<R>( std::abs(n) );
+
+    return val1 * val2;
+  }
 
 
 
   //
   // Midpoint
 
+  // Overload for integer and floating-point types
+  template <class T> // T models Arithmetic
+  constexpr T
+  midpoint(T a, T b) noexcept
+  {
+    if constexpr (std::is_integral_v<T>) {
 
+      using U = typename std::make_unsigned_t<T>;
+
+      int sign = 1;
+      U m = a;
+      U M = b;
+
+      if (a > b) {
+
+        sign = -1;
+        m = b;
+        M = a;
+      }
+
+      return a + sign * T( U(M - m) / 2 );
+    }
+    else { // is_floating
+    
+      constexpr T lo = std::numeric_limits<T>::min() * 2;
+      constexpr T hi = std::numeric_limits<T>::max() / 2;
+
+      const T abs_a = std::abs(a);
+      const T abs_b = std::abs(b);
+
+      // Most likely
+      if (abs_a <= hi && abs_b <= hi)
+        return (a + b) / 2;
+
+      // Not safe to halve a
+      if (abs_a < lo)
+        return a + b/2;
+
+      // Not safe to halve b
+      if (abs_b < lo)
+        return a/2 + b;
+
+      // Otherwise correctly rounded
+      return a/2 + b/2;
+    }
+  }
+
+
+  // Overload for pointers
+  template <typename T> // T models Pointer
+  constexpr std::enable_if_t<std::is_object_v<T>, T*>
+  midpoint(T* a, T* b)
+  {
+    // T is a complete type
+    static_assert( sizeof(T*) != 0 );
+
+    return a + cmb::midpoint( std::ptrdiff_t{0}, b - a );
+  }
 
 
 }
 
-#include "numeric/exclusive_scan.hxx"
-#include "numeric/inclusive_scan.hxx"
-#include "numeric/transform_exclusive_scan.hxx"
-#include "numeric/transform_inclusive_scan.hxx"
-#include "numeric/adjacent_difference.hxx"
-#include "numeric/iota.hxx"
-#include "numeric/gcd.hxx"
-#include "numeric/lcm.hxx"
-#include "numeric/midpoint.hxx"
+//#include "numeric/exclusive_scan.hxx"
+//#include "numeric/inclusive_scan.hxx"
+//#include "numeric/transform_exclusive_scan.hxx"
+//#include "numeric/transform_inclusive_scan.hxx"
+//#include "numeric/adjacent_difference.hxx"
+//#include "numeric/iota.hxx"
+//#include "numeric/gcd.hxx"
+//#include "numeric/lcm.hxx"
+//#include "numeric/midpoint.hxx"
 
 
 #endif
