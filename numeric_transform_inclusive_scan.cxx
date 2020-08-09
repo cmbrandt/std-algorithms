@@ -11,7 +11,7 @@ int main()
   std::vector<int> x(8);
   std::vector<int> y(8);
 
-  auto add      = [ ](auto a, auto b) { return a + b; };
+  auto add      = [ ](auto a, auto b) { return a + b;  };
   auto times_10 = [ ](auto a)         { return a * 10; };
 
   cmb::transform_inclusive_scan( v.begin(), v.end(), x.begin(), add, times_10 );

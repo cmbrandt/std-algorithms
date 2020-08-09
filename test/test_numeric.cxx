@@ -15,10 +15,10 @@ void test_numeric()
   fail = test_inner_product(fail);
   fail = test_transform_reduce(fail);
   fail = test_partial_sum(fail);
-  fail = test_inclusive_scan(fail);
   fail = test_exclusive_scan(fail);
-  fail = test_transform_inclusive_scan(fail);
+  fail = test_inclusive_scan(fail);
   fail = test_transform_exclusive_scan(fail);
+  fail = test_transform_inclusive_scan(fail);
   fail = test_adjacent_difference(fail);
   fail = test_iota(fail);
   fail = test_gcd(fail);
@@ -111,7 +111,7 @@ int test_transform_reduce(int fail)
   auto add = [ ](auto a, auto b) { return a + b; };
   auto sub = [ ](auto a, auto b) { return a - b; };
   auto mul = [ ](auto a, auto b) { return a * b; };
-  auto neg = [ ](auto a)         { return -a; };
+  auto neg = [ ](auto a)         { return -a;    };
 
   auto r1 = cmb::transform_reduce( x.begin(), x.end(), y.begin(), 0 );
   auto r2 = cmb::transform_reduce( x.begin(), x.end(), y.begin(), 0, sub, mul );
@@ -140,8 +140,53 @@ int test_partial_sum(int fail)
   std::vector<int> y(8);
   auto mul = [ ](auto a, auto b) { return a * b; };
 
+  std::vector<int> soln1{ 2, 4, 6, 8,  10, 12, 14,  16  };
+  std::vector<int> soln2{ 2, 4, 8, 16, 32, 64, 128, 256 };
+
   cmb::partial_sum( v.begin(), v.end(), x.begin() );
   cmb::partial_sum( v.begin(), v.end(), y.begin(), mul );
+
+  bool r1 = compare_vectors(x, soln1);
+  bool r2 = compare_vectors(y, soln2);
+
+  if (r1 != false or r2 != false) {
+    ++fail;
+    std::cout << "\nERROR! cmb::partial_sum()" << std::endl;
+    print_vector("x",     x);
+    print_vector("soln1", soln1);
+    print_vector("y",     y);
+    print_vector("soln2", soln2);
+  }
+
+  return fail;
+}
+
+
+
+int test_exclusive_scan(int fail)
+{
+  std::vector<int> v{ 3, 1, 4, 1, 5, 9, 2, 6 };
+  std::vector<int> x(8);
+  std::vector<int> y(8);
+  auto mul = [ ](auto a, auto b) { return a * b; };
+
+  std::vector<int> soln1{ 0, 3, 4, 8,  9,  14, 23,  25   };
+  std::vector<int> soln2{ 1, 3, 3, 12, 12, 60, 540, 1080 };
+
+  cmb::exclusive_scan( v.begin(), v.end(), x.begin(), 0 );
+  cmb::exclusive_scan( v.begin(), v.end(), y.begin(), 1, mul );
+
+  bool r1 = compare_vectors(x, soln1);
+  bool r2 = compare_vectors(y, soln2);
+
+  if (r1 != false or r2 != false) {
+    ++fail;
+    std::cout << "\nERROR! cmb::exclusive_scan()" << std::endl;
+    print_vector("x",     x);
+    print_vector("soln1", soln1);
+    print_vector("y",     y);
+    print_vector("soln2", soln2);
+  }
 
   return fail;
 }
@@ -156,24 +201,53 @@ int test_inclusive_scan(int fail)
   std::vector<int> z(8);
   auto mul = [ ](auto a, auto b) { return a * b; };
 
+  std::vector<int> soln1{ 3, 4, 8,  9,  14, 23,  25,   31   };
+  std::vector<int> soln2{ 3, 3, 12, 12, 60, 540, 1080, 6480 };
+  std::vector<int> soln3{ 3, 3, 12, 12, 60, 540, 1080, 6480 };
+
   cmb::inclusive_scan( v.begin(), v.end(), x.begin() );
   cmb::inclusive_scan( v.begin(), v.end(), y.begin(), mul );
   cmb::inclusive_scan( v.begin(), v.end(), z.begin(), mul, 1 );
+
+  bool r1 = compare_vectors(x, soln1);
+  bool r2 = compare_vectors(y, soln2);
+  bool r3 = compare_vectors(z, soln3);
+
+  if (r1 != false or r2 != false or r3 != false) {
+    ++fail;
+    std::cout << "\nERROR! cmb::inclusive_scan()" << std::endl;
+    print_vector("x",     x);
+    print_vector("soln1", soln1);
+    print_vector("y",     y);
+    print_vector("soln2", soln2);
+    print_vector("z",     z);
+    print_vector("soln3", soln3);
+  }
 
   return fail;
 }
 
 
 
-int test_exclusive_scan(int fail)
+int test_transform_exclusive_scan(int fail)
 {
   std::vector<int> v{ 3, 1, 4, 1, 5, 9, 2, 6 };
   std::vector<int> x(8);
-  std::vector<int> y(8);
-  auto mul = [ ](auto a, auto b) { return a * b; };
+  auto add = [ ](auto a, auto b) { return a + b;  };
+  auto x10 = [ ](auto a)         { return a * 10; };
 
-  cmb::exclusive_scan( v.begin(), v.end(), x.begin(), 0 );
-  cmb::exclusive_scan( v.begin(), v.end(), y.begin(), 1, mul );
+  std::vector<int> soln1{ 0, 30, 40, 80, 90, 140, 230, 250 };
+
+  cmb::transform_exclusive_scan( v.begin(), v.end(), x.begin(), 0, add, x10 );
+
+  bool r1 = compare_vectors(x, soln1);
+
+  if (r1 != false) {
+    ++fail;
+    std::cout << "\nERROR! cmb::transform_exclusive_scan()" << std::endl;
+    print_vector("x",     x);
+    print_vector("soln1", soln1);
+  }
 
   return fail;
 }
@@ -185,25 +259,26 @@ int test_transform_inclusive_scan(int fail)
   std::vector<int> v{ 3, 1, 4, 1, 5, 9, 2, 6 };
   std::vector<int> x(8);
   std::vector<int> y(8);
-  auto add = [ ](auto a, auto b) { return a + b; };
+  auto add = [ ](auto a, auto b) { return a + b;  };
   auto x10 = [ ](auto a)         { return a * 10; };
+
+  std::vector<int> soln1{ 30, 40, 80, 90, 140, 230, 250, 310 };
+  std::vector<int> soln2{ 30, 40, 80, 90, 140, 230, 250, 310 };
 
   cmb::transform_inclusive_scan( v.begin(), v.end(), x.begin(), add, x10 );
   cmb::transform_inclusive_scan( v.begin(), v.end(), y.begin(), add, x10, 0 );
 
-  return fail;
-}
+  bool r1 = compare_vectors(x, soln1);
+  bool r2 = compare_vectors(y, soln2);
 
-
-
-int test_transform_exclusive_scan(int fail)
-{
-  std::vector<int> v{ 3, 1, 4, 1, 5, 9, 2, 6 };
-  std::vector<int> x(8);
-  auto add = [ ](auto a, auto b) { return a + b; };
-  auto x10 = [ ](auto a)         { return a * 10; };
-
-  cmb::transform_exclusive_scan( v.begin(), v.end(), x.begin(), 0, add, x10 );
+  if (r1 != false or r2 != false) {
+    ++fail;
+    std::cout << "\nERROR! cmb::transform_inclusive_scan()" << std::endl;
+    print_vector("x",     x);
+    print_vector("soln1", soln1);
+    print_vector("y",     y);
+    print_vector("soln2", soln2);
+  }
 
   return fail;
 }
@@ -217,8 +292,23 @@ int test_adjacent_difference(int fail)
   std::vector<int> y(6);
   auto mul = [ ](auto a, auto b) { return a * b; };
 
+  std::vector<int> soln1{ 2, 2, 2,  2,  2,  2   };
+  std::vector<int> soln2{ 2, 8, 24, 48, 80, 120 };
+
   cmb::adjacent_difference( v.begin(), v.end(), x.begin() );
   cmb::adjacent_difference( v.begin(), v.end(), y.begin(), mul );
+
+  bool r1 = compare_vectors(x, soln1);
+  bool r2 = compare_vectors(y, soln2);
+
+  if (r1 != false or r2 != false) {
+    ++fail;
+    std::cout << "\nERROR! cmb::adjacent_difference()" << std::endl;
+    print_vector("x",     x);
+    print_vector("soln1", soln1);
+    print_vector("y",     y);
+    print_vector("soln2", soln2);
+  }
 
   return fail;
 }
@@ -229,7 +319,18 @@ int test_iota(int fail)
 {
   std::vector<double> v(8);
 
+  std::vector<double> soln1{ -3.5, -2.5, -1.5, -0.5, 0.5, 1.5, 2.5, 3.5 };
+
   cmb::iota( v.begin(), v.end(), -3.5 );
+
+  bool r1 = compare_vectors(v, soln1);
+
+  if (r1 != false) {
+    ++fail;
+    std::cout << "\nERROR! cmb::transform_exclusive_scan()" << std::endl;
+    print_vector("v",     v);
+    print_vector("soln1", soln1);
+  }
 
   return fail;
 }

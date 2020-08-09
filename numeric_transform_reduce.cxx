@@ -13,7 +13,7 @@ int main()
   auto add = [ ](auto a, auto b) { return a + b; };
   auto sub = [ ](auto a, auto b) { return a - b; };
   auto mul = [ ](auto a, auto b) { return a * b; };
-  auto neg = [ ](auto a)         { return -a; };
+  auto neg = [ ](auto a)         { return -a;    };
 
   auto r1 = cmb::transform_reduce( x.begin(), x.end(), y.begin(), 0 );
   auto r2 = cmb::transform_reduce( x.begin(), x.end(), y.begin(), 0, sub, mul );
