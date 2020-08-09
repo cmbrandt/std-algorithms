@@ -39,6 +39,7 @@ void test_functional()
 }
 
 
+
 // Arithmetic tests
 
 int test_plus(int fail)
@@ -60,6 +61,7 @@ int test_plus(int fail)
 }
 
 
+
 int test_minus(int fail)
 {
   auto r1 = binary_test( 1,   2,   cmb::minus<>{ } );
@@ -77,6 +79,7 @@ int test_minus(int fail)
 
   return fail;
 }
+
 
 
 int test_multiplies(int fail)
@@ -98,6 +101,7 @@ int test_multiplies(int fail)
 }
 
 
+
 int test_divides(int fail)
 {
   auto r1 = binary_test( 6,   2,   cmb::divides<>{ } );
@@ -115,6 +119,7 @@ int test_divides(int fail)
 
   return fail;
 }
+
 
 
 int test_modulus(int fail)
@@ -136,6 +141,7 @@ int test_modulus(int fail)
 }
 
 
+
 int test_negate(int fail)
 {
   auto r1 = unary_test( 1,   cmb::negate<>{ } );
@@ -153,6 +159,7 @@ int test_negate(int fail)
 
   return fail;
 }
+
 
 
 // Comparison tests
@@ -176,6 +183,7 @@ int test_equal_to(int fail)
 }
 
 
+
 int test_not_equal_to(int fail)
 {
   auto r1 = compare_test( 0,   5,   cmb::not_equal_to<>{ } );
@@ -193,6 +201,7 @@ int test_not_equal_to(int fail)
 
   return fail;
 }
+
 
 
 int test_greater(int fail)
@@ -214,6 +223,7 @@ int test_greater(int fail)
 }
 
 
+
 int test_less(int fail)
 {
   auto r1 = compare_test( 0,   5,   cmb::less<>{ } );
@@ -231,6 +241,7 @@ int test_less(int fail)
 
   return fail;
 }
+
 
 
 int test_greater_equal(int fail)
@@ -252,6 +263,7 @@ int test_greater_equal(int fail)
 }
 
 
+
 int test_less_equal(int fail)
 {
   auto r1 = compare_test( 5,   0,   cmb::less_equal<>{ } );
@@ -269,6 +281,7 @@ int test_less_equal(int fail)
 
   return fail;
 }
+
 
 
 // Logical operator tests
@@ -292,6 +305,7 @@ int test_logical_and(int fail)
 }
 
 
+
 int test_logical_or(int fail)
 {
   auto r1 = binary_test( false, false, cmb::logical_or<>{ } );
@@ -309,6 +323,7 @@ int test_logical_or(int fail)
 
   return fail;
 }
+
 
 
 int test_logical_not(int fail)
@@ -330,6 +345,7 @@ int test_logical_not(int fail)
 }
 
 
+
 // Bitwise operator tests
 
 int test_bit_and(int fail)
@@ -348,6 +364,7 @@ int test_bit_and(int fail)
 }
 
 
+
 int test_bit_or(int fail)
 {
   auto r = binary_test( 5, 9, cmb::bit_or<>{ } );
@@ -364,6 +381,7 @@ int test_bit_or(int fail)
 }
 
 
+
 int test_bit_xor(int fail)
 {
   auto r = binary_test( 5, 9, cmb::bit_xor<>{ } );
@@ -378,6 +396,7 @@ int test_bit_xor(int fail)
 
   return fail;
 }
+
 
 
 int test_bit_not(int fail)

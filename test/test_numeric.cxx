@@ -32,6 +32,7 @@ void test_numeric()
 }
 
 
+
 int test_accumulate(int fail)
 {
   std::vector<int> v{ 1, 2, 3, 4, 5, 6, 7, 8 };
@@ -51,6 +52,7 @@ int test_accumulate(int fail)
 
   return fail;
 }
+
 
 
 int test_reduce(int fail)
@@ -77,6 +79,7 @@ int test_reduce(int fail)
 }
 
 
+
 int test_inner_product(int fail)
 {
   std::vector<double> x{ 0, 1, 2, 3, 4 };
@@ -98,6 +101,7 @@ int test_inner_product(int fail)
 
   return fail;
 }
+
 
 
 int test_transform_reduce(int fail)
@@ -128,6 +132,7 @@ int test_transform_reduce(int fail)
 }
 
 
+
 int test_partial_sum(int fail)
 {
   std::vector<int> v(8, 2);
@@ -140,6 +145,7 @@ int test_partial_sum(int fail)
 
   return fail;
 }
+
 
 
 int test_inclusive_scan(int fail)
@@ -158,6 +164,7 @@ int test_inclusive_scan(int fail)
 }
 
 
+
 int test_exclusive_scan(int fail)
 {
   std::vector<int> v{ 3, 1, 4, 1, 5, 9, 2, 6 };
@@ -170,6 +177,7 @@ int test_exclusive_scan(int fail)
 
   return fail;
 }
+
 
 
 int test_transform_inclusive_scan(int fail)
@@ -187,6 +195,7 @@ int test_transform_inclusive_scan(int fail)
 }
 
 
+
 int test_transform_exclusive_scan(int fail)
 {
   std::vector<int> v{ 3, 1, 4, 1, 5, 9, 2, 6 };
@@ -198,6 +207,7 @@ int test_transform_exclusive_scan(int fail)
 
   return fail;
 }
+
 
 
 int test_adjacent_difference(int fail)
@@ -214,6 +224,7 @@ int test_adjacent_difference(int fail)
 }
 
 
+
 int test_iota(int fail)
 {
   std::vector<double> v(8);
@@ -222,6 +233,7 @@ int test_iota(int fail)
 
   return fail;
 }
+
 
 
 int test_gcd(int fail)
@@ -242,6 +254,7 @@ int test_gcd(int fail)
 }
 
 
+
 int test_lcm(int fail)
 {
   int m = 8;
@@ -258,6 +271,7 @@ int test_lcm(int fail)
 
   return fail;
 }
+
 
 
 int test_midpoint(int fail)

@@ -54,6 +54,7 @@ namespace cmb {
   template <> struct bit_not<void>;
 
 
+
   //
   // Plus
 
@@ -82,6 +83,7 @@ namespace cmb {
  
     using is_transparent = void;
   };
+
 
 
   //
@@ -114,6 +116,7 @@ namespace cmb {
   };
 
 
+
   //
   // Multiplies
 
@@ -142,6 +145,7 @@ namespace cmb {
  
     using is_transparent = void;
   };
+
 
 
   //
@@ -174,6 +178,7 @@ namespace cmb {
   };
 
 
+
   //
   // Modulus
 
@@ -202,6 +207,7 @@ namespace cmb {
  
     using is_transparent = void;
   };
+
 
 
   //
@@ -234,6 +240,7 @@ namespace cmb {
   };
 
 
+
   //
   // Equal To
 
@@ -262,6 +269,7 @@ namespace cmb {
  
     using is_transparent = void;
   };
+
 
 
   //
@@ -294,6 +302,7 @@ namespace cmb {
   };
 
 
+
   //
   // Greater
 
@@ -322,6 +331,7 @@ namespace cmb {
  
     using is_transparent = void;
   };
+
 
 
   //
@@ -354,6 +364,7 @@ namespace cmb {
   };
 
 
+
   //
   // Greater Equal
 
@@ -382,6 +393,7 @@ namespace cmb {
  
     using is_transparent = void;
   };
+
 
 
   //
@@ -414,6 +426,7 @@ namespace cmb {
   };
 
 
+
   //
   // Logical And
 
@@ -442,6 +455,7 @@ namespace cmb {
  
     using is_transparent = void;
   };
+
 
 
   //
@@ -474,6 +488,7 @@ namespace cmb {
   };
 
 
+
   //
   // Logical Not
 
@@ -502,6 +517,7 @@ namespace cmb {
  
     using is_transparent = void;
   };
+
 
 
   //
@@ -534,6 +550,7 @@ namespace cmb {
   };
 
 
+
   //
   // Bitwise Or
 
@@ -562,6 +579,7 @@ namespace cmb {
  
     using is_transparent = void;
   };
+
 
 
   //
@@ -594,6 +612,7 @@ namespace cmb {
   };
 
 
+
   //
   // Bitwise Not
 
@@ -623,7 +642,7 @@ namespace cmb {
     using is_transparent = void;
   };
 
-}
+} // namespace cmb
 
 
 #endif

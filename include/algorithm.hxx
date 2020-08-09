@@ -17,37 +17,31 @@ namespace cmb {
   template <class I, class T> 
   constexpr I
   lower_bound(I first, I last, T const& value);
-
   template <class I, class T, class C> 
   constexpr I
   lower_bound(I first, I last, T const& value, C compare);
 
-
   template <class I, class T>
   constexpr I
   upper_bound(I first, I last, T const& value);
-
   template <class I, class T, class C>
   constexpr I
   upper_bound(I first, I last, T const& value, C compare);
 
-
   template <class I, class T>
   constexpr std::pair<I, I>
   equal_range(I first, I last, T const& value);
-
   template <class I, class T, class C>
   constexpr std::pair<I, I>
   equal_range(I first, I last, T const& value, C compare);
 
-
   template <class I, class T>
   constexpr bool
   binary_search(I first, I last, T const& value);
-
   template <class I, class T, class C>
   constexpr bool
   binary_search(I first, I last, T const& value, C compare);
+
 
 
   //
@@ -55,7 +49,7 @@ namespace cmb {
 
   namespace detail {
 
-    // Implementation function
+    // Non-public implementation function
     template <class C, // C models BinaryPredicate
               class I, // I models ForwardIterator
               class T> // T is value_type<I>
@@ -101,12 +95,13 @@ namespace cmb {
   }
 
 
+
   //
   // Upper Bound
 
   namespace detail {
 
-    // Implementation function
+    // Non-public implementation function
     template <class C, // C models BinaryPredicate
               class I, // I models ForwardIterator
               class T> // T is value_type<I>
@@ -157,6 +152,7 @@ namespace cmb {
   }
 
 
+
   //
   // Equal Range
 
@@ -180,6 +176,7 @@ namespace cmb {
   {
     return cmb::equal_range( first, last, value, cmb::less<>{ } );
   }
+
 
 
   //

@@ -22,6 +22,7 @@ void test_algorithm()
 }
 
 
+
 // Binary search tests
 
 int test_lower_bound(int fail)
@@ -46,6 +47,7 @@ int test_lower_bound(int fail)
 }
 
 
+
 int test_upper_bound(int fail)
 {
   std::vector<int> x{ 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6 };
@@ -66,6 +68,7 @@ int test_upper_bound(int fail)
 
   return fail;
 }
+
 
 
 int test_equal_range(int fail)
@@ -93,6 +96,7 @@ int test_equal_range(int fail)
 
   return fail;
 }
+
 
 
 int test_binary_search(int fail)

@@ -22,6 +22,7 @@ void test_iterator()
 }
 
 
+
 // Iterator tests
 
 int test_advance(int fail)
@@ -42,6 +43,7 @@ int test_advance(int fail)
 }
 
 
+
 int test_distance(int fail)
 {
   std::vector<int> v{ 1, 2, 3 };
@@ -57,6 +59,7 @@ int test_distance(int fail)
 
   return fail;
 }
+
 
 
 int test_next(int fail)
@@ -75,6 +78,7 @@ int test_next(int fail)
 
   return fail;
 }
+
 
 
 int test_prev(int fail)
