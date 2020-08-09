@@ -82,7 +82,8 @@ namespace cmb {
   lower_bound(I first, I last, T const& value, C compare)
   {
     using C_ref = typename std::add_lvalue_reference<C>::type;
-    return detail::lower_bound_impl<C_ref>(first, last, value, compare);
+
+    return cmb::detail::lower_bound_impl<C_ref>(first, last, value, compare);
   }
 
   // 3 parameter overload
@@ -139,7 +140,8 @@ namespace cmb {
   upper_bound(I first, I last, T const& value, C compare)
   {
     using C_ref = typename std::add_lvalue_reference<C>::type;
-    return detail::upper_bound_impl<C_ref>(first, last, value, compare);
+
+    return cmb::detail::upper_bound_impl<C_ref>(first, last, value, compare);
   }
 
   // 3 parameter overload
@@ -164,8 +166,9 @@ namespace cmb {
   equal_range(I first, I last, T const& value, C compare)
   {
     using C_ref = typename std::add_lvalue_reference<C>::type;
-    return std::make_pair( detail::lower_bound_impl<C_ref>(first, last, value, compare),
-                           detail::upper_bound_impl<C_ref>(first, last, value, compare) );
+
+    return std::make_pair( cmb::detail::lower_bound_impl<C_ref>(first, last, value, compare),
+                           cmb::detail::upper_bound_impl<C_ref>(first, last, value, compare) );
   }
 
   // 3 parameter overload
@@ -190,7 +193,8 @@ namespace cmb {
   binary_search(I first, I last, T const& value, C compare)
   {
     using C_ref = typename std::add_lvalue_reference<C>::type;
-    first = detail::lower_bound_impl<C_ref>(first, last, value, compare);
+    
+    first = cmb::detail::lower_bound_impl<C_ref>(first, last, value, compare);
     return !(first == last) && !( compare(value, *first) );
   }
 

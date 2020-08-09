@@ -542,6 +542,7 @@ namespace cmb {
 
 
 
+  //
   // LCM
 
   template <class M, // M models Integral
@@ -612,7 +613,6 @@ namespace cmb {
     }
   }
 
-
   // Overload for pointers
   template <typename T> // T models Pointer
   constexpr std::enable_if_t<std::is_object_v<T>, T*>
@@ -626,16 +626,6 @@ namespace cmb {
 
 
 }
-
-//#include "numeric/exclusive_scan.hxx"
-//#include "numeric/inclusive_scan.hxx"
-//#include "numeric/transform_exclusive_scan.hxx"
-//#include "numeric/transform_inclusive_scan.hxx"
-//#include "numeric/adjacent_difference.hxx"
-//#include "numeric/iota.hxx"
-//#include "numeric/gcd.hxx"
-//#include "numeric/lcm.hxx"
-//#include "numeric/midpoint.hxx"
 
 
 #endif
