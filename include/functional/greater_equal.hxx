@@ -10,7 +10,7 @@ namespace cmb {
 
 
   // Specification and implementation
-  template <class T = void>
+  template <class T>
   struct greater_equal {
 
     constexpr inline

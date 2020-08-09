@@ -15,13 +15,16 @@ namespace cmb {
   constexpr void
   advance(I& i, D n);
 
+
   template <class I>
   constexpr typename std::iterator_traits<I>::difference_type
   distance(I first, I last);
 
+
   template <class I>
   constexpr I
   next(I x, typename std::iterator_traits<I>::difference_type n = 1);
+
 
   template <class I>
   constexpr I
