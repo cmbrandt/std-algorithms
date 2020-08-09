@@ -234,43 +234,396 @@ namespace cmb {
   };
 
 
+  //
+  // Equal To
+
+  // Specification and implementation
+  template <class T>
+  struct equal_to {
+
+    constexpr bool
+    operator()(T const& x, T const& y) const
+    {
+      return x == y;
+    }
+
+  };
+
+  // Total specialization
+  template <>
+  struct equal_to<void> {
+
+    template <class T, class U>
+    constexpr auto
+    operator()(T&& t, U&& u) const -> decltype( std::forward<T>(t) == std::forward<U>(u) )
+    {
+      return std::forward<T>(t) == std::forward<U>(u);
+    }
+ 
+    using is_transparent = void;
+  };
 
 
+  //
+  // Not Equal To
+
+  // Specification and implementation
+  template <class T>
+  struct not_equal_to {
+
+    constexpr bool
+    operator()(T const& x, T const& y) const
+    {
+      return x != y;
+    }
+
+  };
+
+  // Total specialization
+  template <>
+  struct not_equal_to<void> {
+
+    template <class T, class U>
+    constexpr auto
+    operator()(T&& t, U&& u) const -> decltype( std::forward<T>(t) != std::forward<U>(u) )
+    {
+      return std::forward<T>(t) != std::forward<U>(u);
+    }
+ 
+    using is_transparent = void;
+  };
 
 
+  //
+  // Greater
 
+  // Specification and implementation
+  template <class T>
+  struct greater {
+
+    constexpr bool
+    operator()(T const& x, T const& y) const
+    {
+      return x > y;
+    }
+
+  };
+
+  // Total specialization
+  template <>
+  struct greater<void> {
+
+    template <class T, class U>
+    constexpr auto
+    operator()(T&& t, U&& u) const -> decltype( std::forward<T>(t) > std::forward<U>(u) )
+    {
+      return std::forward<T>(t) > std::forward<U>(u);
+    }
+ 
+    using is_transparent = void;
+  };
+
+
+  //
+  // Less
+
+  // Specification and implementation
+  template <class T>
+  struct less {
+
+    constexpr bool
+    operator()(T const& x, T const& y) const
+    {
+      return x < y;
+    }
+
+  };
+
+  // Total specialization
+  template <>
+  struct less<void> {
+
+    template <class T, class U>
+    constexpr auto
+    operator()(T&& t, U&& u) const -> decltype( std::forward<T>(t) < std::forward<U>(u) )
+    {
+      return std::forward<T>(t) < std::forward<U>(u);
+    }
+ 
+    using is_transparent = void;
+  };
+
+
+  //
+  // Greater Equal
+
+  // Specification and implementation
+  template <class T>
+  struct greater_equal {
+
+    constexpr bool
+    operator()(T const& x, T const& y) const
+    {
+      return x >= y;
+    }
+
+  };
+
+  // Total specialization
+  template <>
+  struct greater_equal<void> {
+
+    template <class T, class U>
+    constexpr auto
+    operator()(T&& t, U&& u) const -> decltype( std::forward<T>(t) >= std::forward<U>(u) )
+    {
+      return std::forward<T>(t) >= std::forward<U>(u);
+    }
+ 
+    using is_transparent = void;
+  };
+
+
+  //
+  // Less Equal
+
+  // Specification and implementation
+  template <class T>
+  struct less_equal {
+
+    constexpr bool
+    operator()(T const& x, T const& y) const
+    {
+      return x <= y;
+    }
+
+  };
+
+  // Total specialization
+  template <>
+  struct less_equal<void> {
+
+    template <class T, class U>
+    constexpr auto
+    operator()(T&& t, U&& u) const -> decltype( std::forward<T>(t) <= std::forward<U>(u) )
+    {
+      return std::forward<T>(t) <= std::forward<U>(u);
+    }
+ 
+    using is_transparent = void;
+  };
+
+
+  //
+  // Logical And
+
+  // Specification and implementation
+  template <class T>
+  struct logical_and {
+
+    constexpr bool
+    operator()(T const& x, T const& y) const
+    {
+      return x && y;
+    }
+
+  };
+
+  // Total specialization
+  template <>
+  struct logical_and<void> {
+
+    template <class T, class U>
+    constexpr auto
+    operator()(T&& t, U&& u) const -> decltype( std::forward<T>(t) && std::forward<U>(u) )
+    {
+      return std::forward<T>(t) && std::forward<U>(u);
+    }
+ 
+    using is_transparent = void;
+  };
+
+
+  //
+  // Logical Or
+
+  // Specification and implementation
+  template <class T>
+  struct logical_or {
+
+    constexpr bool
+    operator()(T const& x, T const& y) const
+    {
+      return x || y;
+    }
+
+  };
+
+  // Total specialization
+  template <>
+  struct logical_or<void> {
+
+    template <class T, class U>
+    constexpr auto
+    operator()(T&& t, U&& u) const -> decltype( std::forward<T>(t) || std::forward<U>(u) )
+    {
+      return std::forward<T>(t) || std::forward<U>(u);
+    }
+ 
+    using is_transparent = void;
+  };
+
+
+  //
+  // Logical Not
+
+  // Specification and implementation
+  template <class T>
+  struct logical_not {
+
+    constexpr bool
+    operator()(T const& x) const
+    {
+      return !x;
+    }
+
+  };
+
+  // Total specialization
+  template <>
+  struct logical_not<void> {
+
+    template <class T>
+    constexpr auto
+    operator()(T&& t) const -> decltype( !std::forward<T>(t) )
+    {
+      return !std::forward<T>(t);
+    }
+ 
+    using is_transparent = void;
+  };
+
+
+  //
+  // Bitwise And
+
+  // Specification and implementation
+  template <class T>
+  struct bit_and {
+
+    constexpr T
+    operator()(T const& x, T const& y) const
+    {
+      return x & y;
+    }
+
+  };
+
+  // Total specialization
+  template <>
+  struct bit_and<void> {
+
+    template <class T, class U>
+    constexpr auto
+    operator()(T&& t, U&& u) const -> decltype( std::forward<T>(t) & std::forward<U>(u) )
+    {
+      return std::forward<T>(t) & std::forward<U>(u);
+    }
+ 
+    using is_transparent = void;
+  };
+
+
+  //
+  // Bitwise Or
+
+  // Specification and implementation
+  template <class T>
+  struct bit_or {
+
+    constexpr T
+    operator()(T const& x, T const& y) const
+    {
+      return x | y;
+    }
+
+  };
+
+  // Total specialization
+  template <>
+  struct bit_or<void> {
+
+    template <class T, class U>
+    constexpr auto
+    operator()(T&& t, U&& u) const -> decltype( std::forward<T>(t) | std::forward<U>(u) )
+    {
+      return std::forward<T>(t) | std::forward<U>(u);
+    }
+ 
+    using is_transparent = void;
+  };
+
+
+  //
+  // Bitwise Xor
+
+  // Specification and implementation
+  template <class T>
+  struct bit_xor {
+
+    constexpr T
+    operator()(T const& x, T const& y) const
+    {
+      return x ^ y;
+    }
+
+  };
+
+  // Total specialization
+  template <>
+  struct bit_xor<void> {
+
+    template <class T, class U>
+    constexpr auto
+    operator()(T&& t, U&& u) const -> decltype( std::forward<T>(t) ^ std::forward<U>(u) )
+    {
+      return std::forward<T>(t) ^ std::forward<U>(u);
+    }
+ 
+    using is_transparent = void;
+  };
+
+
+  //
+  // Bitwise Not
+
+  // Specification and implementation
+  template <class T>
+  struct bit_not {
+
+    constexpr T
+    operator()(T const& x) const
+    {
+      return ~x;
+    }
+
+  };
+
+  // Total specialization
+  template <>
+  struct bit_not<void> {
+
+    template <class T>
+    constexpr auto
+    operator()(T&& t) const -> decltype( ~std::forward<T>(t) )
+    {
+      return ~std::forward<T>(t);
+    }
+ 
+    using is_transparent = void;
+  };
 
 }
-
-
-
-// Arithmetic operations
-//#include "functional/plus.hxx"
-//#include "functional/minus.hxx"
-//#include "functional/multiplies.hxx"
-//#include "functional/divides.hxx"
-//#include "functional/modulus.hxx"
-//#include "functional/negate.hxx"
-
-// Comparisons
-#include "functional/equal_to.hxx"
-#include "functional/not_equal_to.hxx"
-#include "functional/greater.hxx"
-#include "functional/less.hxx"
-#include "functional/greater_equal.hxx"
-#include "functional/less_equal.hxx"
-
-// Logical operations
-#include "functional/logical_and.hxx"
-#include "functional/logical_or.hxx"
-#include "functional/logical_not.hxx"
-
-// Bitwise operations
-#include "functional/bit_and.hxx"
-#include "functional/bit_or.hxx"
-#include "functional/bit_xor.hxx"
-#include "functional/bit_not.hxx"
-// */
 
 
 #endif
