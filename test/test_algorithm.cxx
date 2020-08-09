@@ -23,6 +23,7 @@ void test_algorithm()
 
 
 
+//
 // Binary search tests
 
 int test_lower_bound(int fail)

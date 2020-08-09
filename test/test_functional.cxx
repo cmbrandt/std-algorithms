@@ -40,7 +40,8 @@ void test_functional()
 
 
 
-// Arithmetic tests
+//
+// Arithmetic operation tests
 
 int test_plus(int fail)
 {
@@ -162,6 +163,7 @@ int test_negate(int fail)
 
 
 
+//
 // Comparison tests
 
 int test_equal_to(int fail)
@@ -284,7 +286,8 @@ int test_less_equal(int fail)
 
 
 
-// Logical operator tests
+//
+// Logical operation tests
 
 int test_logical_and(int fail)
 {
@@ -346,7 +349,8 @@ int test_logical_not(int fail)
 
 
 
-// Bitwise operator tests
+//
+// Bitwise operation tests
 
 int test_bit_and(int fail)
 {

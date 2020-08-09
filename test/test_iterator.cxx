@@ -23,7 +23,8 @@ void test_iterator()
 
 
 
-// Iterator tests
+//
+// Iterator operation tests
 
 int test_advance(int fail)
 {

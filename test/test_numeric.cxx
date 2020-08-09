@@ -31,6 +31,9 @@ void test_numeric()
 
 
 
+//
+// Generalized numeric operation tests
+
 int test_accumulate(int fail)
 {
   std::vector<int> v{ 1, 2, 3, 4, 5, 6, 7, 8 };
