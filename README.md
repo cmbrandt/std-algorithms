@@ -1,2 +1,2 @@
-# stl-algorithm
-My implementation of algorithms and other facilities from the C++ Standard Library.
+# STL Algorithms
+My own implementation of algorithms and other facilities within the C++ Standard Library.
