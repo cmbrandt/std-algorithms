@@ -5,7 +5,8 @@
 
 #include <cstdlib>
 #include <iostream>
-#include <string>
+#include <limits>
+#include <string_view>
 #include <vector>
 
 
@@ -48,7 +49,7 @@ bool compare_vectors(std::vector<T> a, std::vector<T> b)
 }
 
 template <typename T>
-void print_vector(std::string str, std::vector<T> v)
+void print_vector(std::string_view str, std::vector<T> v)
 {
   std::cout << str << ":" << std::endl;
 

@@ -1,7 +1,7 @@
 # C++ compiler, compiler flags, and include statement
-CXX      := g++-9
-CXXFLAGS := -Wall -std=c++17
-CXXINCLD := -I /Users/cmbrandt/projects/stl-algorithms/include
+CXX      := g++-10
+CXXFLAGS := -Wall -pedantic -std=c++17
+CXXINCLD := -I $(HOME)/projects/stl-algorithms/include
 TESTOBJS := test_main.o test_algorithm.o test_functional.o test_iterator.o test_numeric.o
 
 all: test.exe
