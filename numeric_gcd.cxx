@@ -1,7 +1,5 @@
-// numeric_gcd.cxx
-
 #include <iostream>
-#include "include/numeric.hxx"
+#include <numeric.hxx>
 
 
 int main()

@@ -1,8 +1,6 @@
-// numeric_transform_exclusive_scan.cxx
-
 #include <iostream>
 #include <vector>
-#include "include/numeric.hxx"
+#include <numeric.hxx>
 
 
 int main()

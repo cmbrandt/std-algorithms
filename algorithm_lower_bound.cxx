@@ -1,8 +1,6 @@
-// algorithm_lower_bound.cxx
-
 #include <iostream>
 #include <vector>
-#include "include/algorithm.hxx"
+#include <algorithm.hxx>
 
 
 int main()

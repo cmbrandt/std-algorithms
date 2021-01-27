@@ -2,22 +2,22 @@
 <algorithm>
 
 // Binary search
-g++-9 -Wall -std=c++17 algorithm_lower_bound.cxx    -I /Users/cmbrandt/projects/stl-algorithms/include -o ab1
-g++-9 -Wall -std=c++17 algorithm_upper_bound.cxx    -I /Users/cmbrandt/projects/stl-algorithms/include -o ab2
-g++-9 -Wall -std=c++17 algorithm_equal_range.cxx    -I /Users/cmbrandt/projects/stl-algorithms/include -o ab3
-g++-9 -Wall -std=c++17 algorithm_binary_search.cxx  -I /Users/cmbrandt/projects/stl-algorithms/include -o ab4
+g++-10 -Wall -Wpedantic -Wextra -std=c++17 algorithm_lower_bound.cxx    -I /home/ava-569758-1/projects/stl-algorithms/include -o ab1.exe
+g++-10 -Wall -Wpedantic -Wextra -std=c++17 algorithm_upper_bound.cxx    -I /home/ava-569758-1/projects/stl-algorithms/include -o ab2.exe
+g++-10 -Wall -Wpedantic -Wextra -std=c++17 algorithm_equal_range.cxx    -I /home/ava-569758-1/projects/stl-algorithms/include -o ab3.exe
+g++-10 -Wall -Wpedantic -Wextra -std=c++17 algorithm_binary_search.cxx  -I /home/ava-569758-1/projects/stl-algorithms/include -o ab4.exe
 
 
 
 <functional>
 
 // Arithmetic operations
-g++-9 -Wall -std=c++17 functional_plus.cxx          -I /Users/cmbrandt/projects/stl-algorithms/include -o fa1
-g++-9 -Wall -std=c++17 functional_minus.cxx         -I /Users/cmbrandt/projects/stl-algorithms/include -o fa2
-g++-9 -Wall -std=c++17 functional_multiplies.cxx    -I /Users/cmbrandt/projects/stl-algorithms/include -o fa3
-g++-9 -Wall -std=c++17 functional_divides.cxx       -I /Users/cmbrandt/projects/stl-algorithms/include -o fa4
-g++-9 -Wall -std=c++17 functional_modulus.cxx       -I /Users/cmbrandt/projects/stl-algorithms/include -o fa5
-g++-9 -Wall -std=c++17 functional_negate.cxx        -I /Users/cmbrandt/projects/stl-algorithms/include -o fa6
+g++-10 -Wall -std=c++17 functional_plus.cxx          -I /Users/cmbrandt/projects/stl-algorithms/include -o fa1
+g++-10 -Wall -std=c++17 functional_minus.cxx         -I /Users/cmbrandt/projects/stl-algorithms/include -o fa2
+g++-10 -Wall -std=c++17 functional_multiplies.cxx    -I /Users/cmbrandt/projects/stl-algorithms/include -o fa3
+g++-10 -Wall -std=c++17 functional_divides.cxx       -I /Users/cmbrandt/projects/stl-algorithms/include -o fa4
+g++-10 -Wall -std=c++17 functional_modulus.cxx       -I /Users/cmbrandt/projects/stl-algorithms/include -o fa5
+g++-10 -Wall -std=c++17 functional_negate.cxx        -I /Users/cmbrandt/projects/stl-algorithms/include -o fa6
 
 // Comparisons
 g++-9 -Wall -std=c++17 functional_equal_to.cxx      -I /Users/cmbrandt/projects/stl-algorithms/include -o fc1
@@ -43,10 +43,10 @@ g++-9 -Wall -std=c++17 functional_bit_not.cxx       -I /Users/cmbrandt/projects/
 <iterator>
 
 // Iterator operations
-g++-9 -Wall -std=c++17 iterator_advance.cxx         -I /Users/cmbrandt/projects/stl-algorithms/include -o i1
-g++-9 -Wall -std=c++17 iterator_distance.cxx        -I /Users/cmbrandt/projects/stl-algorithms/include -o i2
-g++-9 -Wall -std=c++17 iterator_next.cxx            -I /Users/cmbrandt/projects/stl-algorithms/include -o i3
-g++-9 -Wall -std=c++17 iterator_prev.cxx            -I /Users/cmbrandt/projects/stl-algorithms/include -o i4
+g++-10 -Wall -Wpedantic -Wextra -std=c++17 iterator_advance.cxx         -I /home/ava-569758-1/projects/stl-algorithms/include  -o i1.exe
+g++-10 -Wall -Wpedantic -Wextra -std=c++17 iterator_distance.cxx        -I /home/ava-569758-1/projects/stl-algorithms/include  -o i2.exe
+g++-10 -Wall -Wpedantic -Wextra -std=c++17 iterator_next.cxx            -I /home/ava-569758-1/projects/stl-algorithms/include  -o i3.exe
+g++-10 -Wall -Wpedantic -Wextra -std=c++17 iterator_prev.cxx            -I /home/ava-569758-1/projects/stl-algorithms/include  -o i4.exe
 
 
 

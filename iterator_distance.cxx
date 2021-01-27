@@ -1,8 +1,6 @@
-// iterator_distance.cxx
-
 #include <iostream>
 #include <vector>
-#include "include/iterator.hxx"
+#include <iterator.hxx>
 
 
 int main()

@@ -1,9 +1,7 @@
-// numeric_midpoint.cxx
-
 #include <iostream>
 #include <limits>
 #include <vector>
-#include "include/numeric.hxx"
+#include <numeric.hxx>
 
 
 int main()

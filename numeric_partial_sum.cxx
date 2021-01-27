@@ -1,8 +1,6 @@
-// numeric_partial_sum.cxx
-
 #include <iostream>
 #include <vector>
-#include "include/numeric.hxx"
+#include <numeric.hxx>
 
 
 int main()

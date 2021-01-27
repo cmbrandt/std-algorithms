@@ -1,8 +1,6 @@
-// numeric_inner_product.cxx
-
 #include <iostream>
 #include <vector>
-#include "include/numeric.hxx"
+#include <numeric.hxx>
 
 
 int main()
