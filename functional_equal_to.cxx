@@ -1,7 +1,5 @@
-// functional_equal_to.cxx
-
 #include <iostream>
-#include "include/functional.hxx"
+#include <functional.hxx>
 
 
 template <typename T, typename C = cmb::equal_to<>>

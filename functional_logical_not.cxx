@@ -1,8 +1,5 @@
-// functional_logical_not.cxx
-
 #include <iostream>
-#include "include/functional.hxx"
-
+#include <functional.hxx>
 
 template <typename T, typename L = cmb::logical_not<>>
 bool logical_test( T a, L logical = L{} )

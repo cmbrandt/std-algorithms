@@ -1,7 +1,5 @@
-// functional_modulus.cxx
-
 #include <iostream>
-#include "include/functional.hxx"
+#include <functional.hxx>
 
 
 template <typename T, typename A = cmb::modulus<>>

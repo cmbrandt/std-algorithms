@@ -1,7 +1,5 @@
-// functional_logical_or.cxx
-
 #include <iostream>
-#include "include/functional.hxx"
+#include <functional.hxx>
 
 
 template <typename T, typename L = cmb::logical_or<>>

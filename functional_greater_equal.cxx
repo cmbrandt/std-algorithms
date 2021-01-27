@@ -1,7 +1,5 @@
-// functional_greater_equal.cxx
-
 #include <iostream>
-#include "include/functional.hxx"
+#include <functional.hxx>
 
 
 template <typename T, typename C = cmb::greater_equal<>>

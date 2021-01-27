@@ -1,7 +1,5 @@
-// functional_bit_or.cxx
-
 #include <iostream>
-#include "include/functional.hxx"
+#include <functional.hxx>
 
 
 template <typename T, typename B = cmb::bit_or<>>
