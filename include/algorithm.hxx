@@ -1,4 +1,3 @@
-
 #ifndef ALGORITHM_HXX
 #define ALGORITHM_HXX
 
@@ -80,7 +79,7 @@ namespace cmb {
   constexpr I
   lower_bound(I first, I last, T const& value, C compare)
   {
-    using C_ref = typename std::add_lvalue_reference<C>::type;
+    using C_ref = std::add_lvalue_reference_t<C>;
 
     return cmb::detail::lower_bound_impl<C_ref>(first, last, value, compare);
   }
@@ -138,7 +137,7 @@ namespace cmb {
   constexpr I
   upper_bound(I first, I last, T const& value, C compare)
   {
-    using C_ref = typename std::add_lvalue_reference<C>::type;
+    using C_ref = std::add_lvalue_reference_t<C>;
 
     return cmb::detail::upper_bound_impl<C_ref>(first, last, value, compare);
   }
@@ -164,7 +163,7 @@ namespace cmb {
   constexpr std::pair<I, I>
   equal_range(I first, I last, T const& value, C compare)
   {
-    using C_ref = typename std::add_lvalue_reference<C>::type;
+    using C_ref = std::add_lvalue_reference_t<C>;
 
     return std::make_pair( cmb::detail::lower_bound_impl<C_ref>(first, last, value, compare),
                            cmb::detail::upper_bound_impl<C_ref>(first, last, value, compare) );
@@ -191,7 +190,7 @@ namespace cmb {
   constexpr bool
   binary_search(I first, I last, T const& value, C compare)
   {
-    using C_ref = typename std::add_lvalue_reference<C>::type;
+    using C_ref = std::add_lvalue_reference_t<C>;
     
     first = cmb::detail::lower_bound_impl<C_ref>(first, last, value, compare);
     return !(first == last) && !( compare(value, *first) );

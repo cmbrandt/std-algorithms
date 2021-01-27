@@ -2,10 +2,10 @@
 <algorithm>
 
 // Binary search
-g++-10 -Wall -Wpedantic -Wextra -std=c++17 algorithm_lower_bound.cxx    -I /home/ava-569758-1/projects/stl-algorithms/include -o ab1.exe
-g++-10 -Wall -Wpedantic -Wextra -std=c++17 algorithm_upper_bound.cxx    -I /home/ava-569758-1/projects/stl-algorithms/include -o ab2.exe
-g++-10 -Wall -Wpedantic -Wextra -std=c++17 algorithm_equal_range.cxx    -I /home/ava-569758-1/projects/stl-algorithms/include -o ab3.exe
-g++-10 -Wall -Wpedantic -Wextra -std=c++17 algorithm_binary_search.cxx  -I /home/ava-569758-1/projects/stl-algorithms/include -o ab4.exe
+g++-10 -Wall -Wpedantic -Wextra -std=c++17 algorithm_lower_bound.cxx    -I /home/ava-569758-1/projects/std-algorithms/include -o ab1.exe
+g++-10 -Wall -Wpedantic -Wextra -std=c++17 algorithm_upper_bound.cxx    -I /home/ava-569758-1/projects/std-algorithms/include -o ab2.exe
+g++-10 -Wall -Wpedantic -Wextra -std=c++17 algorithm_equal_range.cxx    -I /home/ava-569758-1/projects/std-algorithms/include -o ab3.exe
+g++-10 -Wall -Wpedantic -Wextra -std=c++17 algorithm_binary_search.cxx  -I /home/ava-569758-1/projects/std-algorithms/include -o ab4.exe
 
 
 
@@ -43,27 +43,27 @@ g++-9 -Wall -std=c++17 functional_bit_not.cxx       -I /Users/cmbrandt/projects/
 <iterator>
 
 // Iterator operations
-g++-10 -Wall -Wpedantic -Wextra -std=c++17 iterator_advance.cxx         -I /home/ava-569758-1/projects/stl-algorithms/include  -o i1.exe
-g++-10 -Wall -Wpedantic -Wextra -std=c++17 iterator_distance.cxx        -I /home/ava-569758-1/projects/stl-algorithms/include  -o i2.exe
-g++-10 -Wall -Wpedantic -Wextra -std=c++17 iterator_next.cxx            -I /home/ava-569758-1/projects/stl-algorithms/include  -o i3.exe
-g++-10 -Wall -Wpedantic -Wextra -std=c++17 iterator_prev.cxx            -I /home/ava-569758-1/projects/stl-algorithms/include  -o i4.exe
+g++-10 -Wall -Wpedantic -Wextra -std=c++17 iterator_advance.cxx         -I /home/ava-569758-1/projects/std-algorithms/include  -o i1.exe
+g++-10 -Wall -Wpedantic -Wextra -std=c++17 iterator_distance.cxx        -I /home/ava-569758-1/projects/std-algorithms/include  -o i2.exe
+g++-10 -Wall -Wpedantic -Wextra -std=c++17 iterator_next.cxx            -I /home/ava-569758-1/projects/std-algorithms/include  -o i3.exe
+g++-10 -Wall -Wpedantic -Wextra -std=c++17 iterator_prev.cxx            -I /home/ava-569758-1/projects/std-algorithms/include  -o i4.exe
 
 
 
 <numeric>
 
 // Generalized numeric operations
-g++-9 -Wall -std=c++17 numeric_accumulate.cxx               -I /Users/cmbrandt/projects/stl-algorithms/include -o n01
-g++-9 -Wall -std=c++17 numeric_reduce.cxx                   -I /Users/cmbrandt/projects/stl-algorithms/include -o n02
-g++-9 -Wall -std=c++17 numeric_inner_product.cxx            -I /Users/cmbrandt/projects/stl-algorithms/include -o n03
-g++-9 -Wall -std=c++17 numeric_transform_reduce.cxx         -I /Users/cmbrandt/projects/stl-algorithms/include -o n04
-g++-9 -Wall -std=c++17 numeric_partial_sum.cxx              -I /Users/cmbrandt/projects/stl-algorithms/include -o n05
-g++-9 -Wall -std=c++17 numeric_exclusive_scan.cxx           -I /Users/cmbrandt/projects/stl-algorithms/include -o n06
-g++-9 -Wall -std=c++17 numeric_inclusive_scan.cxx           -I /Users/cmbrandt/projects/stl-algorithms/include -o n07
-g++-9 -Wall -std=c++17 numeric_transform_exclusive_scan.cxx -I /Users/cmbrandt/projects/stl-algorithms/include -o n08
-g++-9 -Wall -std=c++17 numeric_transform_inclusive_scan.cxx -I /Users/cmbrandt/projects/stl-algorithms/include -o n09
-g++-9 -Wall -std=c++17 numeric_adjacent_difference.cxx      -I /Users/cmbrandt/projects/stl-algorithms/include -o n10
-g++-9 -Wall -std=c++17 numeric_iota.cxx                     -I /Users/cmbrandt/projects/stl-algorithms/include -o n11
-g++-9 -Wall -std=c++17 numeric_gcd.cxx                      -I /Users/cmbrandt/projects/stl-algorithms/include -o n12
-g++-9 -Wall -std=c++17 numeric_lcm.cxx                      -I /Users/cmbrandt/projects/stl-algorithms/include -o n13
-g++-9 -Wall -std=c++17 numeric_midpoint.cxx                 -I /Users/cmbrandt/projects/stl-algorithms/include -o n14
+g++-10 -Wall -Wpedantic -Wextra -std=c++17 numeric_accumulate.cxx               -I /home/ava-569758-1/projects/std-algorithms/include -o n01.exe
+g++-10 -Wall -Wpedantic -Wextra -std=c++17 numeric_reduce.cxx                   -I /home/ava-569758-1/projects/std-algorithms/include -o n02.exe
+g++-10 -Wall -Wpedantic -Wextra -std=c++17 numeric_inner_product.cxx            -I /home/ava-569758-1/projects/std-algorithms/include -o n03.exe
+g++-10 -Wall -Wpedantic -Wextra -std=c++17 numeric_transform_reduce.cxx         -I /home/ava-569758-1/projects/std-algorithms/include -o n04.exe
+g++-10 -Wall -Wpedantic -Wextra -std=c++17 numeric_partial_sum.cxx              -I /home/ava-569758-1/projects/std-algorithms/include -o n05.exe
+g++-10 -Wall -Wpedantic -Wextra -std=c++17 numeric_exclusive_scan.cxx           -I /home/ava-569758-1/projects/std-algorithms/include -o n06.exe
+g++-10 -Wall -Wpedantic -Wextra -std=c++17 numeric_inclusive_scan.cxx           -I /home/ava-569758-1/projects/std-algorithms/include -o n07.exe
+g++-10 -Wall -Wpedantic -Wextra -std=c++17 numeric_transform_exclusive_scan.cxx -I /home/ava-569758-1/projects/std-algorithms/include -o n08.exe
+g++-10 -Wall -Wpedantic -Wextra -std=c++17 numeric_transform_inclusive_scan.cxx -I /home/ava-569758-1/projects/std-algorithms/include -o n09.exe
+g++-10 -Wall -Wpedantic -Wextra -std=c++17 numeric_adjacent_difference.cxx      -I /home/ava-569758-1/projects/std-algorithms/include -o n10.exe
+g++-10 -Wall -Wpedantic -Wextra -std=c++17 numeric_iota.cxx                     -I /home/ava-569758-1/projects/std-algorithms/include -o n11.exe
+g++-10 -Wall -Wpedantic -Wextra -std=c++17 numeric_gcd.cxx                      -I /home/ava-569758-1/projects/std-algorithms/include -o n12.exe
+g++-10 -Wall -Wpedantic -Wextra -std=c++17 numeric_lcm.cxx                      -I /home/ava-569758-1/projects/std-algorithms/include -o n13.exe
+g++-10 -Wall -Wpedantic -Wextra -std=c++17 numeric_midpoint.cxx                 -I /home/ava-569758-1/projects/std-algorithms/include -o n14.exe

@@ -1,8 +1,8 @@
-
 #ifndef NUMERIC_HXX
 #define NUMERIC_HXX
 
-#include <iterator>
+#include <iterator> 
+#include <limits>
 #include <utility>
 #include <functional.hxx>
 
@@ -572,7 +572,7 @@ namespace cmb {
   {
     if constexpr (std::is_integral_v<T>) {
 
-      using U = typename std::make_unsigned_t<T>;
+      using U = std::make_unsigned_t<T>;
 
       int sign = 1;
       U m = a;
@@ -613,7 +613,7 @@ namespace cmb {
   }
 
   // Overload for pointers
-  template <typename T> // T models Pointer
+  template <class T> // T models Pointer
   constexpr std::enable_if_t<std::is_object_v<T>, T*>
   midpoint(T* a, T* b)
   {
