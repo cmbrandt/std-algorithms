@@ -5,7 +5,7 @@
 
 #include <iterator>
 #include <utility>
-#include "functional.hxx"
+#include <functional.hxx>
 
 
 namespace cmb {
@@ -625,7 +625,7 @@ namespace cmb {
   }
 
 
-}
+} // namespace cmb
 
 
 #endif
