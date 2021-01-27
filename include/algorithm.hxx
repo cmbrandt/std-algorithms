@@ -1,4 +1,3 @@
-// algorithm.hxx
 
 #ifndef ALGORITHM_HXX
 #define ALGORITHM_HXX

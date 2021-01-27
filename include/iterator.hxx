@@ -1,4 +1,3 @@
-// iterator.hxx
 
 #ifndef ITERATOR_HXX
 #define ITERATOR_HXX
