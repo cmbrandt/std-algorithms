@@ -2,7 +2,7 @@
 
 #include <iostream>
 #include "test_functional.hxx"
-#include "functional.hxx"
+#include <functional.hxx>
 
 
 void test_functional()

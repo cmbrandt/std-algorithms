@@ -3,7 +3,7 @@
 #include <iostream>
 #include <vector>
 #include "test_algorithm.hxx"
-#include "algorithm.hxx"
+#include <algorithm.hxx>
 
 
 void test_algorithm()
