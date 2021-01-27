@@ -1,5 +1,5 @@
-#include "test_numeric.hxx"
 #include <numeric.hxx>
+#include <test_numeric.hxx>
 
 
 void test_numeric()
