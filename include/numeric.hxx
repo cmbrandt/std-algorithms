@@ -256,7 +256,7 @@ namespace cmb {
   // Partial Sum
 
   // 3 parameter overload
-  template <class I1, // I1 models IntputIterator
+  template <class I1, // I1 models InputIterator
             class I2> // I2 models OutputIterator
   constexpr I2
   partial_sum(I1 first, I1 last, I2 result)
@@ -276,7 +276,7 @@ namespace cmb {
   }
 
   // 4 parameter overload
-  template <class I1, // I1 models IntputIterator
+  template <class I1, // I1 models InputIterator
             class I2, // I2 models OutputIterator
             class B>  // B  models BinaryOperation
   constexpr I2
@@ -454,7 +454,7 @@ namespace cmb {
   // Adjacent Difference
 
   // 3 parameter overload
-  template <class I1, // I1 models IntputIterator
+  template <class I1, // I1 models InputIterator
             class I2> // I2 models OutputIterator
   constexpr I2
   adjacent_difference(I1 first, I1 last, I2 result)
@@ -475,7 +475,7 @@ namespace cmb {
   }
 
   // 4 parameter overload
-  template <class I1, // I1 models IntputIterator
+  template <class I1, // I1 models InputIterator
             class I2, // I2 models OutputIterator
             class B>  // B  models BinaryOperation
   constexpr I2
