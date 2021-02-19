@@ -588,7 +588,7 @@ namespace cmb {
       return a + sign * T( U(M - m) / 2 );
     }
     else { // is_floating
-    
+
       constexpr T lo = std::numeric_limits<T>::min() * 2;
       constexpr T hi = std::numeric_limits<T>::max() / 2;
 
@@ -622,7 +622,6 @@ namespace cmb {
 
     return a + cmb::midpoint( std::ptrdiff_t{0}, b - a );
   }
-
 
 } // namespace cmb
 
