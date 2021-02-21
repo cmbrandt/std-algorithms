@@ -8,16 +8,16 @@ void test_algorithm()
 {
   int fail = 0;
 
-  fail = test_01(fail);
-  fail = test_02(fail);
-  fail = test_03(fail);
-  fail = test_04(fail);
-  fail = test_05(fail);
-  fail = test_06(fail);
-  fail = test_07(fail);
-  fail = test_08(fail);
-  fail = test_09(fail);
-  fail = test_10(fail);
+  fail = test_copy(fail);
+  fail = test_copy_n(fail);
+  fail = test_copy_if(fail);
+  fail = test_copy_backward(fail);
+  fail = test_move_algorithm(fail);
+  fail = test_move_backward(fail);
+  fail = test_swap_ranges(fail);
+  fail = test_iter_swap(fail);
+  fail = test_rotate(fail);
+  fail = test_rotate_copy(fail);
 
   fail = test_lower_bound(fail);
   fail = test_upper_bound(fail);
@@ -34,7 +34,7 @@ void test_algorithm()
 //
 // ...
 
-int test_01(int fail)
+int test_copy(int fail)
 {
 
   return fail;
@@ -42,63 +42,63 @@ int test_01(int fail)
 
 
 
-int test_02(int fail)
+int test_copy_n(int fail)
 {
 
   return fail;
 }
 
 
-int test_03(int fail)
+int test_copy_if(int fail)
 {
 
   return fail;
 }
 
 
-int test_04(int fail)
+int test_copy_backward(int fail)
 {
 
   return fail;
 }
 
 
-int test_05(int fail)
+int test_move_algorithm(int fail)
 {
 
   return fail;
 }
 
 
-int test_06(int fail)
+int test_move_backward(int fail)
 {
 
   return fail;
 }
 
 
-int test_07(int fail)
+int test_swap_ranges(int fail)
 {
 
   return fail;
 }
 
 
-int test_08(int fail)
+int test_iter_swap(int fail)
 {
 
   return fail;
 }
 
 
-int test_09(int fail)
+int test_rotate(int fail)
 {
 
   return fail;
 }
 
 
-int test_10(int fail)
+int test_rotate_copy(int fail)
 {
 
   return fail;
