@@ -3,8 +3,8 @@
 
 #include <iterator> 
 #include <limits>
-#include <utility>
 #include <functional.hxx>
+#include <utility.hxx>
 
 
 namespace cmb {
@@ -119,7 +119,7 @@ namespace cmb {
   accumulate(I first, I last, T init)
   {
     for (; first != last; ++first)
-      init = std::move(init) + *first;
+      init = cmb::move(init) + *first;
 
     return init;
   }
@@ -132,7 +132,7 @@ namespace cmb {
   accumulate(I first, I last, T init, B binary_op)
   {
     for (; first != last; ++first)
-      init = binary_op( std::move(init), *first );
+      init = binary_op( cmb::move(init), *first );
 
     return init;
   }
@@ -161,7 +161,7 @@ namespace cmb {
   constexpr T
   reduce(I first, I last, T init)
   {
-    return cmb::reduce( first, last, std::move(init), cmb::plus<>{} );
+    return cmb::reduce( first, last, cmb::move(init), cmb::plus<>{} );
   }
 
   // 2 parameter overload
@@ -185,7 +185,7 @@ namespace cmb {
   inner_product(I1 first1, I1 last1, I2 first2, T init)
   {
     for (; first1 != last1; ++first1, ++first2)
-      init = std::move(init) + (*first1) * (*first2);
+      init = cmb::move(init) + (*first1) * (*first2);
 
     return init;
   }
@@ -200,7 +200,7 @@ namespace cmb {
   inner_product(I1 first1, I1 last1, I2 first2, T init, B1 binary_op1, B2 binary_op2)
   {
     for (; first1 != last1; ++first1, ++first2)
-      init = binary_op1( std::move(init), binary_op2(*first1, *first2) );
+      init = binary_op1( cmb::move(init), binary_op2(*first1, *first2) );
 
     return init;
   }
@@ -232,7 +232,7 @@ namespace cmb {
   constexpr T
   transform_reduce(I1 first1, I1 last1, I2 first2, T init)
   {
-    return cmb::transform_reduce( first1, last1, first2, std::move(init),
+    return cmb::transform_reduce( first1, last1, first2, cmb::move(init),
                                   cmb::plus<>{}, cmb::multiplies<>{} );
   }
 
@@ -267,7 +267,7 @@ namespace cmb {
       *result = t;
 
       for (++first, ++result; first != last; ++first, ++result) {
-        t       = std::move(t) + *first;
+        t       = cmb::move(t) + *first;
         *result = t;
       }
     }
@@ -288,7 +288,7 @@ namespace cmb {
       *result = t;
 
       for (++first, ++result; first != last; ++first, ++result) {
-        t       = binary_op( std::move(t), *first );
+        t       = binary_op( cmb::move(t), *first );
         *result = t;
       }
     }
@@ -315,7 +315,7 @@ namespace cmb {
       init = binary_op(init, *first);
 
       ++first;
-      *result++ = std::move(t);
+      *result++ = cmb::move(t);
     }
 
     return result;
@@ -328,7 +328,7 @@ namespace cmb {
   constexpr I2
   exclusive_scan(I1 first, I1 last, I2 result, T init)
   {
-    return cmb::exclusive_scan( first, last, result, std::move(init), cmb::plus<>{ } );
+    return cmb::exclusive_scan( first, last, result, cmb::move(init), cmb::plus<>{ } );
   }
 
 
@@ -365,7 +365,7 @@ namespace cmb {
       *result++ = init;
 
       if (++first != last)
-        return cmb::inclusive_scan( first, last, result, binary_op, std::move(init) );
+        return cmb::inclusive_scan( first, last, result, binary_op, cmb::move(init) );
     }
 
     return result;
@@ -399,7 +399,7 @@ namespace cmb {
       init = binary_op( init, unary_op(*first) );
 
       ++first;
-      *result++ = std::move(t);
+      *result++ = cmb::move(t);
     }
 
     return result;
@@ -442,7 +442,7 @@ namespace cmb {
 
       if (++first != last)
         return cmb::transform_inclusive_scan( first, last, result, binary_op,
-                                              unary_op, std::move(init) );
+                                              unary_op, cmb::move(init) );
     }
 
     return result;
@@ -467,7 +467,7 @@ namespace cmb {
       for (++first, ++result; first != last; ++first, ++result) {
         typename std::iterator_traits<I1>::value_type t2{*first};
         *result = t2 - t1;
-        t1 = std::move(t2);
+        t1 = cmb::move(t2);
       }
     }
 
@@ -489,7 +489,7 @@ namespace cmb {
       for (++first, ++result; first != last; ++first, ++result) {
         typename std::iterator_traits<I1>::value_type t2{*first};
         *result = binary_op(t2, t1);
-        t1 = std::move(t2);
+        t1 = cmb::move(t2);
       }
     }
 
@@ -536,7 +536,7 @@ namespace cmb {
     using R = std::common_type_t<M, N>;
 
     return detail::gcd_impl( static_cast<R>( std::abs(m) ),
-                     static_cast<R>( std::abs(n) ) );
+                             static_cast<R>( std::abs(n) ) );
   }
 
 

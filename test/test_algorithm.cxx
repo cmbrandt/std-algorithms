@@ -2,8 +2,8 @@
 
 #include <iostream>
 #include <vector>
-#include "test_algorithm.hxx"
 #include <algorithm.hxx>
+#include <test_algorithm.hxx>
 
 
 void test_algorithm()

@@ -1,7 +1,7 @@
 #ifndef FUNCTIONAL_HXX
 #define FUNCTIONAL_HXX
 
-#include <utility>
+#include <utility.hxx>
 
 
 namespace cmb {
@@ -74,9 +74,9 @@ namespace cmb {
 
     template <class T, class U>
     constexpr auto
-    operator()(T&& t, U&& u) const -> decltype( std::forward<T>(t) + std::forward<U>(u) )
+    operator()(T&& t, U&& u) const -> decltype( cmb::forward<T>(t) + cmb::forward<U>(u) )
     {
-      return std::forward<T>(t) + std::forward<U>(u);
+      return cmb::forward<T>(t) + cmb::forward<U>(u);
     }
  
     using is_transparent = void;
@@ -105,9 +105,9 @@ namespace cmb {
 
     template <class T, class U>
     constexpr auto
-    operator()(T&& t, U&& u) const -> decltype( std::forward<T>(t) - std::forward<U>(u) )
+    operator()(T&& t, U&& u) const -> decltype( cmb::forward<T>(t) - cmb::forward<U>(u) )
     {
-      return std::forward<T>(t) - std::forward<U>(u);
+      return cmb::forward<T>(t) - cmb::forward<U>(u);
     }
  
     using is_transparent = void;
@@ -136,9 +136,9 @@ namespace cmb {
 
     template <class T, class U>
     constexpr auto
-    operator()(T&& t, U&& u) const -> decltype( std::forward<T>(t) * std::forward<U>(u) )
+    operator()(T&& t, U&& u) const -> decltype( cmb::forward<T>(t) * cmb::forward<U>(u) )
     {
-      return std::forward<T>(t) * std::forward<U>(u);
+      return cmb::forward<T>(t) * cmb::forward<U>(u);
     }
  
     using is_transparent = void;
@@ -167,9 +167,9 @@ namespace cmb {
 
     template <class T, class U>
     constexpr auto
-    operator()(T&& t, U&& u) const -> decltype( std::forward<T>(t) / std::forward<U>(u) )
+    operator()(T&& t, U&& u) const -> decltype( cmb::forward<T>(t) / cmb::forward<U>(u) )
     {
-      return std::forward<T>(t) / std::forward<U>(u);
+      return cmb::forward<T>(t) / cmb::forward<U>(u);
     }
  
     using is_transparent = void;
@@ -198,9 +198,9 @@ namespace cmb {
 
     template <class T, class U>
     constexpr auto
-    operator()(T&& t, U&& u) const -> decltype( std::forward<T>(t) % std::forward<U>(u) )
+    operator()(T&& t, U&& u) const -> decltype( cmb::forward<T>(t) % cmb::forward<U>(u) )
     {
-      return std::forward<T>(t) % std::forward<U>(u);
+      return cmb::forward<T>(t) % cmb::forward<U>(u);
     }
  
     using is_transparent = void;
@@ -229,9 +229,9 @@ namespace cmb {
 
     template <class T>
     constexpr auto
-    operator()(T&& t) const -> decltype( -std::forward<T>(t) )
+    operator()(T&& t) const -> decltype( -cmb::forward<T>(t) )
     {
-      return -std::forward<T>(t);
+      return -cmb::forward<T>(t);
     }
  
     using is_transparent = void;
@@ -260,9 +260,9 @@ namespace cmb {
 
     template <class T, class U>
     constexpr auto
-    operator()(T&& t, U&& u) const -> decltype( std::forward<T>(t) == std::forward<U>(u) )
+    operator()(T&& t, U&& u) const -> decltype( cmb::forward<T>(t) == cmb::forward<U>(u) )
     {
-      return std::forward<T>(t) == std::forward<U>(u);
+      return cmb::forward<T>(t) == cmb::forward<U>(u);
     }
  
     using is_transparent = void;
@@ -291,9 +291,9 @@ namespace cmb {
 
     template <class T, class U>
     constexpr auto
-    operator()(T&& t, U&& u) const -> decltype( std::forward<T>(t) != std::forward<U>(u) )
+    operator()(T&& t, U&& u) const -> decltype( cmb::forward<T>(t) != cmb::forward<U>(u) )
     {
-      return std::forward<T>(t) != std::forward<U>(u);
+      return cmb::forward<T>(t) != cmb::forward<U>(u);
     }
  
     using is_transparent = void;
@@ -322,9 +322,9 @@ namespace cmb {
 
     template <class T, class U>
     constexpr auto
-    operator()(T&& t, U&& u) const -> decltype( std::forward<T>(t) > std::forward<U>(u) )
+    operator()(T&& t, U&& u) const -> decltype( cmb::forward<T>(t) > cmb::forward<U>(u) )
     {
-      return std::forward<T>(t) > std::forward<U>(u);
+      return cmb::forward<T>(t) > cmb::forward<U>(u);
     }
  
     using is_transparent = void;
@@ -353,9 +353,9 @@ namespace cmb {
 
     template <class T, class U>
     constexpr auto
-    operator()(T&& t, U&& u) const -> decltype( std::forward<T>(t) < std::forward<U>(u) )
+    operator()(T&& t, U&& u) const -> decltype( cmb::forward<T>(t) < cmb::forward<U>(u) )
     {
-      return std::forward<T>(t) < std::forward<U>(u);
+      return cmb::forward<T>(t) < cmb::forward<U>(u);
     }
  
     using is_transparent = void;
@@ -384,9 +384,9 @@ namespace cmb {
 
     template <class T, class U>
     constexpr auto
-    operator()(T&& t, U&& u) const -> decltype( std::forward<T>(t) >= std::forward<U>(u) )
+    operator()(T&& t, U&& u) const -> decltype( cmb::forward<T>(t) >= cmb::forward<U>(u) )
     {
-      return std::forward<T>(t) >= std::forward<U>(u);
+      return cmb::forward<T>(t) >= cmb::forward<U>(u);
     }
  
     using is_transparent = void;
@@ -415,9 +415,9 @@ namespace cmb {
 
     template <class T, class U>
     constexpr auto
-    operator()(T&& t, U&& u) const -> decltype( std::forward<T>(t) <= std::forward<U>(u) )
+    operator()(T&& t, U&& u) const -> decltype( cmb::forward<T>(t) <= cmb::forward<U>(u) )
     {
-      return std::forward<T>(t) <= std::forward<U>(u);
+      return cmb::forward<T>(t) <= cmb::forward<U>(u);
     }
  
     using is_transparent = void;
@@ -446,9 +446,9 @@ namespace cmb {
 
     template <class T, class U>
     constexpr auto
-    operator()(T&& t, U&& u) const -> decltype( std::forward<T>(t) && std::forward<U>(u) )
+    operator()(T&& t, U&& u) const -> decltype( cmb::forward<T>(t) && cmb::forward<U>(u) )
     {
-      return std::forward<T>(t) && std::forward<U>(u);
+      return cmb::forward<T>(t) && cmb::forward<U>(u);
     }
  
     using is_transparent = void;
@@ -477,9 +477,9 @@ namespace cmb {
 
     template <class T, class U>
     constexpr auto
-    operator()(T&& t, U&& u) const -> decltype( std::forward<T>(t) || std::forward<U>(u) )
+    operator()(T&& t, U&& u) const -> decltype( cmb::forward<T>(t) || cmb::forward<U>(u) )
     {
-      return std::forward<T>(t) || std::forward<U>(u);
+      return cmb::forward<T>(t) || cmb::forward<U>(u);
     }
  
     using is_transparent = void;
@@ -508,9 +508,9 @@ namespace cmb {
 
     template <class T>
     constexpr auto
-    operator()(T&& t) const -> decltype( !std::forward<T>(t) )
+    operator()(T&& t) const -> decltype( !cmb::forward<T>(t) )
     {
-      return !std::forward<T>(t);
+      return !cmb::forward<T>(t);
     }
  
     using is_transparent = void;
@@ -539,9 +539,9 @@ namespace cmb {
 
     template <class T, class U>
     constexpr auto
-    operator()(T&& t, U&& u) const -> decltype( std::forward<T>(t) & std::forward<U>(u) )
+    operator()(T&& t, U&& u) const -> decltype( cmb::forward<T>(t) & cmb::forward<U>(u) )
     {
-      return std::forward<T>(t) & std::forward<U>(u);
+      return cmb::forward<T>(t) & cmb::forward<U>(u);
     }
  
     using is_transparent = void;
@@ -570,9 +570,9 @@ namespace cmb {
 
     template <class T, class U>
     constexpr auto
-    operator()(T&& t, U&& u) const -> decltype( std::forward<T>(t) | std::forward<U>(u) )
+    operator()(T&& t, U&& u) const -> decltype( cmb::forward<T>(t) | cmb::forward<U>(u) )
     {
-      return std::forward<T>(t) | std::forward<U>(u);
+      return cmb::forward<T>(t) | cmb::forward<U>(u);
     }
  
     using is_transparent = void;
@@ -601,9 +601,9 @@ namespace cmb {
 
     template <class T, class U>
     constexpr auto
-    operator()(T&& t, U&& u) const -> decltype( std::forward<T>(t) ^ std::forward<U>(u) )
+    operator()(T&& t, U&& u) const -> decltype( cmb::forward<T>(t) ^ cmb::forward<U>(u) )
     {
-      return std::forward<T>(t) ^ std::forward<U>(u);
+      return cmb::forward<T>(t) ^ cmb::forward<U>(u);
     }
  
     using is_transparent = void;
@@ -632,9 +632,9 @@ namespace cmb {
 
     template <class T>
     constexpr auto
-    operator()(T&& t) const -> decltype( ~std::forward<T>(t) )
+    operator()(T&& t) const -> decltype( ~cmb::forward<T>(t) )
     {
-      return ~std::forward<T>(t);
+      return ~cmb::forward<T>(t);
     }
  
     using is_transparent = void;
