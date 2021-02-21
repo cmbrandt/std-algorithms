@@ -13,10 +13,10 @@ namespace cmb {
   //
   // Declarations
 
-  template <class I, class T> 
+  template <class I, class T>
   constexpr I
   lower_bound(I first, I last, T const& value);
-  template <class I, class T, class C> 
+  template <class I, class T, class C>
   constexpr I
   lower_bound(I first, I last, T const& value, C compare);
 
@@ -91,7 +91,7 @@ namespace cmb {
   constexpr I
   lower_bound(I first, I last, T const& value)
   {
-    return cmb::lower_bound( first, last, value, cmb::less<>{ } );
+    return cmb::lower_bound( first, last, value, cmb::less<>{} );
   }
 
 
@@ -149,7 +149,7 @@ namespace cmb {
   constexpr I
   upper_bound(I first, I last, T const& value)
   {
-    return cmb::upper_bound( first, last, value, cmb::less<>{ } );
+    return cmb::upper_bound( first, last, value, cmb::less<>{} );
   }
 
 
@@ -176,7 +176,7 @@ namespace cmb {
   constexpr std::pair<I, I>
   equal_range(I first, I last, T const& value)
   {
-    return cmb::equal_range( first, last, value, cmb::less<>{ } );
+    return cmb::equal_range( first, last, value, cmb::less<>{} );
   }
 
 
@@ -203,7 +203,7 @@ namespace cmb {
   constexpr bool
   binary_search(I first, I last, T const& value)
   {
-    return cmb::binary_search( first, last, value, cmb::less<>{ } );
+    return cmb::binary_search( first, last, value, cmb::less<>{} );
   }
 
 } // namespace cmb

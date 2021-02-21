@@ -72,7 +72,7 @@ namespace cmb {
   constexpr void
   advance(I& i, D n)
   {
-    detail::advance_impl( i, n, typename std::iterator_traits<I>::iterator_category{ } );
+    detail::advance_impl( i, n, typename std::iterator_traits<I>::iterator_category{} );
   }
 
 
@@ -109,7 +109,7 @@ namespace cmb {
   constexpr typename std::iterator_traits<I>::difference_type
   distance(I first, I last)
   {
-    return detail::distance_impl( first, last, typename std::iterator_traits<I>::iterator_category{ } );
+    return detail::distance_impl( first, last, typename std::iterator_traits<I>::iterator_category{} );
   }
 
 
@@ -121,7 +121,7 @@ namespace cmb {
   constexpr I
   next(I x, typename std::iterator_traits<I>::difference_type n)
   {
-    detail::advance_impl(x, n, typename std::iterator_traits<I>::iterator_category{ } );
+    detail::advance_impl(x, n, typename std::iterator_traits<I>::iterator_category{} );
     return x;
   }
 
@@ -134,7 +134,7 @@ namespace cmb {
   constexpr I
   prev(I x, typename std::iterator_traits<I>::difference_type n)
   {
-    detail::advance_impl(x, -n, typename std::iterator_traits<I>::iterator_category{ } );
+    detail::advance_impl(x, -n, typename std::iterator_traits<I>::iterator_category{} );
     return x;
   }
 
