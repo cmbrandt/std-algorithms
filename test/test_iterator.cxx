@@ -1,5 +1,3 @@
-// test_iterator.cxx
-
 #include <iostream>
 #include <vector>
 #include <iterator.hxx>

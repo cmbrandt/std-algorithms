@@ -1,5 +1,3 @@
-// test_algorithm.cxx
-
 #include <iostream>
 #include <vector>
 #include <algorithm.hxx>
@@ -10,6 +8,17 @@ void test_algorithm()
 {
   int fail = 0;
 
+  fail = test_01(fail);
+  fail = test_02(fail);
+  fail = test_03(fail);
+  fail = test_04(fail);
+  fail = test_05(fail);
+  fail = test_06(fail);
+  fail = test_07(fail);
+  fail = test_08(fail);
+  fail = test_09(fail);
+  fail = test_10(fail);
+
   fail = test_lower_bound(fail);
   fail = test_upper_bound(fail);
   fail = test_equal_range(fail);
@@ -19,6 +28,80 @@ void test_algorithm()
     std::cout << "\ntest_algorithm()  passed with zero errors." << std::endl;
   else
     std::cout << "\ntest_algorithm()  had " << fail << " errors." << std::endl;
+}
+
+
+//
+// ...
+
+int test_01(int fail)
+{
+
+  return fail;
+}
+
+
+
+int test_02(int fail)
+{
+
+  return fail;
+}
+
+
+int test_03(int fail)
+{
+
+  return fail;
+}
+
+
+int test_04(int fail)
+{
+
+  return fail;
+}
+
+
+int test_05(int fail)
+{
+
+  return fail;
+}
+
+
+int test_06(int fail)
+{
+
+  return fail;
+}
+
+
+int test_07(int fail)
+{
+
+  return fail;
+}
+
+
+int test_08(int fail)
+{
+
+  return fail;
+}
+
+
+int test_09(int fail)
+{
+
+  return fail;
+}
+
+
+int test_10(int fail)
+{
+
+  return fail;
 }
 
 

@@ -1,5 +1,3 @@
-// test_functional.cxx
-
 #include <iostream>
 #include <functional.hxx>
 #include <test_functional.hxx>
