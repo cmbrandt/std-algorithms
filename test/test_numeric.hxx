@@ -26,36 +26,4 @@ int test_midpoint(int);
 void test_numeric();
 
 
-// Helper functions used within test_numeric()
-
-template <typename T>
-bool compare_vectors(std::vector<T> a, std::vector<T> b)
-{
-  int count = 0;
-
-  for (std::size_t i = 0; i < a.size(); ++i) {
-    T diff = a[i] - b[i];
-
-    if ( std::abs(diff) > T{0} )
-      ++count;
-  }
-
-  if (count > 0)
-    return true;
-  else
-    return false; 
-}
-
-template <typename T>
-void print_vector(std::string_view str, std::vector<T> v)
-{
-  std::cout << str << ":" << std::endl;
-
-  for (auto i : v)
-    std::cout << " " << i;
-
-  std::cout << std::endl;
-}
-
-
 #endif
