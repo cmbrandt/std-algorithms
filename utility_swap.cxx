@@ -15,18 +15,18 @@ int main()
             << std::endl;
 
 
-  std::array<int, 5> v{ 0, 1, 2, 3, 4 };
-  std::array<int, 5> s{ 2, 2, 2, 2, 2 };
+  std::array<int, 5> a{ 0, 1, 2, 3, 4 };
+  std::array<int, 5> b{ 2, 2, 2, 2, 2 };
 
-  cmb::swap(v, s);
+  cmb::swap(a, b);
 
-  for (auto i : v)
-    std::cout << " " << i; // = 1, 2, 3, 4, 5
+  for (auto i : a)
+    std::cout << " " << i; // = 2 2 2 2 2
 
   std::cout << std::endl;
 
-  for (auto i : s)
-    std::cout << " " << i; // = 4, 5, 1, 2, 3
+  for (auto i : b)
+    std::cout << " " << i; // = 0 1 2 3 4
 
   std::cout << std::endl;
 }

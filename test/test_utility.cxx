@@ -22,6 +22,7 @@ void test_utility()
 }
 
 
+
 //
 // ... tests
 
@@ -61,7 +62,22 @@ int test_swap(int fail)
 
 int test_exchange(int fail)
 {
+  int x{0};
+  int y{5};
 
+  int z = cmb::exchange(x, y);
+
+  if (x != 5 or y != 5 or z != 0) {
+    ++fail;
+    std::cout << "\nERROR! cmb::exchange()"
+              << "\nx    = " << x
+              << "\nsoln = " << 5
+              << "\ny    = " << y
+              << "\nsoln = " << 5
+              << "\ny    = " << z
+              << "\nsoln = " << 0
+              << std::endl;
+  }
 
   return fail;
 }
