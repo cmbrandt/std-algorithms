@@ -95,7 +95,21 @@ int test_forward(int fail)
 
 int test_move(int fail)
 {
+  std::string s1 = "abc";
+  std::string s2 = cmb::move(s1);
 
+  std::string r1 = "";
+  std::string r2 = "abc";
+
+  if (s1 != r1 or s2 != r2) {
+    ++fail;
+    std::cout << "\nERROR! cmb::move()"
+              << "\nr1 = " << r1
+              << "\ns1 = " << s1
+              << "\nr2 = " << r2
+              << "\ns2 = " << s2
+              << std::endl;
+  }
 
   return fail;
 }
