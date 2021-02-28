@@ -12,7 +12,7 @@
 template <class I1, class I2>
 bool compare_sequences(I1 first1, I1 last1, I2 first2)
 {
-  using T = decltype(last1 - first1);
+  using T = decltype(first1 - first2);
 
   int count{0};
 

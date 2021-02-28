@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm.hxx>
+#include <test_helpers.hxx>
 #include <test_algorithm.hxx>
 
 
@@ -36,6 +37,20 @@ void test_algorithm()
 
 int test_copy(int fail)
 {
+  std::vector<int> v{ 0, 1, 2, 3, 4, 5, 6, 7 };
+  std::vector<int> x(8);
+  std::vector<int> soln = v;
+
+  cmb::copy( v.begin(), v.end(), x.begin() );
+
+  bool r = compare_sequences(x.begin(), x.end(), soln.begin() );
+
+  if (r != false) {
+    ++fail;
+    std::cout << "\nERROR! cmb::copy()" << std::endl;
+    print_sequence( "x",    x.begin(),    x.end() );
+    print_sequence( "soln", soln.begin(), soln.end() );
+  }
 
   return fail;
 }
