@@ -103,6 +103,20 @@ int test_copy_if(int fail)
 
 int test_copy_backward(int fail)
 {
+  std::vector<int> v{ 0, 1, 2, 3, 4, 5, 6, 7 };
+  std::vector<int> x(10, 8);
+  std::vector<int> soln{ 8, 8, 0, 1, 2, 3, 4, 5, 6, 7 };
+
+  cmb::copy_backward( v.begin(), v.end(), x.end() );
+
+  bool r = compare_sequences( x.begin(), x.end(), soln.begin() );
+
+  if (r != false) {
+    ++fail;
+    std::cout << "\nERROR! cmb::copy_backward()" << std::endl;
+    print_sequence( "x",    x.begin(),    x.end() );
+    print_sequence( "soln", soln.begin(), soln.end() );
+  }
 
   return fail;
 }
