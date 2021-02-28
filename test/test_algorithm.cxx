@@ -45,7 +45,7 @@ int test_copy(int fail)
 
   bool r = compare_sequences(x.begin(), x.end(), soln.begin() );
 
-  if (r != false) {
+  if (r != true) {
     ++fail;
     std::cout << "\nERROR! cmb::copy()" << std::endl;
     print_sequence( "x",    x.begin(),    x.end() );
@@ -59,6 +59,21 @@ int test_copy(int fail)
 
 int test_copy_n(int fail)
 {
+  std::vector<int> v{ 0, 1, 2, 3, 4, 5, 6, 7 };
+  std::vector<int> x(8, 8);
+  std::vector<int> soln{ 0, 1, 2, 3, 8, 8, 8, 8 };
+
+  cmb::copy_n( v.begin(), 4, x.begin() );
+
+  bool r = compare_sequences( x.begin(), x.end(), soln.begin() );
+
+  if (r != true) {
+    ++fail;
+    std::cout << "\nERROR! cmb::copy_n()" << std::endl;
+    print_sequence( "x",    x.begin(),    x.end() );
+    print_sequence( "soln", soln.begin(), soln.end() );
+  }
+
 
   return fail;
 }
