@@ -39,8 +39,8 @@ int test_swap(int fail)
   cmb::swap(x, y);
   cmb::swap(a, b);
 
-  bool r3 = compare_arrays(a, soln1);
-  bool r4 = compare_arrays(b, soln2);
+  bool r3 = compare_sequences( a.begin(), a.end(), soln1.begin() );
+  bool r4 = compare_sequences( b.begin(), b.end(), soln2.begin() );
 
   if (x != 5 or y != 0 or r3 != false or r4 != false) {
     ++fail;
@@ -49,10 +49,10 @@ int test_swap(int fail)
               << "\nsoln = " << 5
               << "\ny    = " << y
               << "\nsoln = " << 0 << std::endl;
-              print_array("a", a);
-              print_array("b", a);
-              print_array("soln1", soln1);
-              print_array("soln2", soln2);
+              print_sequence( "a",     a.begin(),     a.end() );
+              print_sequence( "soln1", soln1.begin(), soln1.end() );
+              print_sequence( "b",     b.begin(),     b.end() );
+              print_sequence( "soln2", soln2.begin(), soln2.end() );
   }
 
   return fail;

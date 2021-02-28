@@ -9,13 +9,15 @@
 //
 // Helper functions used within test_numeric() and test_utility()
 
-template <typename T, std::size_t N>
-bool compare_arrays(std::array<T, N> const& a, std::array<T, N> const& b)
+template <class I1, class I2>
+bool compare_sequences(I1 first1, I1 last1, I2 first2)
 {
-  int count = 0;
+  using T = decltype(last1 - first1);
 
-  for (std::size_t i = 0; i < a.size(); ++i) {
-    T diff = a[i] - b[i];
+  int count{0};
+
+  for (; first1 != last1; ++first1, ++first2) {
+    T diff = (*first1) - (*first2);
 
     if ( std::abs(diff) > T{0} )
       ++count;
@@ -28,16 +30,18 @@ bool compare_arrays(std::array<T, N> const& a, std::array<T, N> const& b)
 }
 
 
-template <typename T, std::size_t N>
-void print_array(std::string_view str, std::array<T, N> const& v)
+
+template <typename I>
+void print_sequence(std::string_view str, I first, I last)
 {
   std::cout << str << ":" << std::endl;
 
-  for (auto i : v)
-    std::cout << " " << i;
+  for (; first != last; ++first)
+    std::cout << " " << *first;
 
   std::cout << std::endl;
 }
+
 
 
 template <typename T>
@@ -57,6 +61,7 @@ bool compare_vectors(std::vector<T> const& a, std::vector<T> const& b)
   else
     return false; 
 }
+
 
 
 template <typename T>
