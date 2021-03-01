@@ -17,7 +17,7 @@ int main()
   std::cout << std::endl;
 
   for (auto const& i : s)
-    std::cout << " " << i; // = "aaa" "bbb" abc" "def" "uvw" "xyz"
+    std::cout << " " << i; // = "aaa" "bbb" "abc" "def" "uvw" "xyz"
 
   std::cout << std::endl;
 }

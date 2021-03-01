@@ -5,7 +5,7 @@
 
 int main()
 {
-  std::vector<int> v{ 1, 2, 3, 4, 5};
+  std::vector<int> v{ 1, 2, 3, 4, 5 };
   std::vector<int> s(5);
 
   cmb::rotate_copy( v.begin(), v.begin() + 3, v.end(), s.begin() );
