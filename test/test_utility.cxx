@@ -83,15 +83,42 @@ int test_exchange(int fail)
 }
 
 
+//
+// Helper functions for test_move
+
+// Function with lvalue and rvalue overloads
+int f(int const& x) { /*x = 0;*/ return x; } // denotes lvalue
+int f(int&& x)      { x = 1; return x; } // denotes rvalue
+
+// Function template
+template <class T>
+int g(T&& x)
+{
+  int a = f( x );                  // always an lvalue
+  int b = f( cmb::forward<T>(x) ); // rvalue if argument is an rvalue
+
+  return a + b;
+}
 
 int test_forward(int fail)
 {
+  int a{5};
 
+  int r1 = g(a);
+  int r2 = g(5);
+
+  if (r1 != 10 or r2 != 6) {
+    ++fail;
+    std::cout << "\nERROR! cmb::move()"
+              << "\nr1 = " << r1
+              << "\ns1 = " << 10
+              << "\nr2 = " << r2
+              << "\ns2 = " << 6
+              << std::endl;
+  }
 
   return fail;
 }
-
-
 
 int test_move(int fail)
 {
