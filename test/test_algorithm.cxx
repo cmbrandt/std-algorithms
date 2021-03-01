@@ -174,6 +174,24 @@ int test_move_backward(int fail)
 
 int test_swap_ranges(int fail)
 {
+  std::vector<int> v{ 1, 2, 3, 4 };
+  std::vector<int> x{ 0, 0, 0, 0 };
+  std::vector<int> soln1{ 0, 0, 0, 0 };
+  std::vector<int> soln2{ 1, 2, 3, 4 };
+
+  cmb::swap_ranges( v.begin(), v.end(), x.begin() );
+
+  bool r1 = compare_sequences( v.begin(), v.end(), soln1.begin() );
+  bool r2 = compare_sequences( x.begin(), x.end(), soln2.begin() );
+
+  if (r1 != false or r2 != false) {
+    ++fail;
+    std::cout << "\nERROR! cmb::swap_ranges()" << std::endl;
+    print_sequence( "v",     v.begin(),     v.end()     );
+    print_sequence( "soln1", soln1.begin(), soln1.end() );
+    print_sequence( "x",     x.begin(),     x.end()     );
+    print_sequence( "soln2", soln2.begin(), soln2.end() );
+  }
 
   return fail;
 }
@@ -181,6 +199,24 @@ int test_swap_ranges(int fail)
 
 int test_iter_swap(int fail)
 {
+  std::vector<int> v{ 1, 2, 3, 4 };
+  std::vector<int> x{ 0, 0, 0, 0 };
+  std::vector<int> soln1{ 0, 2, 3, 4 };
+  std::vector<int> soln2{ 0, 0, 1, 0 };
+
+  cmb::iter_swap( v.begin(), x.begin() + 2 );
+
+  bool r1 = compare_sequences( v.begin(), v.end(), soln1.begin() );
+  bool r2 = compare_sequences( x.begin(), x.end(), soln2.begin() );
+
+  if (r1 != false or r2 != false) {
+    ++fail;
+    std::cout << "\nERROR! cmb::iter_swap()" << std::endl;
+    print_sequence( "v",     v.begin(),     v.end()     );
+    print_sequence( "soln1", soln1.begin(), soln1.end() );
+    print_sequence( "x",     x.begin(),     x.end()     );
+    print_sequence( "soln2", soln2.begin(), soln2.end() );
+  }
 
   return fail;
 }
