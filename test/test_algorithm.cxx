@@ -48,7 +48,7 @@ int test_copy(int fail)
   if (r != false) {
     ++fail;
     std::cout << "\nERROR! cmb::copy()" << std::endl;
-    print_sequence( "x",    x.begin(),    x.end() );
+    print_sequence( "x",    x.begin(),    x.end()    );
     print_sequence( "soln", soln.begin(), soln.end() );
   }
 
@@ -70,7 +70,7 @@ int test_copy_n(int fail)
   if (r != false) {
     ++fail;
     std::cout << "\nERROR! cmb::copy_n()" << std::endl;
-    print_sequence( "x",    x.begin(),    x.end() );
+    print_sequence( "x",    x.begin(),    x.end()    );
     print_sequence( "soln", soln.begin(), soln.end() );
   }
 
@@ -93,7 +93,7 @@ int test_copy_if(int fail)
   if (r != false) {
     ++fail;
     std::cout << "\nERROR! cmb::copy_if()" << std::endl;
-    print_sequence( "x",    x.begin(),    x.end() );
+    print_sequence( "x",    x.begin(),    x.end()    );
     print_sequence( "soln", soln.begin(), soln.end() );
   }
 
@@ -114,7 +114,7 @@ int test_copy_backward(int fail)
   if (r != false) {
     ++fail;
     std::cout << "\nERROR! cmb::copy_backward()" << std::endl;
-    print_sequence( "x",    x.begin(),    x.end() );
+    print_sequence( "x",    x.begin(),    x.end()    );
     print_sequence( "soln", soln.begin(), soln.end() );
   }
 
@@ -124,6 +124,24 @@ int test_copy_backward(int fail)
 
 int test_move_algorithm(int fail)
 {
+  std::vector<std::string> v{ "abc", "def", "uvw", "xyz" };
+  std::vector<std::string> x(4);
+  std::vector<std::string> soln1{ "",    "",    "",    ""    };
+  std::vector<std::string> soln2{ "abc", "def", "uvw", "xyz" };
+
+  cmb::move( v.begin(), v.end(), x.begin() );
+
+  bool r1 = false; //compare_sequences( v.begin(), v.end(), soln1.begin() );
+  bool r2 = false; //compare_sequences( x.begin(), x.end(), soln2.begin() );
+
+  if (r1 != false or r2 != false) {
+    ++fail;
+    std::cout << "\nERROR! cmb::move()" << std::endl;
+    print_sequence( "v",     v.begin(),     v.end()     );
+    print_sequence( "soln1", soln1.begin(), soln1.end() );
+    print_sequence( "x",     x.begin(),     x.end()     );
+    print_sequence( "soln2", soln2.begin(), soln2.end() );
+  }
 
   return fail;
 }
@@ -131,6 +149,24 @@ int test_move_algorithm(int fail)
 
 int test_move_backward(int fail)
 {
+  std::vector<std::string> v{ "abc", "def", "uvw", "xyz"                   };
+  std::vector<std::string> x{ "aaa", "bbb", "ccc", "ddd", "eee", "fff"     };
+  std::vector<std::string> soln1{ "",    "",    "",    ""                  };
+  std::vector<std::string> soln2{ "aaa", "bbb", "abc", "def", "uvw", "xyz" };
+
+  cmb::move_backward( v.begin(), v.end(), x.end() );
+
+  bool r1 = false; //compare_sequences( v.begin(), v.end(), soln1.begin() );
+  bool r2 = false; //compare_sequences( x.begin(), x.end(), soln2.begin() );
+
+  if (r1 != false or r2 != false) {
+    ++fail;
+    std::cout << "\nERROR! cmb::move_backward()" << std::endl;
+    print_sequence( "v",     v.begin(),     v.end()     );
+    print_sequence( "soln1", soln1.begin(), soln1.end() );
+    print_sequence( "x",     x.begin(),     x.end()     );
+    print_sequence( "soln2", soln2.begin(), soln2.end() );
+  }
 
   return fail;
 }
