@@ -131,8 +131,8 @@ int test_move_algorithm(int fail)
 
   cmb::move( v.begin(), v.end(), x.begin() );
 
-  bool r1 = false; //compare_sequences( v.begin(), v.end(), soln1.begin() );
-  bool r2 = false; //compare_sequences( x.begin(), x.end(), soln2.begin() );
+  bool r1 = compare_string_sequences( v.begin(), v.end(), soln1.begin() );
+  bool r2 = compare_string_sequences( x.begin(), x.end(), soln2.begin() );
 
   if (r1 != false or r2 != false) {
     ++fail;
@@ -156,8 +156,8 @@ int test_move_backward(int fail)
 
   cmb::move_backward( v.begin(), v.end(), x.end() );
 
-  bool r1 = false; //compare_sequences( v.begin(), v.end(), soln1.begin() );
-  bool r2 = false; //compare_sequences( x.begin(), x.end(), soln2.begin() );
+  bool r1 = compare_string_sequences( v.begin(), v.end(), soln1.begin() );
+  bool r2 = compare_string_sequences( x.begin(), x.end(), soln2.begin() );
 
   if (r1 != false or r2 != false) {
     ++fail;

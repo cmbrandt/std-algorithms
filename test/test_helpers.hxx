@@ -30,6 +30,24 @@ bool compare_sequences(I1 first1, I1 last1, I2 first2)
 }
 
 
+template <class I>
+bool compare_string_sequences(I first1, I last1, I first2)
+{
+  int count{0};
+
+  for (; first1 != last1; ++first1, ++first2)
+    if ( (*first1) != (*first2) )
+      ++count;
+
+  if (count > 0)
+    return true;
+  else
+    return false; 
+}
+
+
+
+
 
 template <typename I>
 void print_sequence(std::string_view str, I first, I last)
