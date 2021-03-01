@@ -224,6 +224,19 @@ int test_iter_swap(int fail)
 
 int test_rotate(int fail)
 {
+  std::vector<int> x{ 1, 2, 3, 4, 5 };
+  std::vector<int> soln{ 4, 5, 1, 2, 3 };
+
+  cmb::rotate( x.begin(), x.begin() + 3, x.end() );
+
+  bool r = compare_sequences( x.begin(), x.end(), soln.begin() );
+
+  if (r != false) {
+    ++fail;
+    std::cout << "\nERROR! cmb::rotate()" << std::endl;
+    print_sequence( "x",    x.begin(),    x.end()     );
+    print_sequence( "soln", soln.begin(), soln.end() );
+  }
 
   return fail;
 }
@@ -231,6 +244,24 @@ int test_rotate(int fail)
 
 int test_rotate_copy(int fail)
 {
+  std::vector<int> v{ 1, 2, 3, 4, 5 };
+  std::vector<int> x(5);
+  std::vector<int> soln1{ 1, 2, 3, 4, 5 };
+  std::vector<int> soln2{ 4, 5, 1, 2, 3 };
+
+  cmb::rotate_copy( v.begin(), v.begin() + 3, v.end(), x.begin() );
+
+  bool r1 = compare_sequences( v.begin(), v.end(), soln1.begin() );
+  bool r2 = compare_sequences( x.begin(), x.end(), soln2.begin() );
+
+  if (r1 != false or r2 != false) {
+    ++fail;
+    std::cout << "\nERROR! cmb::rotate_copy()" << std::endl;
+    print_sequence( "v",     v.begin(),     v.end()     );
+    print_sequence( "soln1", soln1.begin(), soln1.end() );
+    print_sequence( "x",     x.begin(),     x.end()     );
+    print_sequence( "soln2", soln2.begin(), soln2.end() );
+  }
 
   return fail;
 }
