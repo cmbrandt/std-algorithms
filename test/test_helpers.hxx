@@ -10,7 +10,7 @@
 // Helper functions used within test_numeric() and test_utility()
 
 template <class I1, class I2>
-bool compare_sequences(I1 first1, I1 last1, I2 first2)
+bool compare_numeric_sequences(I1 first1, I1 last1, I2 first2)
 {
   using T = decltype(first1 - first2);
 
@@ -30,6 +30,7 @@ bool compare_sequences(I1 first1, I1 last1, I2 first2)
 }
 
 
+
 template <class I>
 bool compare_string_sequences(I first1, I last1, I first2)
 {
@@ -44,8 +45,6 @@ bool compare_string_sequences(I first1, I last1, I first2)
   else
     return false; 
 }
-
-
 
 
 

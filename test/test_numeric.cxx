@@ -146,16 +146,16 @@ int test_partial_sum(int fail)
   cmb::partial_sum( v.begin(), v.end(), x.begin() );
   cmb::partial_sum( v.begin(), v.end(), y.begin(), mul );
 
-  bool r1 = compare_vectors(x, soln1);
-  bool r2 = compare_vectors(y, soln2);
+  bool r1 = compare_numeric_sequences( x.begin(), x.end(), soln1.begin() );
+  bool r2 = compare_numeric_sequences( y.begin(), y.end(), soln2.begin() );
 
   if (r1 != false or r2 != false) {
     ++fail;
     std::cout << "\nERROR! cmb::partial_sum()" << std::endl;
-    print_vector("x",     x);
-    print_vector("soln1", soln1);
-    print_vector("y",     y);
-    print_vector("soln2", soln2);
+    print_sequence( "x",     x.begin(),     x.end()     );
+    print_sequence( "soln1", soln1.begin(), soln1.end() );
+    print_sequence( "y",     y.begin(),     y.end()     );
+    print_sequence( "soln2", soln2.begin(), soln2.end() );
   }
 
   return fail;
@@ -176,16 +176,16 @@ int test_exclusive_scan(int fail)
   cmb::exclusive_scan( v.begin(), v.end(), x.begin(), 0 );
   cmb::exclusive_scan( v.begin(), v.end(), y.begin(), 1, mul );
 
-  bool r1 = compare_vectors(x, soln1);
-  bool r2 = compare_vectors(y, soln2);
+  bool r1 = compare_numeric_sequences( x.begin(), x.end(), soln1.begin() );
+  bool r2 = compare_numeric_sequences( y.begin(), y.end(), soln2.begin() );
 
   if (r1 != false or r2 != false) {
     ++fail;
     std::cout << "\nERROR! cmb::exclusive_scan()" << std::endl;
-    print_vector("x",     x);
-    print_vector("soln1", soln1);
-    print_vector("y",     y);
-    print_vector("soln2", soln2);
+    print_sequence( "x",     x.begin(),     x.end()     );
+    print_sequence( "soln1", soln1.begin(), soln1.end() );
+    print_sequence( "y",     y.begin(),     y.end()     );
+    print_sequence( "soln2", soln2.begin(), soln2.end() );
   }
 
   return fail;
@@ -209,19 +209,19 @@ int test_inclusive_scan(int fail)
   cmb::inclusive_scan( v.begin(), v.end(), y.begin(), mul );
   cmb::inclusive_scan( v.begin(), v.end(), z.begin(), mul, 1 );
 
-  bool r1 = compare_vectors(x, soln1);
-  bool r2 = compare_vectors(y, soln2);
-  bool r3 = compare_vectors(z, soln3);
+  bool r1 = compare_numeric_sequences( x.begin(), x.end(), soln1.begin() );
+  bool r2 = compare_numeric_sequences( y.begin(), y.end(), soln2.begin() );
+  bool r3 = compare_numeric_sequences( z.begin(), z.end(), soln3.begin() );
 
   if (r1 != false or r2 != false or r3 != false) {
     ++fail;
     std::cout << "\nERROR! cmb::inclusive_scan()" << std::endl;
-    print_vector("x",     x);
-    print_vector("soln1", soln1);
-    print_vector("y",     y);
-    print_vector("soln2", soln2);
-    print_vector("z",     z);
-    print_vector("soln3", soln3);
+    print_sequence( "x",     x.begin(),     x.end()     );
+    print_sequence( "soln1", soln1.begin(), soln1.end() );
+    print_sequence( "y",     y.begin(),     y.end()     );
+    print_sequence( "soln2", soln2.begin(), soln2.end() );
+    print_sequence( "z",     z.begin(),     z.end()     );
+    print_sequence( "soln3", soln3.begin(), soln3.end() );
   }
 
   return fail;
@@ -240,13 +240,13 @@ int test_transform_exclusive_scan(int fail)
 
   cmb::transform_exclusive_scan( v.begin(), v.end(), x.begin(), 0, add, x10 );
 
-  bool r1 = compare_vectors(x, soln1);
+  bool r1 = compare_numeric_sequences( x.begin(), x.end(), soln1.begin() );
 
   if (r1 != false) {
     ++fail;
     std::cout << "\nERROR! cmb::transform_exclusive_scan()" << std::endl;
-    print_vector("x",     x);
-    print_vector("soln1", soln1);
+    print_sequence( "x",     x.begin(),     x.end()     );
+    print_sequence( "soln1", soln1.begin(), soln1.end() );
   }
 
   return fail;

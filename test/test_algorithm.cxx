@@ -32,8 +32,9 @@ void test_algorithm()
 }
 
 
+
 //
-// ...
+// Mutating sequence operation tests
 
 int test_copy(int fail)
 {
@@ -43,7 +44,7 @@ int test_copy(int fail)
 
   cmb::copy( v.begin(), v.end(), x.begin() );
 
-  bool r = compare_sequences(x.begin(), x.end(), soln.begin() );
+  bool r = compare_numeric_sequences(x.begin(), x.end(), soln.begin() );
 
   if (r != false) {
     ++fail;
@@ -65,7 +66,7 @@ int test_copy_n(int fail)
 
   cmb::copy_n( v.begin(), 4, x.begin() );
 
-  bool r = compare_sequences( x.begin(), x.end(), soln.begin() );
+  bool r = compare_numeric_sequences( x.begin(), x.end(), soln.begin() );
 
   if (r != false) {
     ++fail;
@@ -78,6 +79,7 @@ int test_copy_n(int fail)
 }
 
 
+
 int test_copy_if(int fail)
 {
   std::vector<int> v{ 0, 1, 2, 3, 4, 5, 6, 7 };
@@ -88,7 +90,7 @@ int test_copy_if(int fail)
 
   cmb::copy_if(v.begin(), v.end(), x.begin(), odd);
 
-  bool r = compare_sequences( x.begin(), x.end(), soln.begin() );
+  bool r = compare_numeric_sequences( x.begin(), x.end(), soln.begin() );
 
   if (r != false) {
     ++fail;
@@ -101,6 +103,7 @@ int test_copy_if(int fail)
 }
 
 
+
 int test_copy_backward(int fail)
 {
   std::vector<int> v{ 0, 1, 2, 3, 4, 5, 6, 7 };
@@ -109,7 +112,7 @@ int test_copy_backward(int fail)
 
   cmb::copy_backward( v.begin(), v.end(), x.end() );
 
-  bool r = compare_sequences( x.begin(), x.end(), soln.begin() );
+  bool r = compare_numeric_sequences( x.begin(), x.end(), soln.begin() );
 
   if (r != false) {
     ++fail;
@@ -120,6 +123,7 @@ int test_copy_backward(int fail)
 
   return fail;
 }
+
 
 
 int test_move_algorithm(int fail)
@@ -147,6 +151,7 @@ int test_move_algorithm(int fail)
 }
 
 
+
 int test_move_backward(int fail)
 {
   std::vector<std::string> v{ "abc", "def", "uvw", "xyz"                   };
@@ -172,6 +177,7 @@ int test_move_backward(int fail)
 }
 
 
+
 int test_swap_ranges(int fail)
 {
   std::vector<int> v{ 1, 2, 3, 4 };
@@ -181,8 +187,8 @@ int test_swap_ranges(int fail)
 
   cmb::swap_ranges( v.begin(), v.end(), x.begin() );
 
-  bool r1 = compare_sequences( v.begin(), v.end(), soln1.begin() );
-  bool r2 = compare_sequences( x.begin(), x.end(), soln2.begin() );
+  bool r1 = compare_numeric_sequences( v.begin(), v.end(), soln1.begin() );
+  bool r2 = compare_numeric_sequences( x.begin(), x.end(), soln2.begin() );
 
   if (r1 != false or r2 != false) {
     ++fail;
@@ -197,6 +203,7 @@ int test_swap_ranges(int fail)
 }
 
 
+
 int test_iter_swap(int fail)
 {
   std::vector<int> v{ 1, 2, 3, 4 };
@@ -206,8 +213,8 @@ int test_iter_swap(int fail)
 
   cmb::iter_swap( v.begin(), x.begin() + 2 );
 
-  bool r1 = compare_sequences( v.begin(), v.end(), soln1.begin() );
-  bool r2 = compare_sequences( x.begin(), x.end(), soln2.begin() );
+  bool r1 = compare_numeric_sequences( v.begin(), v.end(), soln1.begin() );
+  bool r2 = compare_numeric_sequences( x.begin(), x.end(), soln2.begin() );
 
   if (r1 != false or r2 != false) {
     ++fail;
@@ -222,6 +229,7 @@ int test_iter_swap(int fail)
 }
 
 
+
 int test_rotate(int fail)
 {
   std::vector<int> x{ 1, 2, 3, 4, 5 };
@@ -229,7 +237,7 @@ int test_rotate(int fail)
 
   cmb::rotate( x.begin(), x.begin() + 3, x.end() );
 
-  bool r = compare_sequences( x.begin(), x.end(), soln.begin() );
+  bool r = compare_numeric_sequences( x.begin(), x.end(), soln.begin() );
 
   if (r != false) {
     ++fail;
@@ -242,6 +250,7 @@ int test_rotate(int fail)
 }
 
 
+
 int test_rotate_copy(int fail)
 {
   std::vector<int> v{ 1, 2, 3, 4, 5 };
@@ -251,8 +260,8 @@ int test_rotate_copy(int fail)
 
   cmb::rotate_copy( v.begin(), v.begin() + 3, v.end(), x.begin() );
 
-  bool r1 = compare_sequences( v.begin(), v.end(), soln1.begin() );
-  bool r2 = compare_sequences( x.begin(), x.end(), soln2.begin() );
+  bool r1 = compare_numeric_sequences( v.begin(), v.end(), soln1.begin() );
+  bool r2 = compare_numeric_sequences( x.begin(), x.end(), soln2.begin() );
 
   if (r1 != false or r2 != false) {
     ++fail;

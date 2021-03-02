@@ -24,7 +24,7 @@ void test_utility()
 
 
 //
-// ... tests
+// Utility component tests
 
 int test_swap(int fail)
 {
@@ -39,8 +39,8 @@ int test_swap(int fail)
   cmb::swap(x, y);
   cmb::swap(a, b);
 
-  bool r3 = compare_sequences( a.begin(), a.end(), soln1.begin() );
-  bool r4 = compare_sequences( b.begin(), b.end(), soln2.begin() );
+  bool r3 = compare_numeric_sequences( a.begin(), a.end(), soln1.begin() );
+  bool r4 = compare_numeric_sequences( b.begin(), b.end(), soln2.begin() );
 
   if (x != 5 or y != 0 or r3 != false or r4 != false) {
     ++fail;
@@ -85,7 +85,7 @@ int test_exchange(int fail)
 
 
 //
-// Helper functions for test_move
+// Helper functions for test_forward
 
 // Function with lvalue and rvalue overloads
 int f(int const& x) {        return x; } // denotes lvalue

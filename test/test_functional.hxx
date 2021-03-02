@@ -28,7 +28,8 @@ int test_bit_not(int);
 void test_functional();
 
 
-// Function objects used within test_functional()
+//
+// Function objects used within test_functional.cxx
 
 template <typename T, typename Op>
 T unary_test(T a, Op operation)
