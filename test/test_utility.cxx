@@ -148,9 +148,47 @@ int test_move(int fail)
 
 
 
+//
+// Helper structs for test_move_if_noexcept
+
+// struct with noexcept move ctor and noexcept copy ctor
+struct Good {
+  Good() = default;
+  Good(Good&&)      noexcept { i = 1; }
+  Good(Good const&) noexcept { i = 2; }
+  int i{0};
+};
+
+// struct with move ctor and copy ctor that may throw
+struct Bad {
+  Bad() = default;
+  Bad(Bad&&)      { i = 3; }
+  Bad(Bad const&) { i = 4; }
+  int i{0};
+};
+
+
+
 int test_move_if_noexcept(int fail)
 {
+  Good g1;
+  Bad  b1;
 
+  Good g2( cmb::move_if_noexcept(g1) );
+  Bad  b2( cmb::move_if_noexcept(b1) );
+
+  int r1 = g2.i;
+  int r2 = b2.i;
+
+  if (r1 != 1 or r2 != 4) {
+    ++fail;
+    std::cout << "\nERROR! cmb::move_if_noexcept()"
+              << "\nr1    = " << r1
+              << "\nsoln1 = " << 1
+              << "\nr2    = " << r2
+              << "\nsoln2 = " << 4
+              << std::endl;
+  }
 
   return fail;
 }
