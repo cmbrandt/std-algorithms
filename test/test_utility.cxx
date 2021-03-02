@@ -83,11 +83,12 @@ int test_exchange(int fail)
 }
 
 
+
 //
 // Helper functions for test_move
 
 // Function with lvalue and rvalue overloads
-int f(int const& x) { /*x = 0;*/ return x; } // denotes lvalue
+int f(int const& x) {        return x; } // denotes lvalue
 int f(int&& x)      { x = 1; return x; } // denotes rvalue
 
 // Function template
@@ -99,6 +100,8 @@ int g(T&& x)
 
   return a + b;
 }
+
+
 
 int test_forward(int fail)
 {
@@ -119,6 +122,8 @@ int test_forward(int fail)
 
   return fail;
 }
+
+
 
 int test_move(int fail)
 {
