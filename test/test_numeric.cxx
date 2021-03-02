@@ -268,16 +268,16 @@ int test_transform_inclusive_scan(int fail)
   cmb::transform_inclusive_scan( v.begin(), v.end(), x.begin(), add, x10 );
   cmb::transform_inclusive_scan( v.begin(), v.end(), y.begin(), add, x10, 0 );
 
-  bool r1 = compare_vectors(x, soln1);
-  bool r2 = compare_vectors(y, soln2);
+  bool r1 = compare_numeric_sequences( x.begin(), x.end(), soln1.begin() );
+  bool r2 = compare_numeric_sequences( y.begin(), y.end(), soln2.begin() );
 
   if (r1 != false or r2 != false) {
     ++fail;
     std::cout << "\nERROR! cmb::transform_inclusive_scan()" << std::endl;
-    print_vector("x",     x);
-    print_vector("soln1", soln1);
-    print_vector("y",     y);
-    print_vector("soln2", soln2);
+    print_sequence( "x",     x.begin(),     x.end()     );
+    print_sequence( "soln1", soln1.begin(), soln1.end() );
+    print_sequence( "y",     y.begin(),     y.end()     );
+    print_sequence( "soln2", soln2.begin(), soln2.end() );
   }
 
   return fail;
@@ -298,16 +298,16 @@ int test_adjacent_difference(int fail)
   cmb::adjacent_difference( v.begin(), v.end(), x.begin() );
   cmb::adjacent_difference( v.begin(), v.end(), y.begin(), mul );
 
-  bool r1 = compare_vectors(x, soln1);
-  bool r2 = compare_vectors(y, soln2);
+  bool r1 = compare_numeric_sequences( x.begin(), x.end(), soln1.begin() );
+  bool r2 = compare_numeric_sequences( y.begin(), y.end(), soln2.begin() );
 
   if (r1 != false or r2 != false) {
     ++fail;
     std::cout << "\nERROR! cmb::adjacent_difference()" << std::endl;
-    print_vector("x",     x);
-    print_vector("soln1", soln1);
-    print_vector("y",     y);
-    print_vector("soln2", soln2);
+    print_sequence( "x",     x.begin(),     x.end()     );
+    print_sequence( "soln1", soln1.begin(), soln1.end() );
+    print_sequence( "y",     y.begin(),     y.end()     );
+    print_sequence( "soln2", soln2.begin(), soln2.end() );
   }
 
   return fail;
@@ -323,13 +323,13 @@ int test_iota(int fail)
 
   cmb::iota( v.begin(), v.end(), -3.5 );
 
-  bool r1 = compare_vectors(v, soln1);
+  bool r1 = compare_numeric_sequences( v.begin(), v.end(), soln1.begin() );
 
   if (r1 != false) {
     ++fail;
     std::cout << "\nERROR! cmb::iota()" << std::endl;
-    print_vector("v",     v);
-    print_vector("soln1", soln1);
+    print_sequence( "v",     v.begin(),     v.end()     );
+    print_sequence( "soln1", soln1.begin(), soln1.end() );
   }
 
   return fail;

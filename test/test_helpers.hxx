@@ -60,37 +60,4 @@ void print_sequence(std::string_view str, I first, I last)
 }
 
 
-
-template <typename T>
-bool compare_vectors(std::vector<T> const& a, std::vector<T> const& b)
-{
-  int count = 0;
-
-  for (std::size_t i = 0; i < a.size(); ++i) {
-    T diff = a[i] - b[i];
-
-    if ( std::abs(diff) > T{0} )
-      ++count;
-  }
-
-  if (count > 0)
-    return true;
-  else
-    return false; 
-}
-
-
-
-template <typename T>
-void print_vector(std::string_view str, std::vector<T> const& v)
-{
-  std::cout << str << ":" << std::endl;
-
-  for (auto i : v)
-    std::cout << " " << i;
-
-  std::cout << std::endl;
-}
-
-
 #endif
